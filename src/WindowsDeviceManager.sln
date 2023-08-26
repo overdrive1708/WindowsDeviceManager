@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsDeviceManagerAgent", "WindowsDeviceManagerAgent\WindowsDeviceManagerAgent.csproj", "{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsDeviceManagerAgent", "WindowsDeviceManagerAgent\WindowsDeviceManagerAgent.csproj", "{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsDeviceManagerViewer", "WindowsDeviceManagerViewer\WindowsDeviceManagerViewer.csproj", "{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
