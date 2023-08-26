@@ -1,0 +1,45 @@
+﻿namespace WindowsDeviceManagerAgent
+{
+    /// <summary>
+    /// Consoleクラスのラッパークラス
+    /// </summary>
+    internal class ConsoleWrapper
+    {
+        //--------------------------------------------------
+        // プロパティ
+        //--------------------------------------------------
+        /// <summary>
+        /// verboseオプション
+        /// </summary>
+        private static bool _isVerboseMode = false;
+        public static bool IsVerboseMode { get => _isVerboseMode; set => _isVerboseMode = value; }
+
+        //--------------------------------------------------
+        // メソッド
+        //--------------------------------------------------
+        /// <summary>
+        /// Console.WriteLineラップ処理
+        /// </summary>
+        /// <param name="value">コンソールに出力する値</param>
+        internal static void WriteLine(string value)
+        {
+            // verboseオプションが指定されている場合のみコンソールに出力する｡
+            if (IsVerboseMode)
+            {
+                Console.WriteLine(value);
+            }
+        }
+
+        /// <summary>
+        /// Console.WriteLine拡張処理(エラーメッセージ用)
+        /// </summary>
+        /// <param name="value">コンソールに出力する値</param>
+        internal static void WriteErrorLine(string value)
+        {
+            // verboseオプションに関わらずコンソールに赤字で出力する｡
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Error.WriteLine(value);
+            Console.ResetColor();
+        }
+    }
+}
