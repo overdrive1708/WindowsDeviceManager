@@ -6,10 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <VersionPrefix>0.1.0</VersionPrefix>
+    <ApplicationIcon>Resources\AppIconExe-multisize.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\AppIconExe-multisize.ico" />
+  </ItemGroup>
 
 </Project>
