@@ -41,5 +41,15 @@
             Console.Error.WriteLine(value);
             Console.ResetColor();
         }
+        
+        /// <summary>
+        /// Console.ReadKeyラップ処理
+        /// </summary>
+        /// <returns>ConsoleKeyInfo</returns>
+        internal static ConsoleKeyInfo ReadKey()
+        {
+            // verboseオプションが指定されている場合のみコンソールから入力する｡
+            return IsVerboseMode ? Console.ReadKey() : new ConsoleKeyInfo();
+        }
     }
 }
