@@ -43,7 +43,8 @@ namespace WindowsDeviceManagerAgent
 
             // Windowsデバイス情報の収集
             ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
-            //TODO:WindowsDeviceInfo.Collectメソッド内で収集･DB書き込み･結果出力
+            WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
+            // TODO:収集結果のDB書き込みとコンソール出力
             ConsoleWrapper.WriteLine(Resources.Strings.MessageComplete);
             ConsoleWrapper.WriteLine(Resources.Strings.MessageThanks);
 

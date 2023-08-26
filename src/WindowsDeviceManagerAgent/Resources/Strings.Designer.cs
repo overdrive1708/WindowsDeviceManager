@@ -124,5 +124,14 @@ namespace WindowsDeviceManagerAgent.Resources {
                 return ResourceManager.GetString("MessageThanks", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   不明 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Unknown {
+            get {
+                return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
     }
 }
