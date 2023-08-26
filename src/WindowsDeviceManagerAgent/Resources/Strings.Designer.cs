@@ -79,6 +79,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageComplete {
+            get {
+                return ResourceManager.GetString("MessageComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を[FatalErrorInformation.log]に保存しました｡ に類似しているローカライズされた文字列を検索します。
@@ -86,6 +95,33 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string MessageFatalError {
             get {
                 return ResourceManager.GetString("MessageFatalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Windowsデバイス情報を収集中です... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageNowCollecting {
+            get {
+                return ResourceManager.GetString("MessageNowCollecting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   何かのキーを押下してください｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessagePause {
+            get {
+                return ResourceManager.GetString("MessagePause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ご協力ありがとうございました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageThanks {
+            get {
+                return ResourceManager.GetString("MessageThanks", resourceCulture);
             }
         }
     }

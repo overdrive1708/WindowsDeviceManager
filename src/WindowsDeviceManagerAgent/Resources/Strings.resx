@@ -108,4 +108,16 @@
   <data name="HelpTextVerbose" xml:space="preserve">
     <value>処理の結果を詳細に表示します｡</value>
   </data>
+  <data name="MessagePause" xml:space="preserve">
+    <value>何かのキーを押下してください｡</value>
+  </data>
+  <data name="MessageNowCollecting" xml:space="preserve">
+    <value>Windowsデバイス情報を収集中です...</value>
+  </data>
+  <data name="MessageComplete" xml:space="preserve">
+    <value>完了しました｡</value>
+  </data>
+  <data name="MessageThanks" xml:space="preserve">
+    <value>ご協力ありがとうございました｡</value>
+  </data>
 </root>

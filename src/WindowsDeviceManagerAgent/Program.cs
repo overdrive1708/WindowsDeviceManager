@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using System.Reflection;
 
 namespace WindowsDeviceManagerAgent
 {
@@ -34,6 +35,23 @@ namespace WindowsDeviceManagerAgent
         /// <param name="opts">解析結果</param>
         private static void HandleParseSuccess(CommandLineOptions opts)
         {
+            // ConsoleWrapperの設定
+            ConsoleWrapper.IsVerboseMode = opts.IsVerboseMode;
+
+            // Welcomeメッセージの表示
+            ConsoleWrapper.WriteLine(GetWelcomeMessage());
+
+            // Windowsデバイス情報の収集
+            ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
+            //TODO:WindowsDeviceInfo.Collectメソッド内で収集･DB書き込み･結果出力
+            ConsoleWrapper.WriteLine(Resources.Strings.MessageComplete);
+            ConsoleWrapper.WriteLine(Resources.Strings.MessageThanks);
+
+            // アプリケーションの終了待ち
+            ConsoleWrapper.WriteLine(Resources.Strings.MessagePause);
+            _ = ConsoleWrapper.ReadKey();
+
+            // アプリケーションの終了
         }
 
         /// <summary>
@@ -43,6 +61,20 @@ namespace WindowsDeviceManagerAgent
         private static void HandleParseError(IEnumerable<CommandLine.Error> errs)
         {
             // 無処理
+        }
+
+        /// <summary>
+        /// Welcomeメッセージ取得処理
+        /// </summary>
+        /// <returns>Welcomeメッセージ</returns>
+        private static string GetWelcomeMessage()
+        {
+            // アセンブリ名とバージョン情報を取得してWelcomeメッセージを作成する｡
+            Assembly assm = Assembly.GetExecutingAssembly();
+            string assemblyName = assm.GetName().Name;
+            string version = assm.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+
+            return ($"Welcome to {assemblyName} Ver.{version} !!");
         }
     }
 }
