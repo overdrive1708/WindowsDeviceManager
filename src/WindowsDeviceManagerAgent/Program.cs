@@ -44,7 +44,8 @@ namespace WindowsDeviceManagerAgent
             // Windowsデバイス情報の収集
             ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
             WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
-            // TODO:収集結果のDB書き込みとコンソール出力
+            ShowWindowsDeviceInfo(collectData);
+            // TODO:収集結果のDB書き込み
             ConsoleWrapper.WriteLine(Resources.Strings.MessageComplete);
             ConsoleWrapper.WriteLine(Resources.Strings.MessageThanks);
 
@@ -76,6 +77,22 @@ namespace WindowsDeviceManagerAgent
             string version = assm.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
 
             return ($"Welcome to {assemblyName} Ver.{version} !!");
+        }
+
+        /// <summary>
+        /// Windowsデバイス情報収集結果表示処理
+        /// </summary>
+        /// <param name="info">Windowsデバイス情報</param>
+        private static void ShowWindowsDeviceInfo(WindowsDeviceInfo info)
+        {
+            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultStart);
+            ConsoleWrapper.WriteLine($"{Resources.Strings.HostName}:{info.HostName}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.UserName}:{info.UserName}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSName}:{info.OSName}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSBuildNumber}:{info.OSBuildNumber}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSVersion}:{info.OSVersion}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{info.LastUpdate}");
+            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
         }
     }
 }

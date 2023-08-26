@@ -61,6 +61,24 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   =====収集結果ここまで===== に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CollectResultEnd {
+            get {
+                return ResourceManager.GetString("CollectResultEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   =====収集結果ここから===== に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CollectResultStart {
+            get {
+                return ResourceManager.GetString("CollectResultStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   処理の結果を詳細に表示します｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextVerbose {
@@ -70,11 +88,29 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   ホスト名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HostName {
+            get {
+                return ResourceManager.GetString("HostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ===重要なお知らせ=== に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ImportantNotice {
             get {
                 return ResourceManager.GetString("ImportantNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最終更新日時 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LastUpdate {
+            get {
+                return ResourceManager.GetString("LastUpdate", resourceCulture);
             }
         }
         
@@ -126,11 +162,47 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   OSビルド番号 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSBuildNumber {
+            get {
+                return ResourceManager.GetString("OSBuildNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OS名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSName {
+            get {
+                return ResourceManager.GetString("OSName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OSバージョン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSVersion {
+            get {
+                return ResourceManager.GetString("OSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   不明 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Unknown {
             get {
                 return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ユーザ名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }

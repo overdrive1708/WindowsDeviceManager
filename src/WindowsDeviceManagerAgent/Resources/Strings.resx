@@ -123,4 +123,28 @@
   <data name="Unknown" xml:space="preserve">
     <value>不明</value>
   </data>
+  <data name="HostName" xml:space="preserve">
+    <value>ホスト名</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>ユーザ名</value>
+  </data>
+  <data name="OSName" xml:space="preserve">
+    <value>OS名</value>
+  </data>
+  <data name="OSBuildNumber" xml:space="preserve">
+    <value>OSビルド番号</value>
+  </data>
+  <data name="OSVersion" xml:space="preserve">
+    <value>OSバージョン</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>最終更新日時</value>
+  </data>
+  <data name="CollectResultStart" xml:space="preserve">
+    <value>=====収集結果ここから=====</value>
+  </data>
+  <data name="CollectResultEnd" xml:space="preserve">
+    <value>=====収集結果ここまで=====</value>
+  </data>
 </root>
