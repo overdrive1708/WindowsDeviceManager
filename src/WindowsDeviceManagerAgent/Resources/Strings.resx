@@ -105,4 +105,7 @@
 このアプリケーションを終了します｡
 エラーの詳細な情報を[FatalErrorInformation.log]に保存しました｡</value>
   </data>
+  <data name="HelpTextVerbose" xml:space="preserve">
+    <value>処理の結果を詳細に表示します｡</value>
+  </data>
 </root>

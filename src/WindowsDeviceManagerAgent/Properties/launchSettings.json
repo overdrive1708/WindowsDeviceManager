@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "WindowsDeviceManagerAgent": {
+      "commandName": "Project"
+    },
+    "WindowsDeviceManagerAgentVerbose": {
+      "commandName": "Project",
+      "commandLineArgs": "-v"
+    },
+    "WindowsDeviceManagerAgentHelp": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
+    },
+    "WindowsDeviceManagerAgentVersion": {
+      "commandName": "Project",
+      "commandLineArgs": "--version"
+    }
+  }
+}

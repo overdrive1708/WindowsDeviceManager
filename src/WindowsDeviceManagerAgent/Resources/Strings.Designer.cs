@@ -61,6 +61,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   処理の結果を詳細に表示します｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HelpTextVerbose {
+            get {
+                return ResourceManager.GetString("HelpTextVerbose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ===重要なお知らせ=== に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ImportantNotice {
