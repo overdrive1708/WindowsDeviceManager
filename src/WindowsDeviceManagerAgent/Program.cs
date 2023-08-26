@@ -23,7 +23,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// 例外ハンドラー登録処理
         /// </summary>
-        static void EntryExceptionHandler()
+        private static void EntryExceptionHandler()
         {
             TaskScheduler.UnobservedTaskException += ExceptionHandler.OnUnobservedTaskException;
             AppDomain.CurrentDomain.UnhandledException += ExceptionHandler.OnUnhandledException;
