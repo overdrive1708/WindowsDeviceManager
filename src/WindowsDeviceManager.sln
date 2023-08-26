@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsDeviceManagerAgent", "WindowsDeviceManagerAgent\WindowsDeviceManagerAgent.csproj", "{A114B1C9-775E-4CFB-8BFE-2AEB2FF46CDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsDeviceManagerViewer", "WindowsDeviceManagerViewer\WindowsDeviceManagerViewer.csproj", "{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsDeviceManagerViewer", "WindowsDeviceManagerViewer\WindowsDeviceManagerViewer.csproj", "{2CEA9DD0-7496-4493-A8BD-4B8A271BAE7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +26,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_NeutralResourcesLanguage = ja-JP
 		SolutionGuid = {1394D7AC-B461-427C-8100-54F0DC794F87}
 	EndGlobalSection
 EndGlobal
