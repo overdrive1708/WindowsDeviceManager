@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Windows;
 
 namespace WindowsDeviceManagerViewer.Utilities
 {
@@ -40,15 +39,6 @@ namespace WindowsDeviceManagerViewer.Utilities
                         connection.Close();
                     }
                 }
-            }
-            else
-            {
-                // データベースファイルがない場合はエラーメッセージを表示してアプリケーションを終了する
-                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
-                                    Resources.Strings.Error,
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error);
-                Environment.Exit(1);
             }
         }
 
