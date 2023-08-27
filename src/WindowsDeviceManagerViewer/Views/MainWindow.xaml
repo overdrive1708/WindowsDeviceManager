@@ -90,10 +90,12 @@
                 <StackPanel Orientation="Horizontal">
                     <Button
                         Margin="10,10,10,10"
+                        Command="{Binding CommandCleanupDatabase}"
                         Content="{x:Static resources:Strings.Clean}"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
                     <Button
                         Margin="10,10,10,10"
+                        Command="{Binding CommandRecheckOSVersion}"
                         Content="{x:Static resources:Strings.RecheckOSVersion}"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
                 </StackPanel>

@@ -4,6 +4,7 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SQLite;
 using System.IO;
 using System.Windows;
 using WindowsDeviceManagerViewer.Utilities;
@@ -131,6 +132,20 @@ namespace WindowsDeviceManagerViewer.ViewModels
         public DelegateCommand CommandCreateDispData =>
             _commandCreateDisplayData ?? (_commandCreateDisplayData = new DelegateCommand(ExecuteCommandCreateDispData));
 
+        /// <summary>
+        /// データベースクリーンアップコマンド
+        /// </summary>
+        private DelegateCommand _commandCleanupDatabase;
+        public DelegateCommand CommandCleanupDatabase =>
+            _commandCleanupDatabase ?? (_commandCleanupDatabase = new DelegateCommand(ExecuteCommandCleanupDatabase));
+
+        /// <summary>
+        /// OSバージョン再判定コマンド
+        /// </summary>
+        private DelegateCommand _commandRecheckOSVersion;
+        public DelegateCommand CommandRecheckOSVersion =>
+            _commandRecheckOSVersion ?? (_commandRecheckOSVersion = new DelegateCommand(ExecuteCommandRecheckOSVersion));
+
         //--------------------------------------------------
         // メソッド
         //--------------------------------------------------
@@ -147,29 +162,72 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// </summary>
         public void ExecuteCommandCreateDispData()
         {
-            // データベースファイルのファイル名を取得
             _databaseFileName = GetDatabaseFileName();
+            CreateWindowsDeviceInfoCollectData();
+        }
 
-            
+        /// <summary>
+        /// データベースクリーンアップコマンド実行処理
+        /// </summary>
+        void ExecuteCommandCleanupDatabase()
+        {
             if (File.Exists(_databaseFileName))
             {
-                // データベースファイルがある場合は読み込み表示する
-                IsCompleteReadWindowsDeviceInfo = true;
-                List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
-                foreach (WindowsDeviceInfo readRecord in readRecords)
+                // データベースファイルがある場合はVACUUMコマンドを実行
+                using SQLiteConnection connection = new($"Data Source = {_databaseFileName}");
+                connection.Open();
+                using (SQLiteCommand command = connection.CreateCommand())
                 {
-                    WindowsDeviceInfoCollectData.Add(readRecord);
+                    command.CommandText = "VACUUM";
+                    command.ExecuteNonQuery();
                 }
+                connection.Close();
+
+                // データベースファイルの再読み込み
+                CreateWindowsDeviceInfoCollectData();
+
+                // 完了メッセージの表示
+                _ = MessageBox.Show(Resources.Strings.MessageCleanComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
             }
             else
             {
-                // データベースファイルがない場合はエラーメッセージを表示してアプリケーションを終了する
-                IsCompleteReadWindowsDeviceInfo = false;
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
                 _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
                                     Resources.Strings.Error,
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
-                Environment.Exit(1);
+            }
+        }
+
+        /// <summary>
+        /// OSバージョン再判定コマンド実行処理
+        /// </summary>
+        void ExecuteCommandRecheckOSVersion()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合はOSバージョンの再判定を行う
+                DatabaseWriter.RecheckWindowsDeviceInfoRecords(_databaseFileName);
+
+                // データベースファイルの再読み込み
+                CreateWindowsDeviceInfoCollectData();
+
+                // 完了メッセージの表示
+                _ = MessageBox.Show(Resources.Strings.MessageRecheckOSVersionComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
             }
         }
 
@@ -193,6 +251,35 @@ namespace WindowsDeviceManagerViewer.ViewModels
             else
             {
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Windowsデバイス情報生成処理
+        /// </summary>
+        private void CreateWindowsDeviceInfoCollectData()
+        {
+            WindowsDeviceInfoCollectData.Clear();
+            
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合は読み込み表示する
+                List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
+                foreach (WindowsDeviceInfo readRecord in readRecords)
+                {
+                    WindowsDeviceInfoCollectData.Add(readRecord);
+                }
+                IsCompleteReadWindowsDeviceInfo = true;
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示してアプリケーションを終了する
+                IsCompleteReadWindowsDeviceInfo = false;
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+                Environment.Exit(1);
             }
         }
     }

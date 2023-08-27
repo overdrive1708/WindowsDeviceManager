@@ -133,10 +133,10 @@
     <value>表示項目設定(未実装)</value>
   </data>
   <data name="Maintenance" xml:space="preserve">
-    <value>メンテナンス(未実装)</value>
+    <value>データベースメンテナンス</value>
   </data>
   <data name="Clean" xml:space="preserve">
-    <value>クリーン</value>
+    <value>不要領域の整理</value>
   </data>
   <data name="RecheckOSVersion" xml:space="preserve">
     <value>OSバージョン再判定</value>
@@ -153,5 +153,17 @@
   <data name="MessageErrorDatabaseNotFound" xml:space="preserve">
     <value>データベースファイルが見つかりません｡
 このアプリケーションを終了します｡</value>
+  </data>
+  <data name="MessageCleanComplete" xml:space="preserve">
+    <value>不要領域の整理が完了しました｡</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>お知らせ</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="MessageRecheckOSVersionComplete" xml:space="preserve">
+    <value>OSバージョン再判定が完了しました｡</value>
   </data>
 </root>

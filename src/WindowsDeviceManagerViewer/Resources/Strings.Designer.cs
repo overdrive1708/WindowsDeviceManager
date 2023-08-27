@@ -70,7 +70,7 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
-        ///   クリーン に類似しているローカライズされた文字列を検索します。
+        ///   不要領域の整理 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Clean {
             get {
@@ -124,11 +124,20 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
-        ///   メンテナンス(未実装) に類似しているローカライズされた文字列を検索します。
+        ///   データベースメンテナンス に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Maintenance {
             get {
                 return ResourceManager.GetString("Maintenance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   不要領域の整理が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageCleanComplete {
+            get {
+                return ResourceManager.GetString("MessageCleanComplete", resourceCulture);
             }
         }
         
@@ -154,11 +163,29 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   OSバージョン再判定が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageRecheckOSVersionComplete {
+            get {
+                return ResourceManager.GetString("MessageRecheckOSVersionComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   データベースファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MessageSelectDatabaseFile {
             get {
                 return ResourceManager.GetString("MessageSelectDatabaseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   お知らせ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Notice {
+            get {
+                return ResourceManager.GetString("Notice", resourceCulture);
             }
         }
         
@@ -204,6 +231,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string SQLiteDatabaseFile {
             get {
                 return ResourceManager.GetString("SQLiteDatabaseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   不明 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Unknown {
+            get {
+                return ResourceManager.GetString("Unknown", resourceCulture);
             }
         }
         
