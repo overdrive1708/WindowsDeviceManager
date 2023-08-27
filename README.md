@@ -20,15 +20,24 @@
     <img alt="closed issues" src="https://img.shields.io/github/issues-closed-raw/overdrive1708/WindowsDeviceManager?style=plastic&logo=github&color=brightgreen">
 </div>
 
-<h1 align="center">
-    <span style="color: red; ">現在開発中 以下予定情報</span>
-</h1>
-
 ## ダウンロード方法
 [GitHubのReleases](https://github.com/overdrive1708/WindowsDeviceManager/releases)にあるLatestのAssetsよりWindowsDeviceManager_vx.x.x.zipをダウンロードしてください｡
 
+WindowsDeviceManagerAgentフォルダはエンドユーザー用です｡エンドユーザーがアクセスできるところに展開してください｡
+
+WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に配置してください｡
+
+フォルダ内のファイルはすべて必要なので､削除せず､フォルダごと配置してください｡
+
 ## 必要要件
-WindowsDeviceManagerViewer.exeの実行には[.NET デスクトップ ランタイム 6.x.x](https://dotnet.microsoft.com/ja-jp/download/dotnet/6.0)が必要です｡
+
+### WindowsDeviceManagerAgent
+
+ランタイム不要です｡Windows10/Windows11であれば動作します｡
+
+### WindowsDeviceManagerViewer
+
+[.NET デスクトップ ランタイム 6.x.x](https://dotnet.microsoft.com/ja-jp/download/dotnet/6.0)が必要です｡
 
 予めダウンロード･インストールをお願いします｡
 
@@ -38,16 +47,30 @@ WindowsDeviceManagerViewer.exeの実行には[.NET デスクトップ ランタ�
 ```
 WindowsDeviceManagerAgent.exe [options]
 options:[-v] [--verbose] [--help] [--version]
-  -v, --verbose    処理の結果を詳細に表示します.
+  -v, --verbose   処理の結果を詳細に表示します｡
 
-  --help          このアプリのヘルプを表示します.
+  --help          このアプリのヘルプを表示します｡
 
-  --version       このアプリのバージョン情報を表示します.
+  --version       このアプリのバージョン情報を表示します｡
 ```
+WindowsDeviceManagerAgentフォルダ内のWindowsDeviceManagerAgent.exeを起動してください｡
+
+WindowsDeviceInfo.dbにWindowsデバイス情報が記録されます｡
+
+verboseオプションを指定しない場合､コマンドプロンプトが一瞬開いて何も表示されずに消えます｡
 
 ### Windowsデバイス情報収集結果の表示
 
-WindowsDeviceManagerViewer.exeを起動してデータベースファイルを読み込んでください｡
+WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起動してください｡
+
+データベースファイルを選択する画面が開くので､データベースファイル(WindowsDeviceInfo.db)を指定して開いてください｡
+
+## 収集するWindowsデバイス情報と収集例
+- ホスト名：hoge
+- ユーザ名：hogehoge
+- OS名：Microsoft Windows 11 Pro
+- OSビルド番号：22621
+- OSバージョン：22H2
 
 ## サポートするOSバージョン
 - Windows10
