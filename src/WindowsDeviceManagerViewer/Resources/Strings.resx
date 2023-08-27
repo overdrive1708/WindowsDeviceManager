@@ -105,4 +105,65 @@
 このアプリケーションを終了します｡
 エラーの詳細な情報を表示しますか?</value>
   </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>WindowsDeviceManagerViewer</value>
+  </data>
+  <data name="HostName" xml:space="preserve">
+    <value>ホスト名</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>ユーザ名</value>
+  </data>
+  <data name="OSName" xml:space="preserve">
+    <value>OS名</value>
+  </data>
+  <data name="OSBuildNumber" xml:space="preserve">
+    <value>OSビルド番号</value>
+  </data>
+  <data name="OSVersion" xml:space="preserve">
+    <value>OSバージョン</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>最終更新日時</value>
+  </data>
+  <data name="WindowsDeviceInfo" xml:space="preserve">
+    <value>Windowsデバイス情報</value>
+  </data>
+  <data name="DisplayItemSetting" xml:space="preserve">
+    <value>表示項目設定(未実装)</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>データベースメンテナンス</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>不要領域の整理</value>
+  </data>
+  <data name="RecheckOSVersion" xml:space="preserve">
+    <value>OSバージョン再判定</value>
+  </data>
+  <data name="MessageSelectDatabaseFile" xml:space="preserve">
+    <value>データベースファイルを選択してください｡</value>
+  </data>
+  <data name="SQLiteDatabaseFile" xml:space="preserve">
+    <value>SQLiteデータベースファイル</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="MessageErrorDatabaseNotFound" xml:space="preserve">
+    <value>データベースファイルが見つかりません｡
+このアプリケーションを終了します｡</value>
+  </data>
+  <data name="MessageCleanComplete" xml:space="preserve">
+    <value>不要領域の整理が完了しました｡</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>お知らせ</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="MessageRecheckOSVersionComplete" xml:space="preserve">
+    <value>OSバージョン再判定が完了しました｡</value>
+  </data>
 </root>
