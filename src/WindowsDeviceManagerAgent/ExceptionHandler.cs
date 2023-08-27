@@ -44,9 +44,9 @@
                 fatalErrorInformationFile.Close();
             }
 
-            // 例外の詳細情報を表示するか確認する｡
-            Console.WriteLine(Resources.Strings.ImportantNotice);
-            Console.WriteLine(Resources.Strings.MessageFatalError);
+            // 例外が発生したことをコンソールに出力する｡
+            ConsoleWrapper.WriteErrorLine(Resources.Strings.ImportantNotice);
+            ConsoleWrapper.WriteErrorLine(Resources.Strings.MessageFatalError);
 
             // 終了する｡
             Environment.Exit(1);
