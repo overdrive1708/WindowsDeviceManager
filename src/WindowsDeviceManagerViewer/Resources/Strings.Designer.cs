@@ -88,6 +88,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   エラー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   ホスト名 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HostName {
@@ -124,6 +133,16 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   データベースファイルが見つかりません｡
+        ///このアプリケーションを終了します｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageErrorDatabaseNotFound {
+            get {
+                return ResourceManager.GetString("MessageErrorDatabaseNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を表示しますか? に類似しているローカライズされた文字列を検索します。
@@ -131,6 +150,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageFatalError {
             get {
                 return ResourceManager.GetString("MessageFatalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   データベースファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageSelectDatabaseFile {
+            get {
+                return ResourceManager.GetString("MessageSelectDatabaseFile", resourceCulture);
             }
         }
         
@@ -167,6 +195,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string RecheckOSVersion {
             get {
                 return ResourceManager.GetString("RecheckOSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   SQLiteデータベースファイル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SQLiteDatabaseFile {
+            get {
+                return ResourceManager.GetString("SQLiteDatabaseFile", resourceCulture);
             }
         }
         

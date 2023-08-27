@@ -141,4 +141,17 @@
   <data name="RecheckOSVersion" xml:space="preserve">
     <value>OSバージョン再判定</value>
   </data>
+  <data name="MessageSelectDatabaseFile" xml:space="preserve">
+    <value>データベースファイルを選択してください｡</value>
+  </data>
+  <data name="SQLiteDatabaseFile" xml:space="preserve">
+    <value>SQLiteデータベースファイル</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="MessageErrorDatabaseNotFound" xml:space="preserve">
+    <value>データベースファイルが見つかりません｡
+このアプリケーションを終了します｡</value>
+  </data>
 </root>

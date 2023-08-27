@@ -27,7 +27,7 @@
             <bh:InvokeCommandAction Command="{Binding CommandCreateDispData}" />
         </bh:EventTrigger>
     </bh:Interaction.Triggers>
-    <Grid IsEnabled="{Binding IsExistDatabaseFile}">
+    <Grid IsEnabled="{Binding IsCompleteReadWindowsDeviceInfo}">
         <Grid.Resources>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </Grid.Resources>
