@@ -124,6 +124,24 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   データベースファイルを生成しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageCreateDatabase {
+            get {
+                return ResourceManager.GetString("MessageCreateDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   データベースファイルが見つかりません｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageDatabaseNotFound {
+            get {
+                return ResourceManager.GetString("MessageDatabaseNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を[FatalErrorInformation.log]に保存しました｡ に類似しているローカライズされた文字列を検索します。

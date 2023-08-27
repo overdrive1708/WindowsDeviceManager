@@ -45,7 +45,7 @@ namespace WindowsDeviceManagerAgent
             ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
             WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
             ShowWindowsDeviceInfo(collectData);
-            // TODO:収集結果のDB書き込み
+            DatabaseWriter.WriteWindowsDeviceInfoRecord(collectData);
             ConsoleWrapper.WriteLine(Resources.Strings.MessageComplete);
             ConsoleWrapper.WriteLine(Resources.Strings.MessageThanks);
 

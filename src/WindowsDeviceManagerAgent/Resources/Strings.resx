@@ -147,4 +147,10 @@
   <data name="CollectResultEnd" xml:space="preserve">
     <value>=====収集結果ここまで=====</value>
   </data>
+  <data name="MessageCreateDatabase" xml:space="preserve">
+    <value>データベースファイルを生成しました｡</value>
+  </data>
+  <data name="MessageDatabaseNotFound" xml:space="preserve">
+    <value>データベースファイルが見つかりません｡</value>
+  </data>
 </root>
