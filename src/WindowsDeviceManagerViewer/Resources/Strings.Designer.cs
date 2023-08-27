@@ -61,11 +61,65 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   WindowsDeviceManagerViewer に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ApplicationName {
+            get {
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   クリーン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Clean {
+            get {
+                return ResourceManager.GetString("Clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   表示項目設定(未実装) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DisplayItemSetting {
+            get {
+                return ResourceManager.GetString("DisplayItemSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ホスト名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HostName {
+            get {
+                return ResourceManager.GetString("HostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   重要なお知らせ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ImportantNotice {
             get {
                 return ResourceManager.GetString("ImportantNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最終更新日時 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LastUpdate {
+            get {
+                return ResourceManager.GetString("LastUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   メンテナンス(未実装) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Maintenance {
+            get {
+                return ResourceManager.GetString("Maintenance", resourceCulture);
             }
         }
         
@@ -77,6 +131,60 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageFatalError {
             get {
                 return ResourceManager.GetString("MessageFatalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OSビルド番号 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSBuildNumber {
+            get {
+                return ResourceManager.GetString("OSBuildNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OS名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSName {
+            get {
+                return ResourceManager.GetString("OSName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OSバージョン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OSVersion {
+            get {
+                return ResourceManager.GetString("OSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OSバージョン再判定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string RecheckOSVersion {
+            get {
+                return ResourceManager.GetString("RecheckOSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ユーザ名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Windowsデバイス情報 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string WindowsDeviceInfo {
+            get {
+                return ResourceManager.GetString("WindowsDeviceInfo", resourceCulture);
             }
         }
     }

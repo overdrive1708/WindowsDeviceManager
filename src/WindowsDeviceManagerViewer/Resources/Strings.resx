@@ -105,4 +105,40 @@
 このアプリケーションを終了します｡
 エラーの詳細な情報を表示しますか?</value>
   </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>WindowsDeviceManagerViewer</value>
+  </data>
+  <data name="HostName" xml:space="preserve">
+    <value>ホスト名</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>ユーザ名</value>
+  </data>
+  <data name="OSName" xml:space="preserve">
+    <value>OS名</value>
+  </data>
+  <data name="OSBuildNumber" xml:space="preserve">
+    <value>OSビルド番号</value>
+  </data>
+  <data name="OSVersion" xml:space="preserve">
+    <value>OSバージョン</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>最終更新日時</value>
+  </data>
+  <data name="WindowsDeviceInfo" xml:space="preserve">
+    <value>Windowsデバイス情報</value>
+  </data>
+  <data name="DisplayItemSetting" xml:space="preserve">
+    <value>表示項目設定(未実装)</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>メンテナンス(未実装)</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>クリーン</value>
+  </data>
+  <data name="RecheckOSVersion" xml:space="preserve">
+    <value>OSバージョン再判定</value>
+  </data>
 </root>
