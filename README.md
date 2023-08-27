@@ -23,6 +23,12 @@
 ## ダウンロード方法
 [GitHubのReleases](https://github.com/overdrive1708/WindowsDeviceManager/releases)にあるLatestのAssetsよりWindowsDeviceManager_vx.x.x.zipをダウンロードしてください｡
 
+WindowsDeviceManagerAgentフォルダはエンドユーザー用です｡エンドユーザーがアクセスできるところに展開してください｡
+
+WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に配置してください｡
+
+フォルダ内のファイルはすべて必要なので､削除せず､フォルダごと配置してください｡
+
 ## 必要要件
 
 ### WindowsDeviceManagerAgent
@@ -47,7 +53,7 @@ options:[-v] [--verbose] [--help] [--version]
 
   --version       このアプリのバージョン情報を表示します｡
 ```
-WindowsDeviceManagerAgent.exeを起動してください｡
+WindowsDeviceManagerAgentフォルダ内のWindowsDeviceManagerAgent.exeを起動してください｡
 
 WindowsDeviceInfo.dbにWindowsデバイス情報が記録されます｡
 
@@ -55,7 +61,7 @@ verboseオプションを指定しない場合､コマンドプロンプトが�
 
 ### Windowsデバイス情報収集結果の表示
 
-WindowsDeviceManagerViewer.exeを起動してください｡
+WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起動してください｡
 
 データベースファイルを選択する画面が開くので､データベースファイル(WindowsDeviceInfo.db)を指定して開いてください｡
 
