@@ -43,6 +43,26 @@ namespace WindowsDeviceManagerViewer.Utilities
         }
 
         /// <summary>
+        /// データベースクリーンアップ処理
+        /// </summary>
+        /// <param name="databasefile">データベースファイル名</param>
+        public static void CleanupDatabase(string databasefile)
+        {
+            if (File.Exists(databasefile))
+            {
+                // データベースファイルがある場合はVACUUMコマンドを実行
+                using SQLiteConnection connection = new($"Data Source = {databasefile}");
+                connection.Open();
+                using (SQLiteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "VACUUM";
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        /// <summary>
         /// OSバージョン取得処理
         /// </summary>
         /// <param name="osName">OS名</param>

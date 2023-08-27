@@ -4,7 +4,6 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.SQLite;
 using System.IO;
 using System.Windows;
 using WindowsDeviceManagerViewer.Utilities;
@@ -173,16 +172,9 @@ namespace WindowsDeviceManagerViewer.ViewModels
         {
             if (File.Exists(_databaseFileName))
             {
-                // データベースファイルがある場合はVACUUMコマンドを実行
-                using SQLiteConnection connection = new($"Data Source = {_databaseFileName}");
-                connection.Open();
-                using (SQLiteCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "VACUUM";
-                    command.ExecuteNonQuery();
-                }
-                connection.Close();
-
+                // データベースファイルがある場合はクリーンアップ
+                DatabaseWriter.CleanupDatabase(_databaseFileName);
+                
                 // データベースファイルの再読み込み
                 CreateWindowsDeviceInfoCollectData();
 
