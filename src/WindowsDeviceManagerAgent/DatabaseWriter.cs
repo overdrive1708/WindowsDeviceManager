@@ -37,7 +37,7 @@ namespace WindowsDeviceManagerAgent
             connection.Open();
             using (SQLiteCommand command = connection.CreateCommand())
             {
-                command.CommandText = "INSERT OR REPLACE INTO WindowsDeviceInfo VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_LastUpdate)";
+                command.CommandText = "INSERT OR REPLACE INTO WindowsDeviceInfo(HostName, UserName, OSName, OSBuildNumber, OSVersion, LastUpdate) VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_LastUpdate)";
                 _ = command.Parameters.Add(new SQLiteParameter("@p_HostName", writeValue.HostName));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_UserName", writeValue.UserName));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_OSName", writeValue.OSName));
