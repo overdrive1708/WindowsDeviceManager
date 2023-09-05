@@ -10,7 +10,20 @@ namespace WindowsDeviceManagerAgent
         //--------------------------------------------------
         // 定数(コンフィギュレーション)
         //--------------------------------------------------
+        /// <summary>
+        /// データベースファイル名
+        /// </summary>
         private static readonly string _databaseFileName = "WindowsDeviceInfo.db";
+
+        /// <summary>
+        /// SQLコマンド(テーブル作成)
+        /// </summary>
+        private static readonly string _createTableCommand = "CREATE TABLE IF NOT EXISTS WindowsDeviceInfo(HostName TEXT PRIMARY KEY, UserName TEXT, OSName TEXT, OSBuildNumber TEXT, OSVersion TEXT, LastUpdate TEXT)";
+
+        /// <summary>
+        /// SQLコマンド(レコード登録)
+        /// </summary>
+        private static readonly string _insertCommand = "INSERT OR REPLACE INTO WindowsDeviceInfo(HostName, UserName, OSName, OSBuildNumber, OSVersion, LastUpdate) VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_LastUpdate)";
 
         //--------------------------------------------------
         // メソッド
@@ -37,7 +50,7 @@ namespace WindowsDeviceManagerAgent
             connection.Open();
             using (SQLiteCommand command = connection.CreateCommand())
             {
-                command.CommandText = "INSERT OR REPLACE INTO WindowsDeviceInfo VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_LastUpdate)";
+                command.CommandText = _insertCommand;
                 _ = command.Parameters.Add(new SQLiteParameter("@p_HostName", writeValue.HostName));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_UserName", writeValue.UserName));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_OSName", writeValue.OSName));
@@ -61,7 +74,7 @@ namespace WindowsDeviceManagerAgent
             connection.Open();
             using (SQLiteCommand command = connection.CreateCommand())
             {
-                command.CommandText = "CREATE TABLE IF NOT EXISTS WindowsDeviceInfo(HostName TEXT PRIMARY KEY, UserName TEXT, OSName TEXT, OSBuildNumber TEXT, OSVersion TEXT, LastUpdate TEXT)";
+                command.CommandText = _createTableCommand;
                 _ = command.ExecuteNonQuery();
             }
             connection.Close();
