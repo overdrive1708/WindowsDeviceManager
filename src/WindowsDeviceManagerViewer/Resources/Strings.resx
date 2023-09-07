@@ -172,4 +172,19 @@
   <data name="Reload" xml:space="preserve">
     <value>再読み込み</value>
   </data>
+  <data name="OutputCsv" xml:space="preserve">
+    <value>CSV出力</value>
+  </data>
+  <data name="MessageOutputCsvComplete" xml:space="preserve">
+    <value>CSV出力が完了しました｡</value>
+  </data>
+  <data name="MessageSelectOutputCsvFile" xml:space="preserve">
+    <value>出力するCSVファイルを選択してください｡</value>
+  </data>
+  <data name="CSVFile" xml:space="preserve">
+    <value>CSVファイル</value>
+  </data>
+  <data name="MessageErrorOutputCsvFileNotSelected" xml:space="preserve">
+    <value>出力するCSVファイルが指定されていません｡</value>
+  </data>
 </root>

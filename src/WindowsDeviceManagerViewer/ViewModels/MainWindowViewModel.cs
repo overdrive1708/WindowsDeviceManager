@@ -20,6 +20,16 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// </summary>
         private const string SQLiteDatabaseFileExtensionList = "*.db,*.sqlite,*.sqlite3";
 
+        /// <summary>
+        /// CSVファイルの拡張子
+        /// </summary>
+        private const string CSVFileExtensionList = "*.csv";
+
+        /// <summary>
+        /// 出力CSVファイル名
+        /// </summary>
+        private static readonly string _outputCsvFileName = "WindowsDeviceInfo.csv";
+
         //--------------------------------------------------
         // 内部変数
         //--------------------------------------------------
@@ -91,6 +101,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private DelegateCommand _commandReloadDisplayData;
         public DelegateCommand CommandReloadDisplayData =>
             _commandReloadDisplayData ?? (_commandReloadDisplayData = new DelegateCommand(ExecuteCommandReloadDisplayData));
+
+        /// <summary>
+        /// CSV出力コマンド
+        /// </summary>
+        private DelegateCommand _commandOutputCsv;
+        public DelegateCommand CommandOutputCsv =>
+            _commandOutputCsv ?? (_commandOutputCsv = new DelegateCommand(ExecuteCommandOutputCsv));
 
         //--------------------------------------------------
         // メソッド
@@ -186,6 +203,45 @@ namespace WindowsDeviceManagerViewer.ViewModels
         }
 
         /// <summary>
+        /// CSV出力コマンド実行処理
+        /// </summary>
+        void ExecuteCommandOutputCsv()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合は保存先を確認して出力処理を行う
+                string csvFileName = GetCsvFileName();
+
+                if(csvFileName != string.Empty)
+                {
+                    // 出力先が指定されている場合はCSV出力を行い完了メッセージを表示する
+                    List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
+                    CsvWriter.WriteWindowsDeviceInfoRecords(csvFileName, readRecords);
+                    _ = MessageBox.Show(Resources.Strings.MessageOutputCsvComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+                }
+                else
+                {
+                    // 出力先が指定されていない場合はエラーメッセージを表示して処理を終わる
+                    _ = MessageBox.Show(Resources.Strings.MessageErrorOutputCsvFileNotSelected,
+                                Resources.Strings.Notice,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// データベースファイルファイル名取得処理
         /// </summary>
         /// <returns>データベースファイル名</returns>
@@ -234,6 +290,30 @@ namespace WindowsDeviceManagerViewer.ViewModels
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
                 Environment.Exit(1);
+            }
+        }
+
+        /// <summary>
+        /// 出力CSVファイルファイル名取得処理
+        /// </summary>
+        /// <returns>出力CSVファイル名</returns>
+        private static string GetCsvFileName()
+        {
+            // CommonSaveFileDialogを使ってユーザにファイルを選択させる
+            using CommonSaveFileDialog dialog = new()
+            {
+                Title = Resources.Strings.MessageSelectOutputCsvFile,
+                DefaultFileName = _outputCsvFileName
+            };
+            dialog.Filters.Add(new CommonFileDialogFilter(Resources.Strings.CSVFile, CSVFileExtensionList));
+
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
+            }
+            else
+            {
+                return string.Empty;
             }
         }
     }

@@ -79,6 +79,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   CSVファイル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CSVFile {
+            get {
+                return ResourceManager.GetString("CSVFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   表示項目設定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DisplayItemSetting {
@@ -152,6 +161,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   出力するCSVファイルが指定されていません｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageErrorOutputCsvFileNotSelected {
+            get {
+                return ResourceManager.GetString("MessageErrorOutputCsvFileNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を表示しますか? に類似しているローカライズされた文字列を検索します。
@@ -159,6 +177,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageFatalError {
             get {
                 return ResourceManager.GetString("MessageFatalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   CSV出力が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageOutputCsvComplete {
+            get {
+                return ResourceManager.GetString("MessageOutputCsvComplete", resourceCulture);
             }
         }
         
@@ -186,6 +213,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageSelectDatabaseFile {
             get {
                 return ResourceManager.GetString("MessageSelectDatabaseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   出力するCSVファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageSelectOutputCsvFile {
+            get {
+                return ResourceManager.GetString("MessageSelectOutputCsvFile", resourceCulture);
             }
         }
         
@@ -222,6 +258,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string OSVersion {
             get {
                 return ResourceManager.GetString("OSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   CSV出力 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OutputCsv {
+            get {
+                return ResourceManager.GetString("OutputCsv", resourceCulture);
             }
         }
         
