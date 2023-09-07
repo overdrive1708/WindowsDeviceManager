@@ -85,6 +85,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         public DelegateCommand CommandRecheckOSVersion =>
             _commandRecheckOSVersion ?? (_commandRecheckOSVersion = new DelegateCommand(ExecuteCommandRecheckOSVersion));
 
+        /// <summary>
+        /// 表示データリロードコマンド
+        /// </summary>
+        private DelegateCommand _commandReloadDisplayData;
+        public DelegateCommand CommandReloadDisplayData =>
+            _commandReloadDisplayData ?? (_commandReloadDisplayData = new DelegateCommand(ExecuteCommandReloadDisplayData));
+
         //--------------------------------------------------
         // メソッド
         //--------------------------------------------------
@@ -161,6 +168,21 @@ namespace WindowsDeviceManagerViewer.ViewModels
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// 表示データリロードコマンド実行処理
+        /// </summary>
+        void ExecuteCommandReloadDisplayData()
+        {
+            // データベースファイルの再読み込み
+            CreateWindowsDeviceInfoCollectData();
+
+            // 完了メッセージの表示
+            _ = MessageBox.Show(Resources.Strings.MessageReloadComplete,
+                                Resources.Strings.Notice,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
         }
 
         /// <summary>
