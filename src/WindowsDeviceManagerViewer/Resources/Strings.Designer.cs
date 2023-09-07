@@ -79,7 +79,7 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
-        ///   表示項目設定(未実装) に類似しているローカライズされた文字列を検索します。
+        ///   表示項目設定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DisplayItemSetting {
             get {
