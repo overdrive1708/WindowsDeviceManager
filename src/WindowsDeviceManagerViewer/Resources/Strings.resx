@@ -130,7 +130,7 @@
     <value>Windowsデバイス情報</value>
   </data>
   <data name="DisplayItemSetting" xml:space="preserve">
-    <value>表示項目設定(未実装)</value>
+    <value>表示項目設定</value>
   </data>
   <data name="Maintenance" xml:space="preserve">
     <value>データベースメンテナンス</value>

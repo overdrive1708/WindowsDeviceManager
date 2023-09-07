@@ -61,66 +61,6 @@ namespace WindowsDeviceManagerViewer.ViewModels
             set { SetProperty(ref _isCompleteReadWindowsDeviceInfo, value); }
         }
 
-        /// <summary>
-        /// 表示項目設定：ホスト名
-        /// </summary>
-        private bool _isDisplayHostName = true;
-        public bool IsDisplayHostName
-        {
-            get { return _isDisplayHostName; }
-            set { SetProperty(ref _isDisplayHostName, value); }
-        }
-
-        /// <summary>
-        /// 表示項目設定：ユーザ名
-        /// </summary>
-        private bool _isDisplayUserName = true;
-        public bool IsDisplayUserName
-        {
-            get { return _isDisplayUserName; }
-            set { SetProperty(ref _isDisplayUserName, value); }
-        }
-
-        /// <summary>
-        /// 表示項目設定：OS名
-        /// </summary>
-        private bool _isDisplayOSName = true;
-        public bool IsDisplayOSName
-        {
-            get { return _isDisplayOSName; }
-            set { SetProperty(ref _isDisplayOSName, value); }
-        }
-
-        /// <summary>
-        /// 表示項目設定：OSビルド番号
-        /// </summary>
-        private bool _isDisplayOSBuildNumber = true;
-        public bool IsDisplayOSBuildNumber
-        {
-            get { return _isDisplayOSBuildNumber; }
-            set { SetProperty(ref _isDisplayOSBuildNumber, value); }
-        }
-
-        /// <summary>
-        /// 表示項目設定：OSバージョン
-        /// </summary>
-        private bool _isDisplayOSVersion = true;
-        public bool IsDisplayOSVersion
-        {
-            get { return _isDisplayOSVersion; }
-            set { SetProperty(ref _isDisplayOSVersion, value); }
-        }
-
-        /// <summary>
-        /// 表示項目設定：最終更新日時
-        /// </summary>
-        private bool _isDisplayLastUpdate = true;
-        public bool IsDisplayLastUpdate
-        {
-            get { return _isDisplayLastUpdate; }
-            set { SetProperty(ref _isDisplayLastUpdate, value); }
-        }
-
         //--------------------------------------------------
         // バインディングコマンド
         //--------------------------------------------------
