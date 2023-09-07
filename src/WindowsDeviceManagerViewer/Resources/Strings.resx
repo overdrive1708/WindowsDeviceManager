@@ -166,4 +166,10 @@
   <data name="MessageRecheckOSVersionComplete" xml:space="preserve">
     <value>OSバージョン再判定が完了しました｡</value>
   </data>
+  <data name="MessageReloadComplete" xml:space="preserve">
+    <value>再読み込みが完了しました｡</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>再読み込み</value>
+  </data>
 </root>

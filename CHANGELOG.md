@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Viewer column visibility option.
+- Viewer reload function.
 
 ### Changed
 - Change database access logic.

@@ -146,6 +146,11 @@
                         Command="{Binding CommandRecheckOSVersion}"
                         Content="{x:Static resources:Strings.RecheckOSVersion}"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
+                    <Button
+                        Margin="10,10,10,10"
+                        Command="{Binding CommandReloadDisplayData}"
+                        Content="{x:Static resources:Strings.Reload}"
+                        Style="{StaticResource MaterialDesignOutlinedButton}" />
                 </StackPanel>
             </GroupBox>
         </StackPanel>

@@ -172,6 +172,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   再読み込みが完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageReloadComplete {
+            get {
+                return ResourceManager.GetString("MessageReloadComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   データベースファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MessageSelectDatabaseFile {
@@ -222,6 +231,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string RecheckOSVersion {
             get {
                 return ResourceManager.GetString("RecheckOSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   再読み込み に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Reload {
+            get {
+                return ResourceManager.GetString("Reload", resourceCulture);
             }
         }
         
