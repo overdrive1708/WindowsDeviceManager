@@ -20,6 +20,8 @@ namespace WindowsDeviceManagerAgent
                 OSName = GetOSName(),
                 OSBuildNumber = GetOSBuildNumber(),
                 OSVersion = GetOSVersion(),
+                ComputerManufacturer = GetComputerManufacturer(),
+                ComputerModel = GetComputerModel(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -147,6 +149,42 @@ namespace WindowsDeviceManagerAgent
             }
 
             return osVersion;
+        }
+
+        /// <summary>
+        /// コンピュータの製造元取得処理
+        /// </summary>
+        /// <returns>コンピュータの製造元</returns>
+        private static string GetComputerManufacturer()
+        {
+            string computerManufacturer = Resources.Strings.Unknown;
+
+            ManagementClass mc = new("Win32_ComputerSystem");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            {
+                computerManufacturer = mo["Manufacturer"].ToString();
+            }
+
+            return computerManufacturer;
+        }
+
+        /// <summary>
+        /// コンピュータの製品名取得処理
+        /// </summary>
+        /// <returns>コンピュータの製品名</returns>
+        private static string GetComputerModel()
+        {
+            string computerModel = Resources.Strings.Unknown;
+
+            ManagementClass mc = new("Win32_ComputerSystem");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            {
+                computerModel = mo["Model"].ToString();
+            }
+
+            return computerModel;
         }
 
         /// <summary>

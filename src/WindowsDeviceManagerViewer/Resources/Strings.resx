@@ -187,4 +187,10 @@
   <data name="MessageErrorOutputCsvFileNotSelected" xml:space="preserve">
     <value>出力するCSVファイルが指定されていません｡</value>
   </data>
+  <data name="ComputerManufacturer" xml:space="preserve">
+    <value>コンピュータの製造元</value>
+  </data>
+  <data name="ComputerModel" xml:space="preserve">
+    <value>コンピュータの製品名</value>
+  </data>
 </root>

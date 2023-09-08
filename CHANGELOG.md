@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Viewer column visibility option.
 - Viewer reload function.
 - Viewer output csv function.
+- Collect and show windows device information.
+    - ComputerManufacturer
+    - ComputerModel
 
 ### Changed
 - Change database access logic.

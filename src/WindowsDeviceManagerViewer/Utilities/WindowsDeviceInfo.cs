@@ -36,6 +36,18 @@
         public string OSVersion { get => _osVersion; set => _osVersion = value; }
 
         /// <summary>
+        /// コンピュータの製造元
+        /// </summary>
+        private string _computerManufacturer = string.Empty;
+        public string ComputerManufacturer { get => _computerManufacturer; set => _computerManufacturer = value; }
+
+        /// <summary>
+        /// コンピュータの製品名
+        /// </summary>
+        private string _computerModel = string.Empty;
+        public string ComputerModel { get => _computerModel; set => _computerModel = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

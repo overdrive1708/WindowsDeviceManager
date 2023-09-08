@@ -79,6 +79,24 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   コンピュータの製造元 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ComputerManufacturer {
+            get {
+                return ResourceManager.GetString("ComputerManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   コンピュータの製品名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ComputerModel {
+            get {
+                return ResourceManager.GetString("ComputerModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   CSVファイル に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CSVFile {
