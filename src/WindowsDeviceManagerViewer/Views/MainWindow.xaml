@@ -35,6 +35,8 @@
             <FrameworkElement x:Key="ProxyColumnVisibilityOSName" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayOSName}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityOSBuildNumber" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayOSBuildNumber}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityOSVersion" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayOSVersion}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityComputerManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayComputerManufacturer}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityComputerModel" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayComputerModel}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityLastUpdate" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayLastUpdate}" />
         </Grid.Resources>
         <ContentControl Content="{StaticResource ProxyColumnVisibilityHostName}" Visibility="Collapsed" />
@@ -42,6 +44,8 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityOSName}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityOSBuildNumber}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityOSVersion}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityComputerManufacturer}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityComputerModel}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
@@ -75,6 +79,14 @@
                             Binding="{Binding Path=OSVersion}"
                             Header="{x:Static resources:Strings.OSVersion}"
                             Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=ComputerManufacturer}"
+                            Header="{x:Static resources:Strings.ComputerManufacturer}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=ComputerModel}"
+                            Header="{x:Static resources:Strings.ComputerModel}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerModel}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <DataGridTextColumn
                             Binding="{Binding Path=LastUpdate}"
                             Header="{x:Static resources:Strings.LastUpdate}"
@@ -121,6 +133,20 @@
                             IsChecked="True"
                             Style="{StaticResource MaterialDesignSwitchToggleButton}" />
                         <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSVersion}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="ToggleButtonDisplayComputerManufacturer"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerManufacturer}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="ToggleButtonDisplayComputerModel"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerModel}" />
                     </StackPanel>
                     <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
                         <ToggleButton
