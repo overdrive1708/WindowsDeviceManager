@@ -41,6 +41,9 @@ namespace WindowsDeviceManagerAgent
             // Welcomeメッセージの表示
             ConsoleWrapper.WriteLine(GetWelcomeMessage());
 
+            // データベースファイルの更新
+            DatabaseWriter.UpdateDatabase();
+
             // Windowsデバイス情報の収集
             ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
             WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
@@ -91,6 +94,8 @@ namespace WindowsDeviceManagerAgent
             ConsoleWrapper.WriteLine($"{Resources.Strings.OSName}:{info.OSName}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.OSBuildNumber}:{info.OSBuildNumber}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.OSVersion}:{info.OSVersion}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerManufacturer}:{info.ComputerManufacturer}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerModel}:{info.ComputerModel}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{info.LastUpdate}");
             ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
         }

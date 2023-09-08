@@ -153,4 +153,16 @@
   <data name="MessageDatabaseNotFound" xml:space="preserve">
     <value>データベースファイルが見つかりません｡</value>
   </data>
+  <data name="ComputerManufacturer" xml:space="preserve">
+    <value>コンピュータの製造元</value>
+  </data>
+  <data name="ComputerModel" xml:space="preserve">
+    <value>コンピュータの製品名</value>
+  </data>
+  <data name="MessageDetectOldDatabase" xml:space="preserve">
+    <value>古いバージョンのデータベースファイルを検出しました｡</value>
+  </data>
+  <data name="MessageUpdateDatabaseComplete" xml:space="preserve">
+    <value>データベースファイルをバージョンアップしました｡</value>
+  </data>
 </root>

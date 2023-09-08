@@ -79,6 +79,24 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   コンピュータの製造元 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ComputerManufacturer {
+            get {
+                return ResourceManager.GetString("ComputerManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   コンピュータの製品名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ComputerModel {
+            get {
+                return ResourceManager.GetString("ComputerModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   処理の結果を詳細に表示します｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextVerbose {
@@ -142,6 +160,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   古いバージョンのデータベースファイルを検出しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageDetectOldDatabase {
+            get {
+                return ResourceManager.GetString("MessageDetectOldDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を[FatalErrorInformation.log]に保存しました｡ に類似しているローカライズされた文字列を検索します。
@@ -176,6 +203,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string MessageThanks {
             get {
                 return ResourceManager.GetString("MessageThanks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   データベースファイルをバージョンアップしました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageUpdateDatabaseComplete {
+            get {
+                return ResourceManager.GetString("MessageUpdateDatabaseComplete", resourceCulture);
             }
         }
         
