@@ -71,6 +71,8 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - OS名：Microsoft Windows 11 Pro
 - OSビルド番号：22621
 - OSバージョン：22H2
+- コンピュータの製造元：MouseComputer Co.,Ltd.
+- コンピュータの製品名：NG-im610
 
 ## サポートするOSバージョン
 - Windows10
