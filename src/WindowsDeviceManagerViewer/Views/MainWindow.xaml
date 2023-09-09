@@ -57,7 +57,7 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
-                Height="450"
+                Height="440"
                 Margin="0,0,0,5"
                 Header="{x:Static resources:Strings.WindowsDeviceInfo}"
                 Style="{StaticResource MaterialDesignGroupBox}">
@@ -210,7 +210,7 @@
                 </WrapPanel>
             </GroupBox>
             <GroupBox
-                Margin="0,5,0,0"
+                Margin="0,5,0,5"
                 Header="{x:Static resources:Strings.Maintenance}"
                 Style="{StaticResource MaterialDesignGroupBox}">
                 <StackPanel Orientation="Horizontal">
@@ -236,6 +236,16 @@
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
                 </StackPanel>
             </GroupBox>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Title}" />
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Copyright}" />
+            <TextBlock HorizontalAlignment="Right">
+                <Hyperlink
+                    Command="{Binding CommandOpenUrl}"
+                    CommandParameter="https://github.com/overdrive1708/WindowsDeviceManager"
+                    Cursor="Hand">
+                    <TextBlock Text="{x:Static resources:Strings.MessageOpenProjectUrl}" />
+                </Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </metro:MetroWindow>

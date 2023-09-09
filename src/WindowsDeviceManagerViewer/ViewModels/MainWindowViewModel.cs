@@ -4,7 +4,9 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using WindowsDeviceManagerViewer.Utilities;
 
@@ -71,6 +73,16 @@ namespace WindowsDeviceManagerViewer.ViewModels
             set { SetProperty(ref _isCompleteReadWindowsDeviceInfo, value); }
         }
 
+        /// <summary>
+        /// コピーライト
+        /// </summary>
+        private string _copyright;
+        public string Copyright
+        {
+            get { return _copyright; }
+            set { SetProperty(ref _copyright, value); }
+        }
+
         //--------------------------------------------------
         // バインディングコマンド
         //--------------------------------------------------
@@ -109,6 +121,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         public DelegateCommand CommandOutputCsv =>
             _commandOutputCsv ?? (_commandOutputCsv = new DelegateCommand(ExecuteCommandOutputCsv));
 
+        /// <summary>
+        /// URLを開く
+        /// </summary>
+        private DelegateCommand<string> _commandOpenUrl;
+        public DelegateCommand<string> CommandOpenUrl =>
+            _commandOpenUrl ?? (_commandOpenUrl = new DelegateCommand<string>(ExecuteCommandOpenUrl));
+
         //--------------------------------------------------
         // メソッド
         //--------------------------------------------------
@@ -117,7 +136,14 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-            // 無処理
+            Assembly assm = Assembly.GetExecutingAssembly();
+            string version = assm.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+
+            // バージョン情報を取得してタイトルに反映する
+            Title = $"{Resources.Strings.ApplicationName} Ver.{version}";
+
+            // コピーライト情報を取得して設定
+            Copyright = assm.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
         }
 
         /// <summary>
@@ -239,6 +265,19 @@ namespace WindowsDeviceManagerViewer.ViewModels
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// URLを開くコマンド実行処理
+        /// </summary>
+        private void ExecuteCommandOpenUrl(string url)
+        {
+            ProcessStartInfo psi = new()
+            {
+                FileName = url,
+                UseShellExecute = true,
+            };
+            Process.Start(psi);
         }
 
         /// <summary>

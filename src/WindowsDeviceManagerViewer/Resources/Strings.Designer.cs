@@ -226,6 +226,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   このアプリケーションのプロジェクトURLを開く に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageOpenProjectUrl {
+            get {
+                return ResourceManager.GetString("MessageOpenProjectUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   CSV出力が完了しました｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MessageOutputCsvComplete {
