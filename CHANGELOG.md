@@ -14,8 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - ComputerManufacturer
     - ComputerModel
     - Processor
+    - BIOSManufacturer
+    - BIOSVersion
 
 ### Changed
+- Change Viewer UI.
 - Change database access logic.
 - Refactoring.
 

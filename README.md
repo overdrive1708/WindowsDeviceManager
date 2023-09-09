@@ -74,6 +74,8 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - コンピュータの製造元：MouseComputer Co.,Ltd.
 - コンピュータの製品名：NG-im610
 - プロセッサ：Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- BIOSの製造元：American Megatrends Inc.
+- BIOSのバージョン：1.08
 
 ## サポートするOSバージョン
 - Windows10

@@ -70,6 +70,24 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   BIOSの製造元 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BIOSManufacturer {
+            get {
+                return ResourceManager.GetString("BIOSManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   BIOSのバージョン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BIOSVersion {
+            get {
+                return ResourceManager.GetString("BIOSVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   不要領域の整理 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Clean {

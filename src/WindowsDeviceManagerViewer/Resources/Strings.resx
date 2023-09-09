@@ -196,4 +196,10 @@
   <data name="Processor" xml:space="preserve">
     <value>プロセッサ</value>
   </data>
+  <data name="BIOSManufacturer" xml:space="preserve">
+    <value>BIOSの製造元</value>
+  </data>
+  <data name="BIOSVersion" xml:space="preserve">
+    <value>BIOSのバージョン</value>
+  </data>
 </root>
