@@ -79,6 +79,96 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   BitLockerの状態 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatus {
+            get {
+                return ResourceManager.GetString("BitLockerStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   すべての固定ディスクが無効 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAllDiskDisable {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAllDiskDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   すべての固定ディスクが有効 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAllDiskEnable {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAllDiskEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが復号化中 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskDecrypting {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskDecrypting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが無効 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskDisable {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが暗号化中 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskEncrypting {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskEncrypting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが有効(ロック) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskOnLocked {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskOnLocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが中断 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskSuspended {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskSuspended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクが状態不明 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskUnknown {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   いずれかの固定ディスクがアクティブ化を待機中 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatusAnyDiskWaitingForActivation {
+            get {
+                return ResourceManager.GetString("BitLockerStatusAnyDiskWaitingForActivation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   =====収集結果ここまで===== に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string CollectResultEnd {
