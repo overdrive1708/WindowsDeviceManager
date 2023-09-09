@@ -29,94 +29,61 @@ namespace WindowsDeviceManagerViewer.Utilities
                     using var executeReader = command.ExecuteReader();
                     while (executeReader.Read())
                     {
-                        WindowsDeviceInfo readRecord;
-                        switch (databaseVersion)
+                        WindowsDeviceInfo readRecord = new()
                         {
-                            case "0":       // user_versionが0のとき
-                                readRecord = new()
-                                {
-                                    HostName = executeReader["HostName"].ToString(),
-                                    UserName = executeReader["UserName"].ToString(),
-                                    OSName = executeReader["OSName"].ToString(),
-                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
-                                    OSVersion = executeReader["OSVersion"].ToString(),
-                                    ComputerManufacturer = string.Empty,
-                                    ComputerModel = string.Empty,
-                                    Processor = string.Empty,
-                                    BIOSManufacturer = string.Empty,
-                                    BIOSVersion = string.Empty,
-                                    LastUpdate = executeReader["LastUpdate"].ToString()
-                                };
-                                break;
+                            HostName = executeReader["HostName"].ToString(),
+                            UserName = executeReader["UserName"].ToString(),
+                            OSName = executeReader["OSName"].ToString(),
+                            OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
+                            OSVersion = executeReader["OSVersion"].ToString(),
+                            ComputerManufacturer = databaseVersion switch
+                            {
+                                // コンピュータの製造元はuser_versionが1以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => executeReader["ComputerManufacturer"].ToString(),
+                                "2" => executeReader["ComputerManufacturer"].ToString(),
+                                "3" => executeReader["ComputerManufacturer"].ToString(),
+                                _ => string.Empty,
+                            },
+                            ComputerModel = databaseVersion switch
+                            {
+                                // コンピュータの製品名はuser_versionが1以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => executeReader["ComputerModel"].ToString(),
+                                "2" => executeReader["ComputerModel"].ToString(),
+                                "3" => executeReader["ComputerModel"].ToString(),
+                                _ => string.Empty,
+                            },
+                            Processor = databaseVersion switch
+                            {
+                                // プロセッサはuser_versionが2以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => string.Empty,
+                                "2" => executeReader["Processor"].ToString(),
+                                "3" => executeReader["Processor"].ToString(),
+                                _ => string.Empty,
+                            },
+                            BIOSManufacturer = databaseVersion switch
+                            {
+                                // BIOSの製造元はuser_versionが3以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => string.Empty,
+                                "2" => string.Empty,
+                                "3" => executeReader["BIOSManufacturer"].ToString(),
+                                _ => string.Empty,
+                            },
+                            BIOSVersion = databaseVersion switch
+                            {
+                                // BIOSのバージョンはuser_versionが3以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => string.Empty,
+                                "2" => string.Empty,
+                                "3" => executeReader["BIOSVersion"].ToString(),
+                                _ => string.Empty,
+                            },
+                            LastUpdate = executeReader["LastUpdate"].ToString()
+                        };
 
-                            case "1":       // user_versionが1のとき
-                                readRecord = new()
-                                {
-                                    HostName = executeReader["HostName"].ToString(),
-                                    UserName = executeReader["UserName"].ToString(),
-                                    OSName = executeReader["OSName"].ToString(),
-                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
-                                    OSVersion = executeReader["OSVersion"].ToString(),
-                                    ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
-                                    ComputerModel = executeReader["ComputerModel"].ToString(),
-                                    Processor = string.Empty,
-                                    BIOSManufacturer = string.Empty,
-                                    BIOSVersion = string.Empty,
-                                    LastUpdate = executeReader["LastUpdate"].ToString()
-                                };
-                                break;
-
-                            case "2":       // user_versionが2のとき
-                                readRecord = new()
-                                {
-                                    HostName = executeReader["HostName"].ToString(),
-                                    UserName = executeReader["UserName"].ToString(),
-                                    OSName = executeReader["OSName"].ToString(),
-                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
-                                    OSVersion = executeReader["OSVersion"].ToString(),
-                                    ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
-                                    ComputerModel = executeReader["ComputerModel"].ToString(),
-                                    Processor = executeReader["Processor"].ToString(),
-                                    BIOSManufacturer = string.Empty,
-                                    BIOSVersion = string.Empty,
-                                    LastUpdate = executeReader["LastUpdate"].ToString()
-                                };
-                                break;
-
-                            case "3":       // user_versionが3のとき
-                                readRecord = new()
-                                {
-                                    HostName = executeReader["HostName"].ToString(),
-                                    UserName = executeReader["UserName"].ToString(),
-                                    OSName = executeReader["OSName"].ToString(),
-                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
-                                    OSVersion = executeReader["OSVersion"].ToString(),
-                                    ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
-                                    ComputerModel = executeReader["ComputerModel"].ToString(),
-                                    Processor = executeReader["Processor"].ToString(),
-                                    BIOSManufacturer = executeReader["BIOSManufacturer"].ToString(),
-                                    BIOSVersion = executeReader["BIOSVersion"].ToString(),
-                                    LastUpdate = executeReader["LastUpdate"].ToString()
-                                };
-                                break;
-
-                            default:        // user_versionが想定外のとき
-                                readRecord = new()
-                                {
-                                    HostName = string.Empty,
-                                    UserName = string.Empty,
-                                    OSName = string.Empty,
-                                    OSBuildNumber = string.Empty,
-                                    OSVersion = string.Empty,
-                                    ComputerManufacturer = string.Empty,
-                                    ComputerModel = string.Empty,
-                                    Processor = string.Empty,
-                                    BIOSManufacturer = string.Empty,
-                                    BIOSVersion = string.Empty,
-                                    LastUpdate = string.Empty
-                                };
-                                break;
-                        }
                         readRecords.Add(readRecord);
                     }
                 }
