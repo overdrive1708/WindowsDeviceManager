@@ -1,6 +1,9 @@
 [日本語](README.md)
 
 <h1 align="center">
+    <a href="https://github.com/overdrive1708/WindowsDeviceManager">
+        <img alt="WindowsDeviceManager" src="docs/images/AppIconReadme.png" width="50" height="50">
+    </a><br>
     WindowsDeviceManager
 </h1>
 
