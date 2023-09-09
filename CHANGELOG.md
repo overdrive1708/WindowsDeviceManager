@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Collect and show windows device information.
     - ComputerManufacturer
     - ComputerModel
+    - Processor
 
 ### Changed
 - Change database access logic.
