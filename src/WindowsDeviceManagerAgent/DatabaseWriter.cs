@@ -23,12 +23,25 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// SQLコマンド(テーブル作成)
         /// </summary>
-        private static readonly string _createTableCommand = "CREATE TABLE IF NOT EXISTS WindowsDeviceInfo(HostName TEXT PRIMARY KEY, UserName TEXT, OSName TEXT, OSBuildNumber TEXT, OSVersion TEXT, ComputerManufacturer TEXT, ComputerModel TEXT, Processor TEXT, BIOSManufacturer TEXT, BIOSVersion TEXT, LastUpdate TEXT)";
+        private static readonly string _createTableCommand = "CREATE TABLE IF NOT EXISTS WindowsDeviceInfo("
+                                                             + "HostName TEXT PRIMARY KEY, "
+                                                             + "UserName TEXT, "
+                                                             + "OSName TEXT, "
+                                                             + "OSBuildNumber TEXT, "
+                                                             + "OSVersion TEXT, "
+                                                             + "ComputerManufacturer TEXT, "
+                                                             + "ComputerModel TEXT, "
+                                                             + "Processor TEXT, "
+                                                             + "BIOSManufacturer TEXT, "
+                                                             + "BIOSVersion TEXT, "
+                                                             + "LastUpdate TEXT)";
 
         /// <summary>
         /// SQLコマンド(レコード登録)
         /// </summary>
-        private static readonly string _insertCommand = "INSERT OR REPLACE INTO WindowsDeviceInfo(HostName, UserName, OSName, OSBuildNumber, OSVersion, ComputerManufacturer, ComputerModel, Processor, BIOSManufacturer, BIOSVersion, LastUpdate) VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_ComputerManufacturer, @p_ComputerModel, @p_Processor, @p_BIOSManufacturer, @p_BIOSVersion, @p_LastUpdate)";
+        private static readonly string _insertCommand = "INSERT OR REPLACE INTO WindowsDeviceInfo"
+                                                        + "(HostName, UserName, OSName, OSBuildNumber, OSVersion, ComputerManufacturer, ComputerModel, Processor, BIOSManufacturer, BIOSVersion, LastUpdate) "
+                                                        + "VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_ComputerManufacturer, @p_ComputerModel, @p_Processor, @p_BIOSManufacturer, @p_BIOSVersion, @p_LastUpdate)";
 
         //--------------------------------------------------
         // メソッド
