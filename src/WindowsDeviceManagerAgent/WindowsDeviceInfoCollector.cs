@@ -23,6 +23,8 @@ namespace WindowsDeviceManagerAgent
                 ComputerManufacturer = GetComputerManufacturer(),
                 ComputerModel = GetComputerModel(),
                 Processor = GetProcessor(),
+                BIOSManufacturer = GetBIOSManufacturer(),
+                BIOSVersion = GetBIOSVersion(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -204,6 +206,42 @@ namespace WindowsDeviceManagerAgent
             }
 
             return processor;
+        }
+
+        /// <summary>
+        /// BIOSの製造元取得処理
+        /// </summary>
+        /// <returns>BIOSの製造元</returns>
+        private static string GetBIOSManufacturer()
+        {
+            string biosmanufacturer = Resources.Strings.Unknown;
+
+            ManagementClass mc = new("Win32_BIOS");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            {
+                biosmanufacturer = mo["Manufacturer"].ToString();
+            }
+
+            return biosmanufacturer;
+        }
+
+        /// <summary>
+        /// BIOSのバージョン取得処理
+        /// </summary>
+        /// <returns>BIOSのバージョン</returns>
+        private static string GetBIOSVersion()
+        {
+            string biosversion = Resources.Strings.Unknown;
+
+            ManagementClass mc = new("Win32_BIOS");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            {
+                biosversion = mo["SMBIOSBIOSVersion"].ToString();
+            }
+
+            return biosversion;
         }
 
         /// <summary>
