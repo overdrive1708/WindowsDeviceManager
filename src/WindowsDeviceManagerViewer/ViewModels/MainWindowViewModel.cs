@@ -149,7 +149,7 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// 表示データ作成コマンド実行処理
         /// </summary>
-        public void ExecuteCommandCreateDispData()
+        private void ExecuteCommandCreateDispData()
         {
             _databaseFileName = GetDatabaseFileName();
             CreateWindowsDeviceInfoCollectData();
@@ -158,7 +158,7 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// データベースクリーンアップコマンド実行処理
         /// </summary>
-        void ExecuteCommandCleanupDatabase()
+        private void ExecuteCommandCleanupDatabase()
         {
             if (File.Exists(_databaseFileName))
             {
@@ -187,7 +187,7 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// OSバージョン再判定コマンド実行処理
         /// </summary>
-        void ExecuteCommandRecheckOSVersion()
+        private void ExecuteCommandRecheckOSVersion()
         {
             if (File.Exists(_databaseFileName))
             {
@@ -216,7 +216,7 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// 表示データリロードコマンド実行処理
         /// </summary>
-        void ExecuteCommandReloadDisplayData()
+        private void ExecuteCommandReloadDisplayData()
         {
             // データベースファイルの再読み込み
             CreateWindowsDeviceInfoCollectData();
@@ -231,7 +231,7 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// CSV出力コマンド実行処理
         /// </summary>
-        void ExecuteCommandOutputCsv()
+        private void ExecuteCommandOutputCsv()
         {
             if (File.Exists(_databaseFileName))
             {
