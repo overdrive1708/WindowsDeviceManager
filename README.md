@@ -76,6 +76,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - プロセッサ：Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
 - BIOSの製造元：American Megatrends Inc.
 - BIOSのバージョン：1.08
+- BitLockerの状態：すべての固定ディスクが有効
 
 ## サポートするOSバージョン
 - Windows10
