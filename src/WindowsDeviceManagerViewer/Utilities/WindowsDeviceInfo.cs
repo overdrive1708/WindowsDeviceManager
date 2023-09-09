@@ -54,6 +54,18 @@
         public string Processor { get => _processor; set => _processor = value; }
 
         /// <summary>
+        /// BIOSの製造元
+        /// </summary>
+        private string _biosManufacturer = string.Empty;
+        public string BIOSManufacturer { get => _biosManufacturer; set => _biosManufacturer = value; }
+
+        /// <summary>
+        /// BIOSのバージョン
+        /// </summary>
+        private string _biosVersion = string.Empty;
+        public string BIOSVersion { get => _biosVersion; set => _biosVersion = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

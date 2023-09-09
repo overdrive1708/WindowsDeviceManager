@@ -38,6 +38,8 @@
             <FrameworkElement x:Key="ProxyColumnVisibilityComputerManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayComputerManufacturer}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityComputerModel" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayComputerModel}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityProcessor" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayProcessor}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityBIOSManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSManufacturer}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityBIOSVersion" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSVersion}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityLastUpdate" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayLastUpdate}" />
         </Grid.Resources>
         <ContentControl Content="{StaticResource ProxyColumnVisibilityHostName}" Visibility="Collapsed" />
@@ -48,6 +50,8 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityComputerManufacturer}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityComputerModel}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityProcessor}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSManufacturer}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSVersion}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
@@ -93,6 +97,14 @@
                             Binding="{Binding Path=Processor}"
                             Header="{x:Static resources:Strings.Processor}"
                             Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityProcessor}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=BIOSManufacturer}"
+                            Header="{x:Static resources:Strings.BIOSManufacturer}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=BIOSVersion}"
+                            Header="{x:Static resources:Strings.BIOSVersion}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <DataGridTextColumn
                             Binding="{Binding Path=LastUpdate}"
                             Header="{x:Static resources:Strings.LastUpdate}"
@@ -160,6 +172,20 @@
                             IsChecked="True"
                             Style="{StaticResource MaterialDesignSwitchToggleButton}" />
                         <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.Processor}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="ToggleButtonDisplayBIOSManufacturer"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSManufacturer}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="ToggleButtonDisplayBIOSVersion"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSVersion}" />
                     </StackPanel>
                     <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
                         <ToggleButton

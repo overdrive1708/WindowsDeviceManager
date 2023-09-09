@@ -17,11 +17,11 @@ namespace WindowsDeviceManagerViewer.Utilities
         {
             using StreamWriter swCsv = new(outputCsvFile, false, System.Text.Encoding.UTF8);
 
-            swCsv.WriteLine($"\"{Resources.Strings.HostName}\",\"{Resources.Strings.UserName}\",\"{Resources.Strings.OSName}\",\"{Resources.Strings.OSBuildNumber}\",\"{Resources.Strings.OSVersion}\",\"{Resources.Strings.ComputerManufacturer}\",\"{Resources.Strings.ComputerModel}\",\"{Resources.Strings.Processor}\",\"{Resources.Strings.LastUpdate}\"");
+            swCsv.WriteLine($"\"{Resources.Strings.HostName}\",\"{Resources.Strings.UserName}\",\"{Resources.Strings.OSName}\",\"{Resources.Strings.OSBuildNumber}\",\"{Resources.Strings.OSVersion}\",\"{Resources.Strings.ComputerManufacturer}\",\"{Resources.Strings.ComputerModel}\",\"{Resources.Strings.Processor}\",\"{Resources.Strings.BIOSManufacturer}\",\"{Resources.Strings.BIOSVersion}\",\"{Resources.Strings.LastUpdate}\"");
 
             foreach (WindowsDeviceInfo info in windowsDeviceInfos)
             {
-                swCsv.WriteLine($"\"{info.HostName}\",\"{info.UserName}\",\"{info.OSName}\",\"{info.OSBuildNumber}\",\"{info.OSVersion}\",\"{info.ComputerManufacturer}\",\"{info.ComputerModel}\",\"{info.Processor}\",\"{info.LastUpdate}\"");
+                swCsv.WriteLine($"\"{info.HostName}\",\"{info.UserName}\",\"{info.OSName}\",\"{info.OSBuildNumber}\",\"{info.OSVersion}\",\"{info.ComputerManufacturer}\",\"{info.ComputerModel}\",\"{info.Processor}\",\"{info.BIOSManufacturer}\",\"{info.BIOSVersion}\",\"{info.LastUpdate}\"");
             }
 
             swCsv.Close();

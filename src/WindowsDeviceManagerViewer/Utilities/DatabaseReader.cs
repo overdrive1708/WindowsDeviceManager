@@ -43,6 +43,8 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     ComputerManufacturer = string.Empty,
                                     ComputerModel = string.Empty,
                                     Processor = string.Empty,
+                                    BIOSManufacturer = string.Empty,
+                                    BIOSVersion = string.Empty,
                                     LastUpdate = executeReader["LastUpdate"].ToString()
                                 };
                                 break;
@@ -58,6 +60,8 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
                                     ComputerModel = executeReader["ComputerModel"].ToString(),
                                     Processor = string.Empty,
+                                    BIOSManufacturer = string.Empty,
+                                    BIOSVersion = string.Empty,
                                     LastUpdate = executeReader["LastUpdate"].ToString()
                                 };
                                 break;
@@ -73,6 +77,25 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
                                     ComputerModel = executeReader["ComputerModel"].ToString(),
                                     Processor = executeReader["Processor"].ToString(),
+                                    BIOSManufacturer = string.Empty,
+                                    BIOSVersion = string.Empty,
+                                    LastUpdate = executeReader["LastUpdate"].ToString()
+                                };
+                                break;
+
+                            case "3":       // user_versionが3のとき
+                                readRecord = new()
+                                {
+                                    HostName = executeReader["HostName"].ToString(),
+                                    UserName = executeReader["UserName"].ToString(),
+                                    OSName = executeReader["OSName"].ToString(),
+                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
+                                    OSVersion = executeReader["OSVersion"].ToString(),
+                                    ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
+                                    ComputerModel = executeReader["ComputerModel"].ToString(),
+                                    Processor = executeReader["Processor"].ToString(),
+                                    BIOSManufacturer = executeReader["BIOSManufacturer"].ToString(),
+                                    BIOSVersion = executeReader["BIOSVersion"].ToString(),
                                     LastUpdate = executeReader["LastUpdate"].ToString()
                                 };
                                 break;
@@ -88,6 +111,8 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     ComputerManufacturer = string.Empty,
                                     ComputerModel = string.Empty,
                                     Processor = string.Empty,
+                                    BIOSManufacturer = string.Empty,
+                                    BIOSVersion = string.Empty,
                                     LastUpdate = string.Empty
                                 };
                                 break;
