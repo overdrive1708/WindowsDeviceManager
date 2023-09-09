@@ -42,6 +42,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     OSVersion = executeReader["OSVersion"].ToString(),
                                     ComputerManufacturer = string.Empty,
                                     ComputerModel = string.Empty,
+                                    Processor = string.Empty,
                                     LastUpdate = executeReader["LastUpdate"].ToString()
                                 };
                                 break;
@@ -56,6 +57,22 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     OSVersion = executeReader["OSVersion"].ToString(),
                                     ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
                                     ComputerModel = executeReader["ComputerModel"].ToString(),
+                                    Processor = string.Empty,
+                                    LastUpdate = executeReader["LastUpdate"].ToString()
+                                };
+                                break;
+
+                            case "2":       // user_versionが2のとき
+                                readRecord = new()
+                                {
+                                    HostName = executeReader["HostName"].ToString(),
+                                    UserName = executeReader["UserName"].ToString(),
+                                    OSName = executeReader["OSName"].ToString(),
+                                    OSBuildNumber = executeReader["OSBuildNumber"].ToString(),
+                                    OSVersion = executeReader["OSVersion"].ToString(),
+                                    ComputerManufacturer = executeReader["ComputerManufacturer"].ToString(),
+                                    ComputerModel = executeReader["ComputerModel"].ToString(),
+                                    Processor = executeReader["Processor"].ToString(),
                                     LastUpdate = executeReader["LastUpdate"].ToString()
                                 };
                                 break;
@@ -70,6 +87,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                     OSVersion = string.Empty,
                                     ComputerManufacturer = string.Empty,
                                     ComputerModel = string.Empty,
+                                    Processor = string.Empty,
                                     LastUpdate = string.Empty
                                 };
                                 break;

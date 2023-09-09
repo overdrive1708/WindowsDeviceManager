@@ -193,4 +193,7 @@
   <data name="ComputerModel" xml:space="preserve">
     <value>コンピュータの製品名</value>
   </data>
+  <data name="Processor" xml:space="preserve">
+    <value>プロセッサ</value>
+  </data>
 </root>

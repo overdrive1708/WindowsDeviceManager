@@ -48,6 +48,12 @@
         public string ComputerModel { get => _computerModel; set => _computerModel = value; }
 
         /// <summary>
+        /// プロセッサ
+        /// </summary>
+        private string _processor = string.Empty;
+        public string Processor { get => _processor; set => _processor = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;
