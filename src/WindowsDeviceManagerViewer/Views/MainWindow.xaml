@@ -55,7 +55,7 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
-                Height="500"
+                Height="450"
                 Margin="0,0,0,5"
                 Header="{x:Static resources:Strings.WindowsDeviceInfo}"
                 Style="{StaticResource MaterialDesignGroupBox}">
