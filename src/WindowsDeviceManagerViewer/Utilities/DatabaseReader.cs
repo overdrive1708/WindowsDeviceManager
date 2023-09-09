@@ -39,62 +39,62 @@ namespace WindowsDeviceManagerViewer.Utilities
                             ComputerManufacturer = databaseVersion switch
                             {
                                 // コンピュータの製造元はuser_versionが1以上の場合に取得可能
-                                "0" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
                                 "1" => executeReader["ComputerManufacturer"].ToString(),
                                 "2" => executeReader["ComputerManufacturer"].ToString(),
                                 "3" => executeReader["ComputerManufacturer"].ToString(),
                                 "4" => executeReader["ComputerManufacturer"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             ComputerModel = databaseVersion switch
                             {
                                 // コンピュータの製品名はuser_versionが1以上の場合に取得可能
-                                "0" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
                                 "1" => executeReader["ComputerModel"].ToString(),
                                 "2" => executeReader["ComputerModel"].ToString(),
                                 "3" => executeReader["ComputerModel"].ToString(),
                                 "4" => executeReader["ComputerModel"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             Processor = databaseVersion switch
                             {
                                 // プロセッサはuser_versionが2以上の場合に取得可能
-                                "0" => string.Empty,
-                                "1" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
                                 "2" => executeReader["Processor"].ToString(),
                                 "3" => executeReader["Processor"].ToString(),
                                 "4" => executeReader["Processor"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             BIOSManufacturer = databaseVersion switch
                             {
                                 // BIOSの製造元はuser_versionが3以上の場合に取得可能
-                                "0" => string.Empty,
-                                "1" => string.Empty,
-                                "2" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
+                                "2" => Resources.Strings.NotCollected,
                                 "3" => executeReader["BIOSManufacturer"].ToString(),
                                 "4" => executeReader["BIOSManufacturer"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             BIOSVersion = databaseVersion switch
                             {
                                 // BIOSのバージョンはuser_versionが3以上の場合に取得可能
-                                "0" => string.Empty,
-                                "1" => string.Empty,
-                                "2" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
+                                "2" => Resources.Strings.NotCollected,
                                 "3" => executeReader["BIOSVersion"].ToString(),
                                 "4" => executeReader["BIOSVersion"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             BitLockerStatus = databaseVersion switch
                             {
                                 // BitLockerの状態はuser_versionが4以上の場合に取得可能
-                                "0" => string.Empty,
-                                "1" => string.Empty,
-                                "2" => string.Empty,
-                                "3" => string.Empty,
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
+                                "2" => Resources.Strings.NotCollected,
+                                "3" => Resources.Strings.NotCollected,
                                 "4" => executeReader["BitLockerStatus"].ToString(),
-                                _ => string.Empty,
+                                _ => Resources.Strings.NotCollected,
                             },
                             LastUpdate = executeReader["LastUpdate"].ToString()
                         };

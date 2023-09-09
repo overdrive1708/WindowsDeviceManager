@@ -271,6 +271,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   未収集 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NotCollected {
+            get {
+                return ResourceManager.GetString("NotCollected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   お知らせ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Notice {
