@@ -40,6 +40,7 @@
             <FrameworkElement x:Key="ProxyColumnVisibilityProcessor" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayProcessor}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSManufacturer}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSVersion" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSVersion}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityBitLockerStatus" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBitLockerStatus}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityLastUpdate" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayLastUpdate}" />
         </Grid.Resources>
         <ContentControl Content="{StaticResource ProxyColumnVisibilityHostName}" Visibility="Collapsed" />
@@ -52,6 +53,7 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityProcessor}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSManufacturer}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSVersion}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityBitLockerStatus}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
@@ -105,6 +107,10 @@
                             Binding="{Binding Path=BIOSVersion}"
                             Header="{x:Static resources:Strings.BIOSVersion}"
                             Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=BitLockerStatus}"
+                            Header="{x:Static resources:Strings.BitLockerStatus}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <DataGridTextColumn
                             Binding="{Binding Path=LastUpdate}"
                             Header="{x:Static resources:Strings.LastUpdate}"
@@ -186,6 +192,13 @@
                             IsChecked="True"
                             Style="{StaticResource MaterialDesignSwitchToggleButton}" />
                         <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSVersion}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="ToggleButtonDisplayBitLockerStatus"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BitLockerStatus}" />
                     </StackPanel>
                     <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
                         <ToggleButton

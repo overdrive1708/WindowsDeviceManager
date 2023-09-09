@@ -88,6 +88,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   BitLockerの状態 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatus {
+            get {
+                return ResourceManager.GetString("BitLockerStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   不要領域の整理 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Clean {

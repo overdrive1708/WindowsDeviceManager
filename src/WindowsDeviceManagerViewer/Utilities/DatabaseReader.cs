@@ -43,6 +43,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "1" => executeReader["ComputerManufacturer"].ToString(),
                                 "2" => executeReader["ComputerManufacturer"].ToString(),
                                 "3" => executeReader["ComputerManufacturer"].ToString(),
+                                "4" => executeReader["ComputerManufacturer"].ToString(),
                                 _ => string.Empty,
                             },
                             ComputerModel = databaseVersion switch
@@ -52,6 +53,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "1" => executeReader["ComputerModel"].ToString(),
                                 "2" => executeReader["ComputerModel"].ToString(),
                                 "3" => executeReader["ComputerModel"].ToString(),
+                                "4" => executeReader["ComputerModel"].ToString(),
                                 _ => string.Empty,
                             },
                             Processor = databaseVersion switch
@@ -61,6 +63,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "1" => string.Empty,
                                 "2" => executeReader["Processor"].ToString(),
                                 "3" => executeReader["Processor"].ToString(),
+                                "4" => executeReader["Processor"].ToString(),
                                 _ => string.Empty,
                             },
                             BIOSManufacturer = databaseVersion switch
@@ -70,6 +73,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "1" => string.Empty,
                                 "2" => string.Empty,
                                 "3" => executeReader["BIOSManufacturer"].ToString(),
+                                "4" => executeReader["BIOSManufacturer"].ToString(),
                                 _ => string.Empty,
                             },
                             BIOSVersion = databaseVersion switch
@@ -79,6 +83,17 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "1" => string.Empty,
                                 "2" => string.Empty,
                                 "3" => executeReader["BIOSVersion"].ToString(),
+                                "4" => executeReader["BIOSVersion"].ToString(),
+                                _ => string.Empty,
+                            },
+                            BitLockerStatus = databaseVersion switch
+                            {
+                                // BitLockerの状態はuser_versionが4以上の場合に取得可能
+                                "0" => string.Empty,
+                                "1" => string.Empty,
+                                "2" => string.Empty,
+                                "3" => string.Empty,
+                                "4" => executeReader["BitLockerStatus"].ToString(),
                                 _ => string.Empty,
                             },
                             LastUpdate = executeReader["LastUpdate"].ToString()

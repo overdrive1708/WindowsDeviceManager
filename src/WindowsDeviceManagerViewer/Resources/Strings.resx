@@ -202,4 +202,7 @@
   <data name="BIOSVersion" xml:space="preserve">
     <value>BIOSのバージョン</value>
   </data>
+  <data name="BitLockerStatus" xml:space="preserve">
+    <value>BitLockerの状態</value>
+  </data>
 </root>
