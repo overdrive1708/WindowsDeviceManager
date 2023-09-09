@@ -1,6 +1,9 @@
 [日本語](README.md)
 
 <h1 align="center">
+    <a href="https://github.com/overdrive1708/WindowsDeviceManager">
+        <img alt="WindowsDeviceManager" src="docs/images/AppIconReadme.png" width="50" height="50">
+    </a><br>
     WindowsDeviceManager
 </h1>
 
@@ -76,6 +79,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - プロセッサ：Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
 - BIOSの製造元：American Megatrends Inc.
 - BIOSのバージョン：1.08
+- BitLockerの状態：すべての固定ディスクが有効
 
 ## サポートするOSバージョン
 - Windows10

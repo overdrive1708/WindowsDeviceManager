@@ -202,4 +202,13 @@
   <data name="BIOSVersion" xml:space="preserve">
     <value>BIOSのバージョン</value>
   </data>
+  <data name="BitLockerStatus" xml:space="preserve">
+    <value>BitLockerの状態</value>
+  </data>
+  <data name="NotCollected" xml:space="preserve">
+    <value>未収集</value>
+  </data>
+  <data name="MessageOpenProjectUrl" xml:space="preserve">
+    <value>このアプリケーションのプロジェクトURLを開く</value>
+  </data>
 </root>

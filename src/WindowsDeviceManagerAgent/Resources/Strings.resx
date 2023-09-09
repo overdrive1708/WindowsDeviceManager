@@ -174,4 +174,34 @@
   <data name="BIOSVersion" xml:space="preserve">
     <value>BIOSのバージョン</value>
   </data>
+  <data name="BitLockerStatus" xml:space="preserve">
+    <value>BitLockerの状態</value>
+  </data>
+  <data name="BitLockerStatusAllDiskEnable" xml:space="preserve">
+    <value>すべての固定ディスクが有効</value>
+  </data>
+  <data name="BitLockerStatusAllDiskDisable" xml:space="preserve">
+    <value>すべての固定ディスクが無効</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskDisable" xml:space="preserve">
+    <value>いずれかの固定ディスクが無効</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskEncrypting" xml:space="preserve">
+    <value>いずれかの固定ディスクが暗号化中</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskDecrypting" xml:space="preserve">
+    <value>いずれかの固定ディスクが復号化中</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskSuspended" xml:space="preserve">
+    <value>いずれかの固定ディスクが中断</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskOnLocked" xml:space="preserve">
+    <value>いずれかの固定ディスクが有効(ロック)</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskWaitingForActivation" xml:space="preserve">
+    <value>いずれかの固定ディスクがアクティブ化を待機中</value>
+  </data>
+  <data name="BitLockerStatusAnyDiskUnknown" xml:space="preserve">
+    <value>いずれかの固定ディスクが状態不明</value>
+  </data>
 </root>

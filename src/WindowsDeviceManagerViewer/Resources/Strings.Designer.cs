@@ -88,6 +88,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   BitLockerの状態 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BitLockerStatus {
+            get {
+                return ResourceManager.GetString("BitLockerStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   不要領域の整理 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Clean {
@@ -217,6 +226,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   このアプリケーションのプロジェクトURLを開く に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageOpenProjectUrl {
+            get {
+                return ResourceManager.GetString("MessageOpenProjectUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   CSV出力が完了しました｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MessageOutputCsvComplete {
@@ -258,6 +276,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageSelectOutputCsvFile {
             get {
                 return ResourceManager.GetString("MessageSelectOutputCsvFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   未収集 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NotCollected {
+            get {
+                return ResourceManager.GetString("NotCollected", resourceCulture);
             }
         }
         

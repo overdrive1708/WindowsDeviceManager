@@ -66,6 +66,12 @@
         public string BIOSVersion { get => _biosVersion; set => _biosVersion = value; }
 
         /// <summary>
+        /// BitLockerの状態
+        /// </summary>
+        private string _bitLockerStatus = string.Empty;
+        public string BitLockerStatus { get => _bitLockerStatus; set => _bitLockerStatus = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

@@ -40,6 +40,7 @@
             <FrameworkElement x:Key="ProxyColumnVisibilityProcessor" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayProcessor}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSManufacturer}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSVersion" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSVersion}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityBitLockerStatus" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBitLockerStatus}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityLastUpdate" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayLastUpdate}" />
         </Grid.Resources>
         <ContentControl Content="{StaticResource ProxyColumnVisibilityHostName}" Visibility="Collapsed" />
@@ -52,10 +53,11 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityProcessor}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSManufacturer}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSVersion}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityBitLockerStatus}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <StackPanel Margin="10,10,10,10">
             <GroupBox
-                Height="450"
+                Height="440"
                 Margin="0,0,0,5"
                 Header="{x:Static resources:Strings.WindowsDeviceInfo}"
                 Style="{StaticResource MaterialDesignGroupBox}">
@@ -105,6 +107,10 @@
                             Binding="{Binding Path=BIOSVersion}"
                             Header="{x:Static resources:Strings.BIOSVersion}"
                             Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <DataGridTextColumn
+                            Binding="{Binding Path=BitLockerStatus}"
+                            Header="{x:Static resources:Strings.BitLockerStatus}"
+                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <DataGridTextColumn
                             Binding="{Binding Path=LastUpdate}"
                             Header="{x:Static resources:Strings.LastUpdate}"
@@ -189,6 +195,13 @@
                     </StackPanel>
                     <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
                         <ToggleButton
+                            x:Name="ToggleButtonDisplayBitLockerStatus"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BitLockerStatus}" />
+                    </StackPanel>
+                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                        <ToggleButton
                             x:Name="ToggleButtonDisplayLastUpdate"
                             IsChecked="True"
                             Style="{StaticResource MaterialDesignSwitchToggleButton}" />
@@ -197,7 +210,7 @@
                 </WrapPanel>
             </GroupBox>
             <GroupBox
-                Margin="0,5,0,0"
+                Margin="0,5,0,5"
                 Header="{x:Static resources:Strings.Maintenance}"
                 Style="{StaticResource MaterialDesignGroupBox}">
                 <StackPanel Orientation="Horizontal">
@@ -223,6 +236,16 @@
                         Style="{StaticResource MaterialDesignOutlinedButton}" />
                 </StackPanel>
             </GroupBox>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Title}" />
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Copyright}" />
+            <TextBlock HorizontalAlignment="Right">
+                <Hyperlink
+                    Command="{Binding CommandOpenUrl}"
+                    CommandParameter="https://github.com/overdrive1708/WindowsDeviceManager"
+                    Cursor="Hand">
+                    <TextBlock Text="{x:Static resources:Strings.MessageOpenProjectUrl}" />
+                </Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </metro:MetroWindow>

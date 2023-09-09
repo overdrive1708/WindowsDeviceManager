@@ -25,6 +25,7 @@ namespace WindowsDeviceManagerAgent
                 Processor = GetProcessor(),
                 BIOSManufacturer = GetBIOSManufacturer(),
                 BIOSVersion = GetBIOSVersion(),
+                BitLockerStatus = GetBitLockerStatus(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -242,6 +243,72 @@ namespace WindowsDeviceManagerAgent
             }
 
             return biosversion;
+        }
+
+        /// <summary>
+        /// BitLockerの状態取得処理
+        /// </summary>
+        /// <returnsBitLockerの状態></returns>
+        private static string GetBitLockerStatus()
+        {
+            // 固定ディスクごとのBitLocker状態を取得
+            List<BitLockerStatusInfo> bitLockerStatusInfos = BitLockerStatusInfoCollector.GetBitLockerStatusInfo();
+
+            if (bitLockerStatusInfos.All(x => x.BitLockerStatus == BitLockerStatusInfo.Status.On))
+            {
+                // すべての固定ディスクが有効
+                return Resources.Strings.BitLockerStatusAllDiskEnable;
+            }
+
+            if (bitLockerStatusInfos.All(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Off))
+            {
+                // すべての固定ディスクが無効
+                return Resources.Strings.BitLockerStatusAllDiskDisable;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Off))
+            {
+                // いずれかの固定ディスクが無効
+                return Resources.Strings.BitLockerStatusAnyDiskDisable;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Encrypting))
+            {
+                // いずれかの固定ディスクが暗号化中
+                return Resources.Strings.BitLockerStatusAnyDiskEncrypting;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Decrypting))
+            {
+                // いずれかの固定ディスクが復号化中
+                return Resources.Strings.BitLockerStatusAnyDiskDecrypting;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Suspended))
+            {
+                // いずれかの固定ディスクが中断
+                return Resources.Strings.BitLockerStatusAnyDiskSuspended;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.OnLocked))
+            {
+                // いずれかの固定ディスクが有効(ロック)
+                return Resources.Strings.BitLockerStatusAnyDiskOnLocked;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.WaitingForActivation))
+            {
+                // いずれかの固定ディスクがアクティブ化を待機中
+                return Resources.Strings.BitLockerStatusAnyDiskWaitingForActivation;
+            }
+
+            if (bitLockerStatusInfos.Any(x => x.BitLockerStatus == BitLockerStatusInfo.Status.Unknown))
+            {
+                // いずれかの固定ディスクが状態不明
+                return Resources.Strings.BitLockerStatusAnyDiskUnknown;
+            }
+
+            return Resources.Strings.BitLockerStatusAnyDiskUnknown;
         }
 
         /// <summary>
