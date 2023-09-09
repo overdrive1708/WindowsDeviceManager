@@ -165,4 +165,7 @@
   <data name="MessageUpdateDatabaseComplete" xml:space="preserve">
     <value>データベースファイルをバージョンアップしました｡</value>
   </data>
+  <data name="Processor" xml:space="preserve">
+    <value>プロセッサ</value>
+  </data>
 </root>

@@ -22,6 +22,7 @@ namespace WindowsDeviceManagerAgent
                 OSVersion = GetOSVersion(),
                 ComputerManufacturer = GetComputerManufacturer(),
                 ComputerModel = GetComputerModel(),
+                Processor = GetProcessor(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -185,6 +186,24 @@ namespace WindowsDeviceManagerAgent
             }
 
             return computerModel;
+        }
+
+        /// <summary>
+        /// プロセッサ取得処理
+        /// </summary>
+        /// <returns>プロセッサ</returns>
+        private static string GetProcessor()
+        {
+            string processor = Resources.Strings.Unknown;
+
+            ManagementClass mc = new("Win32_Processor");
+            ManagementObjectCollection moc = mc.GetInstances();
+            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            {
+                processor = mo["Name"].ToString();
+            }
+
+            return processor;
         }
 
         /// <summary>

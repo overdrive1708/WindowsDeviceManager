@@ -289,6 +289,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   プロセッサ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Processor {
+            get {
+                return ResourceManager.GetString("Processor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OSバージョン再判定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string RecheckOSVersion {

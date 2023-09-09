@@ -73,6 +73,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - OSバージョン：22H2
 - コンピュータの製造元：MouseComputer Co.,Ltd.
 - コンピュータの製品名：NG-im610
+- プロセッサ：Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
 
 ## サポートするOSバージョン
 - Windows10

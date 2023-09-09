@@ -96,6 +96,7 @@ namespace WindowsDeviceManagerAgent
             ConsoleWrapper.WriteLine($"{Resources.Strings.OSVersion}:{info.OSVersion}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerManufacturer}:{info.ComputerManufacturer}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerModel}:{info.ComputerModel}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.Processor}:{info.Processor}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{info.LastUpdate}");
             ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
         }
