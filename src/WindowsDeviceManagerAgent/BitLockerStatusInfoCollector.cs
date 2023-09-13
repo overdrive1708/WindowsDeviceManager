@@ -21,13 +21,26 @@ namespace WindowsDeviceManagerAgent
 
             foreach (DriveInfo drive in drives)
             {
-                // 固定ディスクで｢Google Drive｣ではないドライブのBitLocker状態を取得
-                if((drive.DriveType == DriveType.Fixed) && (drive.VolumeLabel != "Google Drive"))
+                try
                 {
+                    // 固定ディスクで｢Google Drive｣ではないドライブのBitLocker状態を取得
+                    if ((drive.DriveType == DriveType.Fixed) && (drive.VolumeLabel != "Google Drive"))
+                    {
+                        BitLockerStatusInfo bitLockerStatusInfo = new()
+                        {
+                            DriveLetter = drive.Name,
+                            BitLockerStatus = GetDriveBitLockerStatus(drive.Name)
+                        };
+                        bitLockerStatusInfos.Add(bitLockerStatusInfo);
+                    }
+                }
+                catch
+                {
+                    // 例外が発生してBitLockerの状態を取得できない場合は状態不明として扱う
                     BitLockerStatusInfo bitLockerStatusInfo = new()
                     {
                         DriveLetter = drive.Name,
-                        BitLockerStatus = GetDriveBitLockerStatus(drive.Name)
+                        BitLockerStatus = BitLockerStatusInfo.Status.Unknown
                     };
                     bitLockerStatusInfos.Add(bitLockerStatusInfo);
                 }
