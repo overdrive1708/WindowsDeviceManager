@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Change Viewer UI.
+
 ### Fixed
 - Bug fix.([Issue #26](https://github.com/overdrive1708/WindowsDeviceManager/issues/26))
 

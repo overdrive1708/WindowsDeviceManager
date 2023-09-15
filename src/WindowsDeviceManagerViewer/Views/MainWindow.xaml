@@ -55,197 +55,199 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSVersion}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBitLockerStatus}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
-        <StackPanel Margin="10,10,10,10">
-            <GroupBox
-                Height="440"
-                Margin="0,0,0,5"
-                Header="{x:Static resources:Strings.WindowsDeviceInfo}"
-                Style="{StaticResource MaterialDesignGroupBox}">
-                <DataGrid
-                    AutoGenerateColumns="False"
-                    HeadersVisibility="Column"
-                    IsReadOnly="True"
-                    ItemsSource="{Binding Path=WindowsDeviceInfoCollectData}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Binding="{Binding Path=HostName}"
-                            Header="{x:Static resources:Strings.HostName}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityHostName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=UserName}"
-                            Header="{x:Static resources:Strings.UserName}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityUserName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=OSName}"
-                            Header="{x:Static resources:Strings.OSName}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=OSBuildNumber}"
-                            Header="{x:Static resources:Strings.OSBuildNumber}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSBuildNumber}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=OSVersion}"
-                            Header="{x:Static resources:Strings.OSVersion}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=ComputerManufacturer}"
-                            Header="{x:Static resources:Strings.ComputerManufacturer}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=ComputerModel}"
-                            Header="{x:Static resources:Strings.ComputerModel}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerModel}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=Processor}"
-                            Header="{x:Static resources:Strings.Processor}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityProcessor}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=BIOSManufacturer}"
-                            Header="{x:Static resources:Strings.BIOSManufacturer}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=BIOSVersion}"
-                            Header="{x:Static resources:Strings.BIOSVersion}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=BitLockerStatus}"
-                            Header="{x:Static resources:Strings.BitLockerStatus}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <DataGridTextColumn
-                            Binding="{Binding Path=LastUpdate}"
-                            Header="{x:Static resources:Strings.LastUpdate}"
-                            Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityLastUpdate}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </GroupBox>
-            <GroupBox
-                Margin="0,5,0,5"
-                Header="{x:Static resources:Strings.DisplayItemSetting}"
-                Style="{StaticResource MaterialDesignGroupBox}">
-                <WrapPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayHostName"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.HostName}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayUserName"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.UserName}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayOSName"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSName}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayOSBuildNumber"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSBuildNumber}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayOSVersion"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSVersion}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayComputerManufacturer"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerManufacturer}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayComputerModel"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerModel}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayProcessor"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.Processor}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayBIOSManufacturer"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSManufacturer}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayBIOSVersion"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSVersion}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayBitLockerStatus"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BitLockerStatus}" />
-                    </StackPanel>
-                    <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
-                        <ToggleButton
-                            x:Name="ToggleButtonDisplayLastUpdate"
-                            IsChecked="True"
-                            Style="{StaticResource MaterialDesignSwitchToggleButton}" />
-                        <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.LastUpdate}" />
-                    </StackPanel>
-                </WrapPanel>
-            </GroupBox>
-            <GroupBox
-                Margin="0,5,0,5"
-                Header="{x:Static resources:Strings.Maintenance}"
-                Style="{StaticResource MaterialDesignGroupBox}">
-                <StackPanel Orientation="Horizontal">
-                    <Button
-                        Margin="10,10,10,10"
-                        Command="{Binding CommandCleanupDatabase}"
-                        Content="{x:Static resources:Strings.Clean}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}" />
-                    <Button
-                        Margin="10,10,10,10"
-                        Command="{Binding CommandRecheckOSVersion}"
-                        Content="{x:Static resources:Strings.RecheckOSVersion}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}" />
-                    <Button
-                        Margin="10,10,10,10"
-                        Command="{Binding CommandReloadDisplayData}"
-                        Content="{x:Static resources:Strings.Reload}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}" />
-                    <Button
-                        Margin="10,10,10,10"
-                        Command="{Binding CommandOutputCsv}"
-                        Content="{x:Static resources:Strings.OutputCsv}"
-                        Style="{StaticResource MaterialDesignOutlinedButton}" />
-                </StackPanel>
-            </GroupBox>
-            <TextBlock HorizontalAlignment="Right" Text="{Binding Title}" />
-            <TextBlock HorizontalAlignment="Right" Text="{Binding Copyright}" />
-            <TextBlock HorizontalAlignment="Right">
-                <Hyperlink
-                    Command="{Binding CommandOpenUrl}"
-                    CommandParameter="https://github.com/overdrive1708/WindowsDeviceManager"
-                    Cursor="Hand">
-                    <TextBlock Text="{x:Static resources:Strings.MessageOpenProjectUrl}" />
-                </Hyperlink>
-            </TextBlock>
-        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="10,10,10,10">
+                <GroupBox
+                    Height="440"
+                    Margin="0,0,0,5"
+                    Header="{x:Static resources:Strings.WindowsDeviceInfo}"
+                    Style="{StaticResource MaterialDesignGroupBox}">
+                    <DataGrid
+                        AutoGenerateColumns="False"
+                        HeadersVisibility="Column"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding Path=WindowsDeviceInfoCollectData}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=HostName}"
+                                Header="{x:Static resources:Strings.HostName}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityHostName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=UserName}"
+                                Header="{x:Static resources:Strings.UserName}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityUserName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=OSName}"
+                                Header="{x:Static resources:Strings.OSName}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=OSBuildNumber}"
+                                Header="{x:Static resources:Strings.OSBuildNumber}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSBuildNumber}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=OSVersion}"
+                                Header="{x:Static resources:Strings.OSVersion}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=ComputerManufacturer}"
+                                Header="{x:Static resources:Strings.ComputerManufacturer}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=ComputerModel}"
+                                Header="{x:Static resources:Strings.ComputerModel}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerModel}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=Processor}"
+                                Header="{x:Static resources:Strings.Processor}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityProcessor}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=BIOSManufacturer}"
+                                Header="{x:Static resources:Strings.BIOSManufacturer}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=BIOSVersion}"
+                                Header="{x:Static resources:Strings.BIOSVersion}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=BitLockerStatus}"
+                                Header="{x:Static resources:Strings.BitLockerStatus}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=LastUpdate}"
+                                Header="{x:Static resources:Strings.LastUpdate}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityLastUpdate}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+                <GroupBox
+                    Margin="0,5,0,5"
+                    Header="{x:Static resources:Strings.DisplayItemSetting}"
+                    Style="{StaticResource MaterialDesignGroupBox}">
+                    <WrapPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayHostName"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.HostName}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayUserName"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.UserName}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayOSName"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSName}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayOSBuildNumber"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSBuildNumber}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayOSVersion"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.OSVersion}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayComputerManufacturer"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerManufacturer}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayComputerModel"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.ComputerModel}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayProcessor"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.Processor}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayBIOSManufacturer"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSManufacturer}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayBIOSVersion"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BIOSVersion}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayBitLockerStatus"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.BitLockerStatus}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
+                                x:Name="ToggleButtonDisplayLastUpdate"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.LastUpdate}" />
+                        </StackPanel>
+                    </WrapPanel>
+                </GroupBox>
+                <GroupBox
+                    Margin="0,5,0,5"
+                    Header="{x:Static resources:Strings.Maintenance}"
+                    Style="{StaticResource MaterialDesignGroupBox}">
+                    <WrapPanel Orientation="Horizontal" Cursor="">
+                        <Button
+                            Margin="10,10,10,10"
+                            Command="{Binding CommandCleanupDatabase}"
+                            Content="{x:Static resources:Strings.Clean}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                        <Button
+                            Margin="10,10,10,10"
+                            Command="{Binding CommandRecheckOSVersion}"
+                            Content="{x:Static resources:Strings.RecheckOSVersion}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                        <Button
+                            Margin="10,10,10,10"
+                            Command="{Binding CommandReloadDisplayData}"
+                            Content="{x:Static resources:Strings.Reload}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                        <Button
+                            Margin="10,10,10,10"
+                            Command="{Binding CommandOutputCsv}"
+                            Content="{x:Static resources:Strings.OutputCsv}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                    </WrapPanel>
+                </GroupBox>
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Title}" />
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Copyright}" />
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink
+                        Command="{Binding CommandOpenUrl}"
+                        CommandParameter="https://github.com/overdrive1708/WindowsDeviceManager"
+                        Cursor="Hand">
+                        <TextBlock Text="{x:Static resources:Strings.MessageOpenProjectUrl}" />
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </metro:MetroWindow>
