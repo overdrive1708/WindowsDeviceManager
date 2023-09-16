@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-09-16
+
 ### Changed
 - Change Viewer UI.
 
@@ -42,5 +44,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - OSVersion
 
 [Unreleased]: https://github.com/overdrive1708/WindowsDeviceManager
+[1.1.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.2.0
 [1.1.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.1.0
 [1.0.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.0.0
