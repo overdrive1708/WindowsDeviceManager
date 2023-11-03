@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Support Windows11 23H2.
+
 ### Fixed
 - Bug fix.([Issue #30](https://github.com/overdrive1708/WindowsDeviceManager/issues/30))
 - Bug fix.([Issue #31](https://github.com/overdrive1708/WindowsDeviceManager/issues/31))
