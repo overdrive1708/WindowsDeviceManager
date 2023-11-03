@@ -48,6 +48,10 @@
             ConsoleWrapper.WriteErrorLine(Resources.Strings.ImportantNotice);
             ConsoleWrapper.WriteErrorLine(Resources.Strings.MessageFatalError);
 
+            // アプリケーションの終了待ち
+            ConsoleWrapper.WriteLine(Resources.Strings.MessagePause);
+            _ = ConsoleWrapper.ReadKey();
+
             // 終了する｡
             Environment.Exit(1);
         }
