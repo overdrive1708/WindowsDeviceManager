@@ -58,11 +58,19 @@ namespace WindowsDeviceManagerAgent
         {
             string userName = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_ComputerSystem");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            try
             {
-                userName = mo["UserName"].ToString();
+                ManagementClass mc = new("Win32_ComputerSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    userName = mo["UserName"].ToString();
+                }
+            }
+            catch (NullReferenceException)
+            {
+                // リモートデスクトップでログインした状態で実行するとNullReferenceExceptionが発生する｡
+                // 無処理でUnknownを返す｡
             }
 
             return userName;
