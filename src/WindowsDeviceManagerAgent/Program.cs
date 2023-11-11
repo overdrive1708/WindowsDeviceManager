@@ -100,6 +100,7 @@ namespace WindowsDeviceManagerAgent
             ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSManufacturer}:{info.BIOSManufacturer}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSVersion}:{info.BIOSVersion}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.BitLockerStatus}:{info.BitLockerStatus}");
+            ConsoleWrapper.WriteLine($"{Resources.Strings.AntiVirusSoftware}:{info.AntiVirusSoftware}");
             ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{info.LastUpdate}");
             ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
         }

@@ -80,6 +80,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - BIOSの製造元：American Megatrends Inc.
 - BIOSのバージョン：1.08
 - BitLockerの状態：すべての固定ディスクが有効
+- アンチウィルスソフトウェア:Windows Defender
 
 ## サポートするOSバージョン
 - Windows10

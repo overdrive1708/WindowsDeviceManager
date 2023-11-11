@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Support Windows11 23H2.
+- Collect and show windows device information.
+    - AntiVirusSoftware
 
 ### Fixed
 - Bug fix.([Issue #30](https://github.com/overdrive1708/WindowsDeviceManager/issues/30))

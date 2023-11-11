@@ -44,6 +44,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => executeReader["ComputerManufacturer"].ToString(),
                                 "3" => executeReader["ComputerManufacturer"].ToString(),
                                 "4" => executeReader["ComputerManufacturer"].ToString(),
+                                "5" => executeReader["ComputerManufacturer"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             ComputerModel = databaseVersion switch
@@ -54,6 +55,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => executeReader["ComputerModel"].ToString(),
                                 "3" => executeReader["ComputerModel"].ToString(),
                                 "4" => executeReader["ComputerModel"].ToString(),
+                                "5" => executeReader["ComputerModel"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             Processor = databaseVersion switch
@@ -64,6 +66,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => executeReader["Processor"].ToString(),
                                 "3" => executeReader["Processor"].ToString(),
                                 "4" => executeReader["Processor"].ToString(),
+                                "5" => executeReader["Processor"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BIOSManufacturer = databaseVersion switch
@@ -74,6 +77,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => Resources.Strings.NotCollected,
                                 "3" => executeReader["BIOSManufacturer"].ToString(),
                                 "4" => executeReader["BIOSManufacturer"].ToString(),
+                                "5" => executeReader["BIOSManufacturer"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BIOSVersion = databaseVersion switch
@@ -84,6 +88,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => Resources.Strings.NotCollected,
                                 "3" => executeReader["BIOSVersion"].ToString(),
                                 "4" => executeReader["BIOSVersion"].ToString(),
+                                "5" => executeReader["BIOSVersion"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BitLockerStatus = databaseVersion switch
@@ -94,6 +99,18 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "2" => Resources.Strings.NotCollected,
                                 "3" => Resources.Strings.NotCollected,
                                 "4" => executeReader["BitLockerStatus"].ToString(),
+                                "5" => executeReader["BitLockerStatus"].ToString(),
+                                _ => Resources.Strings.NotCollected,
+                            },
+                            AntiVirusSoftware = databaseVersion switch
+                            {
+                                // アンチウィルスソフトウェアはuser_versionが5以上の場合に取得可能
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
+                                "2" => Resources.Strings.NotCollected,
+                                "3" => Resources.Strings.NotCollected,
+                                "4" => Resources.Strings.NotCollected,
+                                "5" => executeReader["AntiVirusSoftware"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             LastUpdate = executeReader["LastUpdate"].ToString()

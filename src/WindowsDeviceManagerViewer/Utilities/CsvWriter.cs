@@ -29,6 +29,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                 + $"\"{Resources.Strings.BIOSManufacturer}\","
                 + $"\"{Resources.Strings.BIOSVersion}\","
                 + $"\"{Resources.Strings.BitLockerStatus}\","
+                + $"\"{Resources.Strings.AntiVirusSoftware}\","
                 + $"\"{Resources.Strings.LastUpdate}\"");
 
             foreach (WindowsDeviceInfo info in windowsDeviceInfos)
@@ -45,6 +46,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                     + $"\"{info.BIOSManufacturer}\","
                     + $"\"{info.BIOSVersion}\","
                     + $"\"{info.BitLockerStatus}\","
+                    + $"\"{info.AntiVirusSoftware}\","
                     + $"\"{info.LastUpdate}\"");
             }
 

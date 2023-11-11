@@ -26,6 +26,7 @@ namespace WindowsDeviceManagerAgent
                 BIOSManufacturer = GetBIOSManufacturer(),
                 BIOSVersion = GetBIOSVersion(),
                 BitLockerStatus = GetBitLockerStatus(),
+                AntiVirusSoftware = GetAntiVirusSoftware(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -318,6 +319,28 @@ namespace WindowsDeviceManagerAgent
             }
 
             return Resources.Strings.BitLockerStatusAnyDiskUnknown;
+        }
+
+        private static string GetAntiVirusSoftware()
+        {
+            string antiVirusSoftware = Resources.Strings.Unknown;
+
+            try
+            {
+                ManagementObjectSearcher mos = new(@"root\SecurityCenter2", "SELECT * FROM AntiVirusProduct");
+                ManagementObjectCollection moc = mos.Get();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    antiVirusSoftware = mo["displayName"].ToString();
+                }
+            }
+            catch
+            {
+                // 例外が発生してアンチウィルスソフトウェアの情報が取得できない場合
+                // 無処理でUnknownを返す｡
+            }
+
+            return antiVirusSoftware;
         }
 
         /// <summary>
