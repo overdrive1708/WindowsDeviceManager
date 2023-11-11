@@ -211,4 +211,7 @@
   <data name="MessageOpenProjectUrl" xml:space="preserve">
     <value>このアプリケーションのプロジェクトURLを開く</value>
   </data>
+  <data name="AntiVirusSoftware" xml:space="preserve">
+    <value>アンチウィルスソフトウェア</value>
+  </data>
 </root>

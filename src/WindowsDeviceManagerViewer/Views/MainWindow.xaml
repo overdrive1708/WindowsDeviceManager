@@ -41,6 +41,7 @@
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSManufacturer" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSManufacturer}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBIOSVersion" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBIOSVersion}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityBitLockerStatus" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayBitLockerStatus}" />
+            <FrameworkElement x:Key="ProxyColumnVisibilityAntiVirusSoftware" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayAntiVirusSoftware}" />
             <FrameworkElement x:Key="ProxyColumnVisibilityLastUpdate" DataContext="{Binding Path=IsChecked, ElementName=ToggleButtonDisplayLastUpdate}" />
         </Grid.Resources>
         <ContentControl Content="{StaticResource ProxyColumnVisibilityHostName}" Visibility="Collapsed" />
@@ -54,6 +55,7 @@
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSManufacturer}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBIOSVersion}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityBitLockerStatus}" Visibility="Collapsed" />
+        <ContentControl Content="{StaticResource ProxyColumnVisibilityAntiVirusSoftware}" Visibility="Collapsed" />
         <ContentControl Content="{StaticResource ProxyColumnVisibilityLastUpdate}" Visibility="Collapsed" />
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="10,10,10,10">
@@ -112,6 +114,10 @@
                                 Binding="{Binding Path=BitLockerStatus}"
                                 Header="{x:Static resources:Strings.BitLockerStatus}"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <DataGridTextColumn
+                                Binding="{Binding Path=AntiVirusSoftware}"
+                                Header="{x:Static resources:Strings.AntiVirusSoftware}"
+                                Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityAntiVirusSoftware}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
                                 Binding="{Binding Path=LastUpdate}"
                                 Header="{x:Static resources:Strings.LastUpdate}"
@@ -203,6 +209,13 @@
                         </StackPanel>
                         <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
                             <ToggleButton
+                                x:Name="ToggleButtonDisplayAntiVirusSoftware"
+                                IsChecked="True"
+                                Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+                            <TextBlock Margin="10,0,0,0" Text="{x:Static resources:Strings.AntiVirusSoftware}" />
+                        </StackPanel>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <ToggleButton
                                 x:Name="ToggleButtonDisplayLastUpdate"
                                 IsChecked="True"
                                 Style="{StaticResource MaterialDesignSwitchToggleButton}" />
@@ -214,7 +227,7 @@
                     Margin="0,5,0,5"
                     Header="{x:Static resources:Strings.Maintenance}"
                     Style="{StaticResource MaterialDesignGroupBox}">
-                    <WrapPanel Orientation="Horizontal" Cursor="">
+                    <WrapPanel Cursor="" Orientation="Horizontal">
                         <Button
                             Margin="10,10,10,10"
                             Command="{Binding CommandCleanupDatabase}"
