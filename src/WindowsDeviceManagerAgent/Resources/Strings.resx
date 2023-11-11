@@ -204,4 +204,7 @@
   <data name="BitLockerStatusAnyDiskUnknown" xml:space="preserve">
     <value>いずれかの固定ディスクが状態不明</value>
   </data>
+  <data name="AntiVirusSoftware" xml:space="preserve">
+    <value>アンチウィルスソフトウェア</value>
+  </data>
 </root>

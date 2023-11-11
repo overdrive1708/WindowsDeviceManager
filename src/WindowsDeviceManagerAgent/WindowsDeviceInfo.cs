@@ -72,6 +72,12 @@
         public string BitLockerStatus { get => _bitLockerStatus; set => _bitLockerStatus = value; }
 
         /// <summary>
+        /// アンチウィルスソフトウェア
+        /// </summary>
+        private string _antiVirusSoftware = string.Empty;
+        public string AntiVirusSoftware { get => _antiVirusSoftware; set => _antiVirusSoftware = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

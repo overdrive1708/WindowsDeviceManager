@@ -61,6 +61,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   アンチウィルスソフトウェア に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string AntiVirusSoftware {
+            get {
+                return ResourceManager.GetString("AntiVirusSoftware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   BIOSの製造元 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string BIOSManufacturer {
