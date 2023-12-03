@@ -23,6 +23,16 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private const string SQLiteDatabaseFileExtensionList = "*.db,*.sqlite,*.sqlite3";
 
         /// <summary>
+        /// JSONファイルの拡張子
+        /// </summary>
+        private const string JSONFileExtensionList = "*.json";
+
+        /// <summary>
+        /// 出力JSONファイル名
+        /// </summary>
+        private static readonly string _outputJsonFileName = "WindowsDeviceInfo.json";
+
+        /// <summary>
         /// CSVファイルの拡張子
         /// </summary>
         private const string CSVFileExtensionList = "*.csv";
@@ -113,6 +123,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private DelegateCommand _commandReloadDisplayData;
         public DelegateCommand CommandReloadDisplayData =>
             _commandReloadDisplayData ?? (_commandReloadDisplayData = new DelegateCommand(ExecuteCommandReloadDisplayData));
+
+        /// <summary>
+        /// JSON出力コマンド
+        /// </summary>
+        private DelegateCommand _commandOutputJson;
+        public DelegateCommand CommandOutputJson =>
+            _commandOutputJson ?? (_commandOutputJson = new DelegateCommand(ExecuteCommandOutputJson));
 
         /// <summary>
         /// CSV出力コマンド
@@ -229,6 +246,45 @@ namespace WindowsDeviceManagerViewer.ViewModels
         }
 
         /// <summary>
+        /// JSON出力コマンド実行処理
+        /// </summary>
+        private void ExecuteCommandOutputJson()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合は保存先を確認して出力処理を行う
+                string jsonFileName = GetJsonFileName();
+
+                if (jsonFileName != string.Empty)
+                {
+                    // 出力先が指定されている場合はJSON出力を行い完了メッセージを表示する
+                    List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
+                    JsonWriter.WriteWindowsDeviceInfoRecords(jsonFileName, readRecords);
+                    _ = MessageBox.Show(Resources.Strings.MessageOutputJsonComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+                }
+                else
+                {
+                    // 出力先が指定されていない場合はエラーメッセージを表示して処理を終わる
+                    _ = MessageBox.Show(Resources.Strings.MessageErrorOutputJsonFileNotSelected,
+                                Resources.Strings.Notice,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// CSV出力コマンド実行処理
         /// </summary>
         private void ExecuteCommandOutputCsv()
@@ -329,6 +385,30 @@ namespace WindowsDeviceManagerViewer.ViewModels
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
                 Environment.Exit(1);
+            }
+        }
+
+        /// <summary>
+        /// 出力JSONファイルファイル名取得処理
+        /// </summary>
+        /// <returns>出力JSONファイル名</returns>
+        private static string GetJsonFileName()
+        {
+            // CommonSaveFileDialogを使ってユーザにファイルを選択させる
+            using CommonSaveFileDialog dialog = new()
+            {
+                Title = Resources.Strings.MessageSelectOutputJsonFile,
+                DefaultFileName = _outputJsonFileName
+            };
+            dialog.Filters.Add(new CommonFileDialogFilter(Resources.Strings.JSONFile, JSONFileExtensionList));
+
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
+            }
+            else
+            {
+                return string.Empty;
             }
         }
 

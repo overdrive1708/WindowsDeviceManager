@@ -178,6 +178,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   JSONファイル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string JSONFile {
+            get {
+                return ResourceManager.GetString("JSONFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   最終更新日時 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LastUpdate {
@@ -224,6 +233,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   出力するJSONファイルが指定されていません｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageErrorOutputJsonFileNotSelected {
+            get {
+                return ResourceManager.GetString("MessageErrorOutputJsonFileNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を表示しますか? に類似しているローカライズされた文字列を検索します。
@@ -249,6 +267,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageOutputCsvComplete {
             get {
                 return ResourceManager.GetString("MessageOutputCsvComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   JSON出力が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageOutputJsonComplete {
+            get {
+                return ResourceManager.GetString("MessageOutputJsonComplete", resourceCulture);
             }
         }
         
@@ -285,6 +312,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageSelectOutputCsvFile {
             get {
                 return ResourceManager.GetString("MessageSelectOutputCsvFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   出力するJSONファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageSelectOutputJsonFile {
+            get {
+                return ResourceManager.GetString("MessageSelectOutputJsonFile", resourceCulture);
             }
         }
         
@@ -339,6 +375,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string OutputCsv {
             get {
                 return ResourceManager.GetString("OutputCsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   JSON出力 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OutputJson {
+            get {
+                return ResourceManager.GetString("OutputJson", resourceCulture);
             }
         }
         
