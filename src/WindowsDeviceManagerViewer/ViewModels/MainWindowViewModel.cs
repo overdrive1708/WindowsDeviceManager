@@ -33,6 +33,16 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private static readonly string _outputJsonFileName = "WindowsDeviceInfo.json";
 
         /// <summary>
+        /// XMLファイルの拡張子
+        /// </summary>
+        private const string XMLFileExtensionList = "*.xml";
+
+        /// <summary>
+        /// 出力XMLファイル名
+        /// </summary>
+        private static readonly string _outputXmlFileName = "WindowsDeviceInfo.xml";
+
+        /// <summary>
         /// CSVファイルの拡張子
         /// </summary>
         private const string CSVFileExtensionList = "*.csv";
@@ -130,6 +140,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private DelegateCommand _commandOutputJson;
         public DelegateCommand CommandOutputJson =>
             _commandOutputJson ?? (_commandOutputJson = new DelegateCommand(ExecuteCommandOutputJson));
+
+        /// <summary>
+        /// XML出力コマンド
+        /// </summary>
+        private DelegateCommand _commandOutputXml;
+        public DelegateCommand CommandOutputXml =>
+            _commandOutputXml ?? (_commandOutputXml = new DelegateCommand(ExecuteCommandOutputXml));
 
         /// <summary>
         /// CSV出力コマンド
@@ -285,6 +302,45 @@ namespace WindowsDeviceManagerViewer.ViewModels
         }
 
         /// <summary>
+        /// XML出力コマンド実行処理
+        /// </summary>
+        private void ExecuteCommandOutputXml()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合は保存先を確認して出力処理を行う
+                string xmlFileName = GetXmlFileName();
+
+                if (xmlFileName != string.Empty)
+                {
+                    // 出力先が指定されている場合はXML出力を行い完了メッセージを表示する
+                    List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
+                    XmlWriter.WriteWindowsDeviceInfoRecords(xmlFileName, readRecords);
+                    _ = MessageBox.Show(Resources.Strings.MessageOutputXmlComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+                }
+                else
+                {
+                    // 出力先が指定されていない場合はエラーメッセージを表示して処理を終わる
+                    _ = MessageBox.Show(Resources.Strings.MessageErrorOutputXmlFileNotSelected,
+                                Resources.Strings.Notice,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// CSV出力コマンド実行処理
         /// </summary>
         private void ExecuteCommandOutputCsv()
@@ -401,6 +457,30 @@ namespace WindowsDeviceManagerViewer.ViewModels
                 DefaultFileName = _outputJsonFileName
             };
             dialog.Filters.Add(new CommonFileDialogFilter(Resources.Strings.JSONFile, JSONFileExtensionList));
+
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// 出力XMLファイルファイル名取得処理
+        /// </summary>
+        /// <returns>出力XMLファイル名</returns>
+        private static string GetXmlFileName()
+        {
+            // CommonSaveFileDialogを使ってユーザにファイルを選択させる
+            using CommonSaveFileDialog dialog = new()
+            {
+                Title = Resources.Strings.MessageSelectOutputXmlFile,
+                DefaultFileName = _outputXmlFileName
+            };
+            dialog.Filters.Add(new CommonFileDialogFilter(Resources.Strings.XMLFile, XMLFileExtensionList));
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {

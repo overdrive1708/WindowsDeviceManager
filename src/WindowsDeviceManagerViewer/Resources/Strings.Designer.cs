@@ -242,6 +242,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   出力するXMLファイルが指定されていません｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageErrorOutputXmlFileNotSelected {
+            get {
+                return ResourceManager.GetString("MessageErrorOutputXmlFileNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   致命的なエラーが発生しました｡
         ///このアプリケーションを終了します｡
         ///エラーの詳細な情報を表示しますか? に類似しているローカライズされた文字列を検索します。
@@ -276,6 +285,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageOutputJsonComplete {
             get {
                 return ResourceManager.GetString("MessageOutputJsonComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   XML出力が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageOutputXmlComplete {
+            get {
+                return ResourceManager.GetString("MessageOutputXmlComplete", resourceCulture);
             }
         }
         
@@ -321,6 +339,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageSelectOutputJsonFile {
             get {
                 return ResourceManager.GetString("MessageSelectOutputJsonFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   出力するXMLファイルを選択してください｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageSelectOutputXmlFile {
+            get {
+                return ResourceManager.GetString("MessageSelectOutputXmlFile", resourceCulture);
             }
         }
         
@@ -388,6 +415,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   XML出力 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OutputXml {
+            get {
+                return ResourceManager.GetString("OutputXml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   プロセッサ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Processor {
@@ -447,6 +483,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string WindowsDeviceInfo {
             get {
                 return ResourceManager.GetString("WindowsDeviceInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   XMLファイル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string XMLFile {
+            get {
+                return ResourceManager.GetString("XMLFile", resourceCulture);
             }
         }
     }
