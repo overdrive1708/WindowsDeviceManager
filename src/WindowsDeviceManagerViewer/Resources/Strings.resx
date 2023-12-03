@@ -214,4 +214,19 @@
   <data name="AntiVirusSoftware" xml:space="preserve">
     <value>アンチウィルスソフトウェア</value>
   </data>
+  <data name="OutputJson" xml:space="preserve">
+    <value>JSON出力</value>
+  </data>
+  <data name="MessageOutputJsonComplete" xml:space="preserve">
+    <value>JSON出力が完了しました｡</value>
+  </data>
+  <data name="MessageErrorOutputJsonFileNotSelected" xml:space="preserve">
+    <value>出力するJSONファイルが指定されていません｡</value>
+  </data>
+  <data name="MessageSelectOutputJsonFile" xml:space="preserve">
+    <value>出力するJSONファイルを選択してください｡</value>
+  </data>
+  <data name="JSONFile" xml:space="preserve">
+    <value>JSONファイル</value>
+  </data>
 </root>
