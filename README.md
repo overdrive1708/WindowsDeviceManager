@@ -50,7 +50,7 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 ```
 WindowsDeviceManagerAgent.exe [options]
 options:[-v] [--verbose] [--help] [--version]
-  -o, --output [json]           処理の結果をファイルに出力します｡(json)
+  -o, --output [json|xml]       処理の結果をファイルに出力します｡(json|xml)
 
   -v, --verbose                 処理の結果を詳細に表示します｡
 
