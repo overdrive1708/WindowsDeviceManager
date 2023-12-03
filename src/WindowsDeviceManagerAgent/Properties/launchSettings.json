@@ -18,6 +18,10 @@
     "WindowsDeviceManagerAgentOutputJson": {
       "commandName": "Project",
       "commandLineArgs": "-v -o json"
+    },
+    "WindowsDeviceManagerAgentOutputXml": {
+      "commandName": "Project",
+      "commandLineArgs": "-v -o xml"
     }
   }
 }

@@ -208,9 +208,12 @@
     <value>アンチウィルスソフトウェア</value>
   </data>
   <data name="HelpTextOutput" xml:space="preserve">
-    <value>処理の結果をファイルに出力します｡(--output [json])</value>
+    <value>処理の結果をファイルに出力します｡(--output [json|xml])</value>
   </data>
   <data name="MessageCreateJsonFile" xml:space="preserve">
     <value>JSONファイルを生成しました｡</value>
+  </data>
+  <data name="MessageCreateXmlFile" xml:space="preserve">
+    <value>XMLファイルを生成しました｡</value>
   </data>
 </root>
