@@ -250,6 +250,11 @@
                             Style="{StaticResource MaterialDesignOutlinedButton}" />
                         <Button
                             Margin="10,10,10,10"
+                            Command="{Binding CommandOutputXml}"
+                            Content="{x:Static resources:Strings.OutputXml}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                        <Button
+                            Margin="10,10,10,10"
                             Command="{Binding CommandOutputCsv}"
                             Content="{x:Static resources:Strings.OutputCsv}"
                             Style="{StaticResource MaterialDesignOutlinedButton}" />

@@ -1,5 +1,6 @@
 ﻿using CommandLine;
 using System.Reflection;
+using System.Xml;
 
 namespace WindowsDeviceManagerAgent
 {
@@ -56,6 +57,9 @@ namespace WindowsDeviceManagerAgent
                     break;
                 case CommandLineOptions.OutputFileJson:
                     JsonWriter.WriteWindowsDeviceInfoRecord(collectData);
+                    break;
+                case CommandLineOptions.OutputFileXml:
+                    XmlWriter.WriteWindowsDeviceInfoRecord(collectData);
                     break;
                 default:
                     ;

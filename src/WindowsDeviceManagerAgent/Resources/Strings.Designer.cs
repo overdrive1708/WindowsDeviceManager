@@ -214,7 +214,7 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
-        ///   処理の結果をファイルに出力します｡(--output [json]) に類似しているローカライズされた文字列を検索します。
+        ///   処理の結果をファイルに出力します｡(--output [json|xml]) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextOutput {
             get {
@@ -282,6 +282,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string MessageCreateJsonFile {
             get {
                 return ResourceManager.GetString("MessageCreateJsonFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   XMLファイルを生成しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageCreateXmlFile {
+            get {
+                return ResourceManager.GetString("MessageCreateXmlFile", resourceCulture);
             }
         }
         

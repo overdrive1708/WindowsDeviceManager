@@ -10,6 +10,7 @@
         public string OutputFileType { get => _outputFileType; set => _outputFileType = value; }
         public const string OutputFileNone = "none";
         public const string OutputFileJson = "json";
+        public const string OutputFileXml = "xml";
         private string _outputFileType = OutputFileNone;
 
         // verboseオプション解析設定･プロパティインターフェイス

@@ -229,4 +229,19 @@
   <data name="JSONFile" xml:space="preserve">
     <value>JSONファイル</value>
   </data>
+  <data name="OutputXml" xml:space="preserve">
+    <value>XML出力</value>
+  </data>
+  <data name="MessageOutputXmlComplete" xml:space="preserve">
+    <value>XML出力が完了しました｡</value>
+  </data>
+  <data name="MessageErrorOutputXmlFileNotSelected" xml:space="preserve">
+    <value>出力するXMLファイルが指定されていません｡</value>
+  </data>
+  <data name="MessageSelectOutputXmlFile" xml:space="preserve">
+    <value>出力するXMLファイルを選択してください｡</value>
+  </data>
+  <data name="XMLFile" xml:space="preserve">
+    <value>XMLファイル</value>
+  </data>
 </root>
