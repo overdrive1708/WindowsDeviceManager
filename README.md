@@ -50,11 +50,13 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 ```
 WindowsDeviceManagerAgent.exe [options]
 options:[-v] [--verbose] [--help] [--version]
-  -v, --verbose   処理の結果を詳細に表示します｡
+  -o, --output [json]           処理の結果をファイルに出力します｡(json)
 
-  --help          このアプリのヘルプを表示します｡
+  -v, --verbose                 処理の結果を詳細に表示します｡
 
-  --version       このアプリのバージョン情報を表示します｡
+  --help                        このアプリのヘルプを表示します｡
+
+  --version                     このアプリのバージョン情報を表示します｡
 ```
 WindowsDeviceManagerAgentフォルダ内のWindowsDeviceManagerAgent.exeを起動してください｡
 
