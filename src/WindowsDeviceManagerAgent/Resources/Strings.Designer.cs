@@ -214,6 +214,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   処理の結果をファイルに出力します｡(--output [json]) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string HelpTextOutput {
+            get {
+                return ResourceManager.GetString("HelpTextOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   処理の結果を詳細に表示します｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextVerbose {
@@ -264,6 +273,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string MessageCreateDatabase {
             get {
                 return ResourceManager.GetString("MessageCreateDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   JSONファイルを生成しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageCreateJsonFile {
+            get {
+                return ResourceManager.GetString("MessageCreateJsonFile", resourceCulture);
             }
         }
         

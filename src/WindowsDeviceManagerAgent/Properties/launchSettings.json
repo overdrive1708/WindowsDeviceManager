@@ -14,6 +14,10 @@
     "WindowsDeviceManagerAgentVersion": {
       "commandName": "Project",
       "commandLineArgs": "--version"
+    },
+    "WindowsDeviceManagerAgentOutputJson": {
+      "commandName": "Project",
+      "commandLineArgs": "-v -o json"
     }
   }
 }

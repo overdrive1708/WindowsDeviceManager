@@ -49,6 +49,18 @@ namespace WindowsDeviceManagerAgent
             WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
             ShowWindowsDeviceInfo(collectData);
             DatabaseWriter.WriteWindowsDeviceInfoRecord(collectData);
+            switch (opts.OutputFileType)
+            {
+                case CommandLineOptions.OutputFileNone:
+                    ;
+                    break;
+                case CommandLineOptions.OutputFileJson:
+                    JsonWriter.WriteWindowsDeviceInfoRecord(collectData);
+                    break;
+                default:
+                    ;
+                    break;
+            }
             ConsoleWrapper.WriteLine(Resources.Strings.MessageComplete);
             ConsoleWrapper.WriteLine(Resources.Strings.MessageThanks);
 
