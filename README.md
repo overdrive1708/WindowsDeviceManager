@@ -49,8 +49,8 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 ### Windowsデバイス情報の収集
 ```
 WindowsDeviceManagerAgent.exe [options]
-options:[-v] [--verbose] [--help] [--version]
-  -o, --output [json|xml]       処理の結果をファイルに出力します｡(json|xml)
+options:[-o json|xml|csv] [--output json|xml|csv] [-v] [--verbose] [--help] [--version]
+  -o, --output [json|xml|csv]   処理の結果をファイルに出力します｡(json|xml|csv)
 
   -v, --verbose                 処理の結果を詳細に表示します｡
 
