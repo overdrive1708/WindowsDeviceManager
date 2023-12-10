@@ -13,7 +13,7 @@ namespace WindowsDeviceManagerAgent
         // 定数(コンフィギュレーション)
         //--------------------------------------------------
         /// <summary>
-        /// データベースファイル名
+        /// 出力ファイル名
         /// </summary>
         private static readonly string _fileName = "WindowsDeviceInfo.json";
 
