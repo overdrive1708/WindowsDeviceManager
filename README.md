@@ -112,7 +112,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - Microsoft Visual Studio Community 2022
 
 ## 使用しているライブラリ
-詳細は[GitHubのDependency graph](https://github.com/overdrive1708/WindowsDeviceManager/network/dependencies)か､各プロジェクトの"*.csproj"を参照してください｡
+詳細は[NOTICE.md](NOTICE.md)を参照してください｡
 
 ## ライセンス
 このプロジェクトはMITライセンスです。  
