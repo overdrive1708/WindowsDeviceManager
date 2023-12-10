@@ -49,8 +49,8 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 ### Windowsデバイス情報の収集
 ```
 WindowsDeviceManagerAgent.exe [options]
-options:[-v] [--verbose] [--help] [--version]
-  -o, --output [json|xml]       処理の結果をファイルに出力します｡(json|xml)
+options:[-o json|xml|csv] [--output json|xml|csv] [-v] [--verbose] [--help] [--version]
+  -o, --output [json|xml|csv]   処理の結果をファイルに出力します｡(json|xml|csv)
 
   -v, --verbose                 処理の結果を詳細に表示します｡
 
@@ -112,7 +112,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - Microsoft Visual Studio Community 2022
 
 ## 使用しているライブラリ
-詳細は[GitHubのDependency graph](https://github.com/overdrive1708/WindowsDeviceManager/network/dependencies)か､各プロジェクトの"*.csproj"を参照してください｡
+詳細は[NOTICE.md](NOTICE.md)を参照してください｡
 
 ## ライセンス
 このプロジェクトはMITライセンスです。  

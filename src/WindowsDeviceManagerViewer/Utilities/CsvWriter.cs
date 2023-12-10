@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CsvHelper.Configuration;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 
 namespace WindowsDeviceManagerViewer.Utilities
@@ -17,37 +19,15 @@ namespace WindowsDeviceManagerViewer.Utilities
         {
             using StreamWriter swCsv = new(outputCsvFile, false, System.Text.Encoding.UTF8);
 
-            swCsv.WriteLine(
-                  $"\"{Resources.Strings.HostName}\","
-                + $"\"{Resources.Strings.UserName}\","
-                + $"\"{Resources.Strings.OSName}\","
-                + $"\"{Resources.Strings.OSBuildNumber}\","
-                + $"\"{Resources.Strings.OSVersion}\","
-                + $"\"{Resources.Strings.ComputerManufacturer}\","
-                + $"\"{Resources.Strings.ComputerModel}\","
-                + $"\"{Resources.Strings.Processor}\","
-                + $"\"{Resources.Strings.BIOSManufacturer}\","
-                + $"\"{Resources.Strings.BIOSVersion}\","
-                + $"\"{Resources.Strings.BitLockerStatus}\","
-                + $"\"{Resources.Strings.AntiVirusSoftware}\","
-                + $"\"{Resources.Strings.LastUpdate}\"");
-
-            foreach (WindowsDeviceInfo info in windowsDeviceInfos)
+            CsvConfiguration options = new(CultureInfo.InvariantCulture)
             {
-                swCsv.WriteLine(
-                      $"\"{info.HostName}\","
-                    + $"\"{info.UserName}\","
-                    + $"\"{info.OSName}\","
-                    + $"\"{info.OSBuildNumber}\","
-                    + $"\"{info.OSVersion}\","
-                    + $"\"{info.ComputerManufacturer}\","
-                    + $"\"{info.ComputerModel}\","
-                    + $"\"{info.Processor}\","
-                    + $"\"{info.BIOSManufacturer}\","
-                    + $"\"{info.BIOSVersion}\","
-                    + $"\"{info.BitLockerStatus}\","
-                    + $"\"{info.AntiVirusSoftware}\","
-                    + $"\"{info.LastUpdate}\"");
+                ShouldQuote = (context) => true
+            };
+            using (CsvHelper.CsvWriter csv = new(swCsv, options))
+            {
+                csv.WriteHeader<WindowsDeviceInfo>();
+                csv.NextRecord();
+                csv.WriteRecords(windowsDeviceInfos);
             }
 
             swCsv.Close();

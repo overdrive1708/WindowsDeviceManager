@@ -214,7 +214,7 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
-        ///   処理の結果をファイルに出力します｡(--output [json|xml]) に類似しているローカライズされた文字列を検索します。
+        ///   処理の結果をファイルに出力します｡(--output [json|xml|csv]) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextOutput {
             get {
@@ -264,6 +264,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string MessageComplete {
             get {
                 return ResourceManager.GetString("MessageComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   CSVファイルを生成しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageCreateCsvFile {
+            get {
+                return ResourceManager.GetString("MessageCreateCsvFile", resourceCulture);
             }
         }
         

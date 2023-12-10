@@ -1,13 +1,12 @@
-﻿using System.Text.Encodings.Web;
-using System.Text.Json;
-using System.Text.Unicode;
+﻿using CsvHelper.Configuration;
+using System.Globalization;
 
 namespace WindowsDeviceManagerAgent
 {
     /// <summary>
-    /// JSONファイル書き込みクラス
+    /// CSVファイル書き込みクラス
     /// </summary>
-    internal class JsonWriter
+    internal class CsvWriter
     {
         //--------------------------------------------------
         // 定数(コンフィギュレーション)
@@ -15,7 +14,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// 出力ファイル名
         /// </summary>
-        private static readonly string _fileName = "WindowsDeviceInfo.json";
+        private static readonly string _fileName = "WindowsDeviceInfo.csv";
 
         //--------------------------------------------------
         // メソッド
@@ -26,17 +25,22 @@ namespace WindowsDeviceManagerAgent
         /// <param name="writeValue">Windowsデバイス情報</param>
         public static void WriteWindowsDeviceInfoRecord(WindowsDeviceInfo writeValue)
         {
-            // シリアライズ(インデントあり/日本語ありのためエンコーダ設定/高速化のためUTF-8 バイトの配列にシリアル化)
-            JsonSerializerOptions options = new() { WriteIndented = true, Encoder = JavaScriptEncoder.Create(UnicodeRanges.All) };
-            byte[] jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(writeValue, options);
-
             // ファイル出力
-            using FileStream fs = new(_fileName, FileMode.Create);
-            fs.Write(jsonUtf8Bytes);
-            fs.Close();
+            using StreamWriter swCsv = new(_fileName, false, System.Text.Encoding.UTF8);
+            CsvConfiguration options = new(CultureInfo.InvariantCulture)
+            {
+                ShouldQuote = (context) => true
+            };
+            using (CsvHelper.CsvWriter csv = new(swCsv, options))
+            {
+                csv.WriteHeader<WindowsDeviceInfo>();
+                csv.NextRecord();
+                csv.WriteRecord(writeValue);
+            }
+            swCsv.Close();
 
             // 完了メッセージ表示
-            ConsoleWrapper.WriteLine(Resources.Strings.MessageCreateJsonFile);
+            ConsoleWrapper.WriteLine(Resources.Strings.MessageCreateCsvFile);
         }
     }
 }
