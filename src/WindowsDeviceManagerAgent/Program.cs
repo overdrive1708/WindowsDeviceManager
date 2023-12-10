@@ -61,6 +61,9 @@ namespace WindowsDeviceManagerAgent
                 case CommandLineOptions.OutputFileXml:
                     XmlWriter.WriteWindowsDeviceInfoRecord(collectData);
                     break;
+                case CommandLineOptions.OutputFileCsv:
+                    CsvWriter.WriteWindowsDeviceInfoRecord(collectData);
+                    break;
                 default:
                     ;
                     break;

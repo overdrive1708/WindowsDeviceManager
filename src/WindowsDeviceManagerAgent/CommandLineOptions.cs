@@ -11,6 +11,7 @@
         public const string OutputFileNone = "none";
         public const string OutputFileJson = "json";
         public const string OutputFileXml = "xml";
+        public const string OutputFileCsv = "csv";
         private string _outputFileType = OutputFileNone;
 
         // verboseオプション解析設定･プロパティインターフェイス

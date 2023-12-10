@@ -22,6 +22,10 @@
     "WindowsDeviceManagerAgentOutputXml": {
       "commandName": "Project",
       "commandLineArgs": "-v -o xml"
+    },
+    "WindowsDeviceManagerAgentOutputCsv": {
+      "commandName": "Project",
+      "commandLineArgs": "-v -o csv"
     }
   }
 }
