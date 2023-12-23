@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2023-12-23
+
 ### Added
 - Output json function.
 - Output xml function.
@@ -60,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - OSVersion
 
 [Unreleased]: https://github.com/overdrive1708/WindowsDeviceManager
+[1.4.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.4.0
 [1.3.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.3.0
 [1.2.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.2.0
 [1.1.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.1.0
