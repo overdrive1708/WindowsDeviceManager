@@ -40,7 +40,7 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 
 ### WindowsDeviceManagerViewer
 
-[.NET デスクトップ ランタイム 6.x.x](https://dotnet.microsoft.com/ja-jp/download/dotnet/6.0)が必要です｡
+[.NET デスクトップ ランタイム 8.x.x](https://dotnet.microsoft.com/ja-jp/download/dotnet/8.0)が必要です｡
 
 予めダウンロード･インストールをお願いします｡
 
