@@ -14,23 +14,52 @@ namespace WindowsDeviceManagerAgent
         /// <returns>Windowsデバイス情報</returns>
         public static WindowsDeviceInfo GetWindowsDeviceInfo()
         {
-            WindowsDeviceInfo collectData = new()
-            {
-                HostName = GetHostName(),
-                UserName = GetUserName(),
-                OSName = GetOSName(),
-                OSBuildNumber = GetOSBuildNumber(),
-                OSVersion = GetOSVersion(),
-                ComputerManufacturer = GetComputerManufacturer(),
-                ComputerModel = GetComputerModel(),
-                Processor = GetProcessor(),
-                BIOSManufacturer = GetBIOSManufacturer(),
-                BIOSVersion = GetBIOSVersion(),
-                BitLockerStatus = GetBitLockerStatus(),
-                AntiVirusSoftware = GetAntiVirusSoftware(),
-                JavaVersioncheckResult = GetJavaVersioncheckResult(),
-                LastUpdate = GetLastUpdate()
-            };
+            WindowsDeviceInfo collectData = new();
+
+            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultStart);
+
+            collectData.HostName = GetHostName();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.HostName}:{collectData.HostName}");
+
+            collectData.UserName = GetUserName();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.UserName}:{collectData.UserName}");
+
+            collectData.OSName = GetOSName();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSName}:{collectData.OSName}");
+
+            collectData.OSBuildNumber = GetOSBuildNumber();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSBuildNumber}:{collectData.OSBuildNumber}");
+
+            collectData.OSVersion = GetOSVersion();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.OSVersion}:{collectData.OSVersion}");
+
+            collectData.ComputerManufacturer = GetComputerManufacturer();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerManufacturer}:{collectData.ComputerManufacturer}");
+
+            collectData.ComputerModel = GetComputerModel();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerModel}:{collectData.ComputerModel}");
+
+            collectData.Processor = GetProcessor();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.Processor}:{collectData.Processor}");
+
+            collectData.BIOSManufacturer = GetBIOSManufacturer();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSManufacturer}:{collectData.BIOSManufacturer}");
+
+            collectData.BIOSVersion = GetBIOSVersion();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSVersion}:{collectData.BIOSVersion}");
+
+            collectData.BitLockerStatus = GetBitLockerStatus();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.BitLockerStatus}:{collectData.BitLockerStatus}");
+
+            collectData.AntiVirusSoftware = GetAntiVirusSoftware();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.AntiVirusSoftware}:{collectData.AntiVirusSoftware}");
+
+            collectData.JavaVersioncheckResult = GetJavaVersioncheckResult();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.JavaVersioncheckResult}:{collectData.JavaVersioncheckResult}");
+
+            collectData.LastUpdate = GetLastUpdate();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{collectData.LastUpdate}");
+            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
 
             return collectData;
         }

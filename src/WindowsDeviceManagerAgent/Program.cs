@@ -47,7 +47,6 @@ namespace WindowsDeviceManagerAgent
             // Windowsデバイス情報の収集
             ConsoleWrapper.WriteLine(Resources.Strings.MessageNowCollecting);
             WindowsDeviceInfo collectData = WindowsDeviceInfoCollector.GetWindowsDeviceInfo();
-            ShowWindowsDeviceInfo(collectData);
             DatabaseWriter.WriteWindowsDeviceInfoRecord(collectData);
             switch (opts.OutputFileType)
             {
@@ -98,30 +97,6 @@ namespace WindowsDeviceManagerAgent
             string version = assm.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
 
             return ($"Welcome to {assemblyName} Ver.{version} !!");
-        }
-
-        /// <summary>
-        /// Windowsデバイス情報収集結果表示処理
-        /// </summary>
-        /// <param name="info">Windowsデバイス情報</param>
-        private static void ShowWindowsDeviceInfo(WindowsDeviceInfo info)
-        {
-            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultStart);
-            ConsoleWrapper.WriteLine($"{Resources.Strings.HostName}:{info.HostName}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.UserName}:{info.UserName}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.OSName}:{info.OSName}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.OSBuildNumber}:{info.OSBuildNumber}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.OSVersion}:{info.OSVersion}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerManufacturer}:{info.ComputerManufacturer}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.ComputerModel}:{info.ComputerModel}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.Processor}:{info.Processor}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSManufacturer}:{info.BIOSManufacturer}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.BIOSVersion}:{info.BIOSVersion}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.BitLockerStatus}:{info.BitLockerStatus}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.AntiVirusSoftware}:{info.AntiVirusSoftware}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.JavaVersioncheckResult}:{info.JavaVersioncheckResult}");
-            ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{info.LastUpdate}");
-            ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
         }
     }
 }
