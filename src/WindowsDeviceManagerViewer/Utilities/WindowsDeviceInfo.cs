@@ -78,6 +78,12 @@
         public string AntiVirusSoftware { get => _antiVirusSoftware; set => _antiVirusSoftware = value; }
 
         /// <summary>
+        /// Javaのバージョンチェック結果
+        /// </summary>
+        private string _javaVersioncheckResult = string.Empty;
+        public string JavaVersioncheckResult { get => _javaVersioncheckResult; set => _javaVersioncheckResult = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

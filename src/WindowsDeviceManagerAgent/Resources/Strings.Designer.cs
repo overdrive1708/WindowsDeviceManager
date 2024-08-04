@@ -250,6 +250,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   Javaのバージョンチェック結果 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string JavaVersioncheckResult {
+            get {
+                return ResourceManager.GetString("JavaVersioncheckResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   最終更新日時 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LastUpdate {
@@ -401,6 +410,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string Processor {
             get {
                 return ResourceManager.GetString("Processor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   未検出 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Undetected {
+            get {
+                return ResourceManager.GetString("Undetected", resourceCulture);
             }
         }
         

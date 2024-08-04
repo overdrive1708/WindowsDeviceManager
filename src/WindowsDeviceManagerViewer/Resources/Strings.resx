@@ -244,4 +244,7 @@
   <data name="XMLFile" xml:space="preserve">
     <value>XMLファイル</value>
   </data>
+  <data name="JavaVersioncheckResult" xml:space="preserve">
+    <value>Javaのバージョンチェック結果</value>
+  </data>
 </root>
