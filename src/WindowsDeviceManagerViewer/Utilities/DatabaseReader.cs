@@ -45,6 +45,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => executeReader["ComputerManufacturer"].ToString(),
                                 "4" => executeReader["ComputerManufacturer"].ToString(),
                                 "5" => executeReader["ComputerManufacturer"].ToString(),
+                                "6" => executeReader["ComputerManufacturer"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             ComputerModel = databaseVersion switch
@@ -56,6 +57,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => executeReader["ComputerModel"].ToString(),
                                 "4" => executeReader["ComputerModel"].ToString(),
                                 "5" => executeReader["ComputerModel"].ToString(),
+                                "6" => executeReader["ComputerModel"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             Processor = databaseVersion switch
@@ -67,6 +69,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => executeReader["Processor"].ToString(),
                                 "4" => executeReader["Processor"].ToString(),
                                 "5" => executeReader["Processor"].ToString(),
+                                "6" => executeReader["Processor"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BIOSManufacturer = databaseVersion switch
@@ -78,6 +81,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => executeReader["BIOSManufacturer"].ToString(),
                                 "4" => executeReader["BIOSManufacturer"].ToString(),
                                 "5" => executeReader["BIOSManufacturer"].ToString(),
+                                "6" => executeReader["BIOSManufacturer"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BIOSVersion = databaseVersion switch
@@ -89,6 +93,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => executeReader["BIOSVersion"].ToString(),
                                 "4" => executeReader["BIOSVersion"].ToString(),
                                 "5" => executeReader["BIOSVersion"].ToString(),
+                                "6" => executeReader["BIOSVersion"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             BitLockerStatus = databaseVersion switch
@@ -100,6 +105,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => Resources.Strings.NotCollected,
                                 "4" => executeReader["BitLockerStatus"].ToString(),
                                 "5" => executeReader["BitLockerStatus"].ToString(),
+                                "6" => executeReader["BitLockerStatus"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             AntiVirusSoftware = databaseVersion switch
@@ -111,6 +117,19 @@ namespace WindowsDeviceManagerViewer.Utilities
                                 "3" => Resources.Strings.NotCollected,
                                 "4" => Resources.Strings.NotCollected,
                                 "5" => executeReader["AntiVirusSoftware"].ToString(),
+                                "6" => executeReader["AntiVirusSoftware"].ToString(),
+                                _ => Resources.Strings.NotCollected,
+                            },
+                            JavaVersioncheckResult = databaseVersion switch
+                            {
+                                // Javaのバージョンチェック結果はuser_versionが6以上の場合に取得可能
+                                "0" => Resources.Strings.NotCollected,
+                                "1" => Resources.Strings.NotCollected,
+                                "2" => Resources.Strings.NotCollected,
+                                "3" => Resources.Strings.NotCollected,
+                                "4" => Resources.Strings.NotCollected,
+                                "5" => Resources.Strings.NotCollected,
+                                "6" => executeReader["JavaVersioncheckResult"].ToString(),
                                 _ => Resources.Strings.NotCollected,
                             },
                             LastUpdate = executeReader["LastUpdate"].ToString()

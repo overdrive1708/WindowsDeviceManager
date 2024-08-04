@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System.Diagnostics;
+using System.Management;
 
 namespace WindowsDeviceManagerAgent
 {
@@ -27,6 +28,7 @@ namespace WindowsDeviceManagerAgent
                 BIOSVersion = GetBIOSVersion(),
                 BitLockerStatus = GetBitLockerStatus(),
                 AntiVirusSoftware = GetAntiVirusSoftware(),
+                JavaVersioncheckResult = GetJavaVersioncheckResult(),
                 LastUpdate = GetLastUpdate()
             };
 
@@ -321,6 +323,10 @@ namespace WindowsDeviceManagerAgent
             return Resources.Strings.BitLockerStatusAnyDiskUnknown;
         }
 
+        /// <summary>
+        /// アンチウィルスソフトウェア取得処理
+        /// </summary>
+        /// <returns></returns>
         private static string GetAntiVirusSoftware()
         {
             string antiVirusSoftware = Resources.Strings.Unknown;
@@ -341,6 +347,69 @@ namespace WindowsDeviceManagerAgent
             }
 
             return antiVirusSoftware;
+        }
+
+        /// <summary>
+        /// Javaのバージョンチェック結果取得処理
+        /// </summary>
+        /// <returns></returns>
+        private static string GetJavaVersioncheckResult()
+        {
+            string javaVersioncheckResult = string.Empty;
+            bool isFindJava = false;
+
+            // インストール済みアプリケーションの一覧からの検索
+            try
+            {
+                // インストール済みアプリケーションを取得
+                List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
+
+                // Javaがインストールされているかどうか確認
+                foreach (InstalledApplicationInfo installedApp in installedApps)
+                {
+                    if (installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase))
+                    {
+                        javaVersioncheckResult += $"Name=[{installedApp.Name}], Version=[{installedApp.Version}], Publisher=[{installedApp.Publisher}];";
+                        isFindJava = true;
+                    }
+                }
+            }
+            catch
+            {
+                // 例外が発生してJavaのバージョンチェック結果が取得できない場合
+                // Unknownにする｡
+                javaVersioncheckResult = Resources.Strings.Unknown;
+            }
+
+            // Javaを検出したら処理を終了する
+            if (isFindJava)
+            {
+                return javaVersioncheckResult;
+            }
+
+            // インストール済みアプリケーションの一覧にない場合は念のため[java -version]のコマンドを実行して調査
+            try
+            {
+                ProcessStartInfo processStartInfo = new()
+                {
+                    FileName = "java",
+                    Arguments = "-version",
+                    RedirectStandardError = true,   // Javaのバージョン出力は標準エラー出力
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using Process process = Process.Start(processStartInfo);
+                using StreamReader reader = process.StandardError;
+                javaVersioncheckResult = reader.ReadToEnd().Replace(Environment.NewLine, ";");  // 改行があるとファイル出力時に読みづらくなるため別の文字に置き換える
+            }
+            catch
+            {
+                // 例外が発生してJavaのバージョンチェック結果が取得できない場合はJavaが存在しない
+                javaVersioncheckResult = Resources.Strings.Undetected;
+            }
+
+            return javaVersioncheckResult;
         }
 
         /// <summary>

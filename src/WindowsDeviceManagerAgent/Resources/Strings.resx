@@ -219,4 +219,10 @@
   <data name="MessageCreateCsvFile" xml:space="preserve">
     <value>CSVファイルを生成しました｡</value>
   </data>
+  <data name="JavaVersioncheckResult" xml:space="preserve">
+    <value>Javaのバージョンチェック結果</value>
+  </data>
+  <data name="Undetected" xml:space="preserve">
+    <value>未検出</value>
+  </data>
 </root>

@@ -178,6 +178,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   Javaのバージョンチェック結果 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string JavaVersioncheckResult {
+            get {
+                return ResourceManager.GetString("JavaVersioncheckResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   JSONファイル に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string JSONFile {
