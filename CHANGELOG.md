@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Collect and show windows device information.
     - JavaVersioncheckResult
 
+### Changed
+- Change detail display timing.
+
+### Security
+- Libraries versionup.
+
 ## [1.4.0] - 2023-12-23
 
 ### Added
