@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Translations of commandlineparser.
+
 ### Fixed
 - Bug fix.([Issue #70](https://github.com/overdrive1708/WindowsDeviceManager/issues/70))
 - Bug fix.([Issue #72](https://github.com/overdrive1708/WindowsDeviceManager/issues/72))

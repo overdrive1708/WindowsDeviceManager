@@ -234,4 +234,96 @@
   <data name="Publisher" xml:space="preserve">
     <value>発行元</value>
   </data>
+  <data name="SentenceRequiredWord" xml:space="preserve">
+    <value>&lt;必須&gt;</value>
+    <comment>&lt;Required&gt;</comment>
+  </data>
+  <data name="SentenceOptionGroupWord" xml:space="preserve">
+    <value>グループ</value>
+    <comment>Group</comment>
+  </data>
+  <data name="SentenceErrorsHeadingText" xml:space="preserve">
+    <value>エラー：</value>
+    <comment>ERROR(S):</comment>
+  </data>
+  <data name="SentenceUsageHeadingText" xml:space="preserve">
+    <value>使い方：</value>
+    <comment>USAGE:</comment>
+  </data>
+  <data name="SentenceHelpCommandTextOption" xml:space="preserve">
+    <value>ヘルプ画面を表示します。</value>
+    <comment>Display this help screen.</comment>
+  </data>
+  <data name="SentenceHelpCommandTextVerb" xml:space="preserve">
+    <value>特定のコマンドについての詳細情報を表示します｡</value>
+    <comment>Display more information on a specific command.</comment>
+  </data>
+  <data name="SentenceVersionCommandText" xml:space="preserve">
+    <value>バージョン情報を表示します。</value>
+    <comment>Display version information.</comment>
+  </data>
+  <data name="SentenceBadFormatTokenError" xml:space="preserve">
+    <value>トークン '{0}' が認識できません。</value>
+    <comment>Token '{0}' is not recognized.</comment>
+  </data>
+  <data name="SentenceMissingValueOptionError" xml:space="preserve">
+    <value>オプション '{0}' に値がありません。</value>
+    <comment>Option '{0}' has no value.</comment>
+  </data>
+  <data name="SentenceUnknownOptionError" xml:space="preserve">
+    <value>オプション '{0}' が不明です。</value>
+    <comment>Option '{0}' is unknown.</comment>
+  </data>
+  <data name="SentenceMissingRequiredOptionErrorValue" xml:space="preserve">
+    <value>オプション名にバインドされていない必須の値がありません。</value>
+    <comment>A required value not bound to option name is missing.</comment>
+  </data>
+  <data name="SentenceMissingRequiredOptionErrorOption" xml:space="preserve">
+    <value>必須オプション '{0}' がありません。</value>
+    <comment>Required option '{0}' is missing.</comment>
+  </data>
+  <data name="SentenceBadFormatConversionErrorValue" xml:space="preserve">
+    <value>オプション名にバインドされていない値が不正なフォーマットで定義されています。</value>
+    <comment>A value not bound to option name is defined with a bad format.</comment>
+  </data>
+  <data name="SentenceBadFormatConversionErrorOption" xml:space="preserve">
+    <value>オプション '{0}' が不正なフォーマットで定義されています。</value>
+    <comment>Option '{0}' is defined with a bad format.</comment>
+  </data>
+  <data name="SentenceSequenceOutOfRangeErrorValue" xml:space="preserve">
+    <value>オプション名にバインドされていないシーケンス値が、必要な項目数よりも少ない項目で定義されています。</value>
+    <comment>A sequence value not bound to option name is defined with few items than required.</comment>
+  </data>
+  <data name="SentenceSequenceOutOfRangeErrorOption" xml:space="preserve">
+    <value>シーケンスオプション '{0}' が、必要な数より少ないか多い項目で定義されています。</value>
+    <comment>A sequence option '{0}' is defined with fewer or more items than required.</comment>
+  </data>
+  <data name="SentenceBadVerbSelectedError" xml:space="preserve">
+    <value>動詞 '{0}' が認識できません｡</value>
+    <comment>Verb '{0}' is not recognized.</comment>
+  </data>
+  <data name="SentenceNoVerbSelectedError" xml:space="preserve">
+    <value>動詞が選択されていません。</value>
+    <comment>No verb selected.</comment>
+  </data>
+  <data name="SentenceRepeatedOptionError" xml:space="preserve">
+    <value>オプション '{0}' が複数回定義されています。</value>
+    <comment>Option '{0}' is defined multiple times.</comment>
+  </data>
+  <data name="SentenceSetValueExceptionError" xml:space="preserve">
+    <value>オプション '{0}' への値の設定エラー： {1}</value>
+    <comment>Error setting value to option '{0}': {1}</comment>
+  </data>
+  <data name="MissingGroupOptionError" xml:space="preserve">
+    <value>グループ '{0}' ({1})から少なくとも1つのオプションが必要です。</value>
+    <comment>At least one option from group '{0}' ({1}) is required.</comment>
+  </data>
+  <data name="GroupOptionAmbiguityError" xml:space="preserve">
+    <value>オプション： ({0}) では SetName と Group の両方は許されません。</value>
+    <comment>Both SetName and Group are not allowed in option: ({0})</comment>
+  </data>
+  <data name="SentenceMutuallyExclusiveSetErrors" xml:space="preserve">
+    <value>オプション: {0} は {1} と互換性がありません。</value>
+    <comment>Options: {0} are not compatible with {1}.</comment>
+  </data>
 </root>
