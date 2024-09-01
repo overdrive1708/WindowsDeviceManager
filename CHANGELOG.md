@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Bug fix.([Issue #70](https://github.com/overdrive1708/WindowsDeviceManager/issues/70))
+
 ## [1.5.0] - 2024-08-04
 
 ### Added
