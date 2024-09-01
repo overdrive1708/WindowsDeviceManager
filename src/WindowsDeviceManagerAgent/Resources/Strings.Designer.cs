@@ -214,6 +214,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   オプション： ({0}) では SetName と Group の両方は許されません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string GroupOptionAmbiguityError {
+            get {
+                return ResourceManager.GetString("GroupOptionAmbiguityError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   処理の結果をファイルに出力します｡(--output [json|xml|csv]) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string HelpTextOutput {
@@ -378,6 +387,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   グループ &apos;{0}&apos; ({1})から少なくとも1つのオプションが必要です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MissingGroupOptionError {
+            get {
+                return ResourceManager.GetString("MissingGroupOptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   名前 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Name {
@@ -428,6 +446,195 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string Publisher {
             get {
                 return ResourceManager.GetString("Publisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション &apos;{0}&apos; が不正なフォーマットで定義されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceBadFormatConversionErrorOption {
+            get {
+                return ResourceManager.GetString("SentenceBadFormatConversionErrorOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション名にバインドされていない値が不正なフォーマットで定義されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceBadFormatConversionErrorValue {
+            get {
+                return ResourceManager.GetString("SentenceBadFormatConversionErrorValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   トークン &apos;{0}&apos; が認識できません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceBadFormatTokenError {
+            get {
+                return ResourceManager.GetString("SentenceBadFormatTokenError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   動詞 &apos;{0}&apos; が認識できません｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceBadVerbSelectedError {
+            get {
+                return ResourceManager.GetString("SentenceBadVerbSelectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   エラー： に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceErrorsHeadingText {
+            get {
+                return ResourceManager.GetString("SentenceErrorsHeadingText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ヘルプ画面を表示します。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceHelpCommandTextOption {
+            get {
+                return ResourceManager.GetString("SentenceHelpCommandTextOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   特定のコマンドについての詳細情報を表示します｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceHelpCommandTextVerb {
+            get {
+                return ResourceManager.GetString("SentenceHelpCommandTextVerb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   必須オプション &apos;{0}&apos; がありません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceMissingRequiredOptionErrorOption {
+            get {
+                return ResourceManager.GetString("SentenceMissingRequiredOptionErrorOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション名にバインドされていない必須の値がありません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceMissingRequiredOptionErrorValue {
+            get {
+                return ResourceManager.GetString("SentenceMissingRequiredOptionErrorValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション &apos;{0}&apos; に値がありません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceMissingValueOptionError {
+            get {
+                return ResourceManager.GetString("SentenceMissingValueOptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション: {0} は {1} と互換性がありません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceMutuallyExclusiveSetErrors {
+            get {
+                return ResourceManager.GetString("SentenceMutuallyExclusiveSetErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   動詞が選択されていません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceNoVerbSelectedError {
+            get {
+                return ResourceManager.GetString("SentenceNoVerbSelectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   グループ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceOptionGroupWord {
+            get {
+                return ResourceManager.GetString("SentenceOptionGroupWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション &apos;{0}&apos; が複数回定義されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceRepeatedOptionError {
+            get {
+                return ResourceManager.GetString("SentenceRepeatedOptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;必須&gt; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceRequiredWord {
+            get {
+                return ResourceManager.GetString("SentenceRequiredWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   シーケンスオプション &apos;{0}&apos; が、必要な数より少ないか多い項目で定義されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceSequenceOutOfRangeErrorOption {
+            get {
+                return ResourceManager.GetString("SentenceSequenceOutOfRangeErrorOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション名にバインドされていないシーケンス値が、必要な項目数よりも少ない項目で定義されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceSequenceOutOfRangeErrorValue {
+            get {
+                return ResourceManager.GetString("SentenceSequenceOutOfRangeErrorValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション &apos;{0}&apos; への値の設定エラー： {1} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceSetValueExceptionError {
+            get {
+                return ResourceManager.GetString("SentenceSetValueExceptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オプション &apos;{0}&apos; が不明です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceUnknownOptionError {
+            get {
+                return ResourceManager.GetString("SentenceUnknownOptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   使い方： に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceUsageHeadingText {
+            get {
+                return ResourceManager.GetString("SentenceUsageHeadingText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   バージョン情報を表示します。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SentenceVersionCommandText {
+            get {
+                return ResourceManager.GetString("SentenceVersionCommandText", resourceCulture);
             }
         }
         

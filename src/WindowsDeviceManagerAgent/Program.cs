@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using CommandLine.Text;
 using System.Reflection;
 
 namespace WindowsDeviceManagerAgent
@@ -13,6 +14,9 @@ namespace WindowsDeviceManagerAgent
         {
             // 未処理の例外が発生したときの処理を登録する｡
             EntryExceptionHandler();
+
+            // CommandLineParserのSentenceBuilderの多言語化を行う｡
+            SentenceBuilder.Factory = () => new LocalizableSentenceBuilder();
 
             // コマンドライン引数を解析する｡
             _ = Parser.Default.ParseArguments<CommandLineOptions>(args)
