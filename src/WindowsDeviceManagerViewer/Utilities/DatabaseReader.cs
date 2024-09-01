@@ -21,7 +21,7 @@ namespace WindowsDeviceManagerViewer.Utilities
             if (File.Exists(databasefile))
             {
                 string databaseVersion = GetDatabaseUserVersion(databasefile);
-                using SQLiteConnection connection = new($"Data Source = {databasefile}");
+                using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\",@"\\\\")}");
                 connection.Open();
                 using (SQLiteCommand command = connection.CreateCommand())
                 {
@@ -153,7 +153,7 @@ namespace WindowsDeviceManagerViewer.Utilities
         {
             string version = string.Empty;
 
-            using SQLiteConnection connection = new($"Data Source = {databasefile}");
+            using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\", @"\\\\")}");
             connection.Open();
             using (SQLiteCommand command = connection.CreateCommand())
             {
