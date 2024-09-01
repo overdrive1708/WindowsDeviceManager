@@ -398,7 +398,7 @@ namespace WindowsDeviceManagerAgent
                 {
                     if ((installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase)) && (!installedApp.Name.Contains("javascript", StringComparison.OrdinalIgnoreCase)))
                     {
-                        javaVersioncheckResult += $"Name=[{installedApp.Name}], Version=[{installedApp.Version}], Publisher=[{installedApp.Publisher}];";
+                        javaVersioncheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
                         isFindJava = true;
                     }
                 }

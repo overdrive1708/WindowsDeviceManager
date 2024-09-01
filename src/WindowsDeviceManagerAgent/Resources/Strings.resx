@@ -225,4 +225,13 @@
   <data name="Undetected" xml:space="preserve">
     <value>未検出</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>発行元</value>
+  </data>
 </root>
