@@ -25,7 +25,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                     // OSバージョンが不明になっているものを再判定して更新する
                     if (readRecord.OSVersion.Contains(Resources.Strings.Unknown))
                     {
-                        using SQLiteConnection connection = new($"Data Source = {databasefile}");
+                        using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\", @"\\\\")}");
                         connection.Open();
                         using (SQLiteCommand command = connection.CreateCommand())
                         {
@@ -51,7 +51,7 @@ namespace WindowsDeviceManagerViewer.Utilities
             if (File.Exists(databasefile))
             {
                 // データベースファイルがある場合はVACUUMコマンドを実行
-                using SQLiteConnection connection = new($"Data Source = {databasefile}");
+                using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\", @"\\\\")}");
                 connection.Open();
                 using (SQLiteCommand command = connection.CreateCommand())
                 {
