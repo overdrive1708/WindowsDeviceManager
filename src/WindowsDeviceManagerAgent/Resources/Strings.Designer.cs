@@ -378,6 +378,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   名前 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OSビルド番号 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OSBuildNumber {
@@ -414,6 +423,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   発行元 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Publisher {
+            get {
+                return ResourceManager.GetString("Publisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   未検出 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Undetected {
@@ -437,6 +455,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   バージョン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
     }
