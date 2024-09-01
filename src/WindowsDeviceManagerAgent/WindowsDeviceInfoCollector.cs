@@ -396,7 +396,7 @@ namespace WindowsDeviceManagerAgent
                 // Javaがインストールされているかどうか確認
                 foreach (InstalledApplicationInfo installedApp in installedApps)
                 {
-                    if (installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase))
+                    if ((installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase)) && (!installedApp.Name.Contains("javascript", StringComparison.OrdinalIgnoreCase)))
                     {
                         javaVersioncheckResult += $"Name=[{installedApp.Name}], Version=[{installedApp.Version}], Publisher=[{installedApp.Publisher}];";
                         isFindJava = true;
