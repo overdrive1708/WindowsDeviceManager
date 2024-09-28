@@ -18,6 +18,9 @@ namespace WindowsDeviceManagerAgent
             // CommandLineParserのSentenceBuilderの多言語化を行う｡
             SentenceBuilder.Factory = () => new LocalizableSentenceBuilder();
 
+            // Configを読み込む｡
+            ConfigManager.ReadConfig();
+
             // コマンドライン引数を解析する｡
             _ = Parser.Default.ParseArguments<CommandLineOptions>(args)
                 .WithParsed(HandleParseSuccess)

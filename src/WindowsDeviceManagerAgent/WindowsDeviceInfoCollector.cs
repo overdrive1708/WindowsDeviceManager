@@ -57,6 +57,9 @@ namespace WindowsDeviceManagerAgent
             collectData.JavaVersioncheckResult = GetJavaVersioncheckResult();
             ConsoleWrapper.WriteLine($"{Resources.Strings.JavaVersioncheckResult}:{collectData.JavaVersioncheckResult}");
 
+            collectData.InstallCheckResult = GetInstallCheckResult();
+            ConsoleWrapper.WriteLine($"{Resources.Strings.InstallCheckResult}:{collectData.InstallCheckResult}");
+
             collectData.LastUpdate = GetLastUpdate();
             ConsoleWrapper.WriteLine($"{Resources.Strings.LastUpdate}:{collectData.LastUpdate}");
             ConsoleWrapper.WriteLine(Resources.Strings.CollectResultEnd);
@@ -289,7 +292,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// BitLockerの状態取得処理
         /// </summary>
-        /// <returnsBitLockerの状態></returns>
+        /// <returns>BitLockerの状態</returns>
         private static string GetBitLockerStatus()
         {
             // 固定ディスクごとのBitLocker状態を取得
@@ -355,7 +358,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// アンチウィルスソフトウェア取得処理
         /// </summary>
-        /// <returns></returns>
+        /// <returns>アンチウィルスソフトウェア</returns>
         private static string GetAntiVirusSoftware()
         {
             string antiVirusSoftware = Resources.Strings.Unknown;
@@ -381,7 +384,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// Javaのバージョンチェック結果取得処理
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Javaのバージョンチェック結果</returns>
         private static string GetJavaVersioncheckResult()
         {
             string javaVersioncheckResult = string.Empty;
@@ -439,6 +442,57 @@ namespace WindowsDeviceManagerAgent
             }
 
             return javaVersioncheckResult;
+        }
+
+        /// <summary>
+        /// インストールチェック結果取得処理
+        /// </summary>
+        /// <returns>インストールチェック結果</returns>
+        private static string GetInstallCheckResult()
+        {
+            string installCheckResult = string.Empty;
+            bool isFind = false;
+
+            // インストール済みアプリケーションの一覧からの検索
+            try
+            {
+                // インストール済みアプリケーションを取得
+                List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
+
+                // 設定で指定されたアプリケーションがインストールされているかどうか確認
+                foreach (InstalledApplicationInfo installedApp in installedApps)
+                {
+                    foreach (string checkName in ConfigManager.ConfigValue.InstallCheckNameList)
+                    {
+                        if (installedApp.Name.Contains(checkName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
+                            isFind = true;
+                        }
+                    }
+
+                    foreach (string checkPublisher in ConfigManager.ConfigValue.InstallCheckPublisherList)
+                    {
+                        if (installedApp.Publisher.Contains(checkPublisher, StringComparison.OrdinalIgnoreCase))
+                        {
+                            installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
+                            isFind = true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // 例外が発生してインストール済みアプリケーションが取得できない場合は無処理
+            }
+
+            // 一つも見つからなかった場合は未検出とする
+            if (!isFind)
+            {
+                installCheckResult = Resources.Strings.Undetected;
+            }
+
+            return installCheckResult;
         }
 
         /// <summary>
