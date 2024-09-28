@@ -247,4 +247,7 @@
   <data name="JavaVersioncheckResult" xml:space="preserve">
     <value>Javaのバージョンチェック結果</value>
   </data>
+  <data name="InstallCheckResult" xml:space="preserve">
+    <value>インストールチェック結果</value>
+  </data>
 </root>
