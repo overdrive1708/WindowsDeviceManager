@@ -46,6 +46,28 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 
 ## 使用方法
 
+### WindowsDeviceManagerAgentの設定
+
+WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定ファイルが作成されます｡
+
+※ファイル名はConfig.jsonです｡
+
+※文字コードはUTF-8にしてください｡
+
+必要に応じてConfig.jsonで設定を行ってください｡
+
+```JSON
+{
+  "InstallCheckNameList": [],
+  "InstallCheckPublisherList": []
+}
+```
+
+| 設定項目 | 設定内容 |
+| --- | --- |
+| InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
+| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
+
 ### Windowsデバイス情報の収集
 ```
 WindowsDeviceManagerAgent.exe [options]
