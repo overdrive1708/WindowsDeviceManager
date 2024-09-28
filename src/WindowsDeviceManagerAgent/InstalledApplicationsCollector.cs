@@ -43,9 +43,9 @@ namespace WindowsDeviceManagerAgent
                         {
                             InstalledApplicationInfo appInfo = new()
                             {
-                                Name = subKey.GetValue("DisplayName") as string,
-                                Version = subKey.GetValue("DisplayVersion") as string,
-                                Publisher = subKey.GetValue("Publisher") as string
+                                Name = subKey.GetValue("DisplayName") as string ?? string.Empty,
+                                Version = subKey.GetValue("DisplayVersion") as string ?? string.Empty,
+                                Publisher = subKey.GetValue("Publisher") as string ?? string.Empty
                             };
 
                             if (!string.IsNullOrEmpty(appInfo.Name))

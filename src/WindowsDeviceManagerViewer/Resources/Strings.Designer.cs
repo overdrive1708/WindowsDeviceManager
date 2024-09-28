@@ -178,6 +178,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   インストールチェック結果 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string InstallCheckResult {
+            get {
+                return ResourceManager.GetString("InstallCheckResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Javaのバージョンチェック結果 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string JavaVersioncheckResult {

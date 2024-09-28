@@ -46,6 +46,28 @@ WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に
 
 ## 使用方法
 
+### WindowsDeviceManagerAgentの設定
+
+WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定ファイルが作成されます｡
+
+※ファイル名はConfig.jsonです｡
+
+※文字コードはUTF-8にしてください｡
+
+必要に応じてConfig.jsonで設定を行ってください｡
+
+```JSON
+{
+  "InstallCheckNameList": [],
+  "InstallCheckPublisherList": []
+}
+```
+
+| 設定項目 | 設定内容 |
+| --- | --- |
+| InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
+| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
+
 ### Windowsデバイス情報の収集
 ```
 WindowsDeviceManagerAgent.exe [options]
@@ -84,6 +106,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
 - BitLockerの状態：すべての固定ディスクが有効
 - アンチウィルスソフトウェア:Windows Defender
 - Javaのバージョンチェック結果:openjdk version "22.0.2" 2024-07-16;OpenJDK Runtime Environment (build 22.0.2+9-70);OpenJDK 64-Bit Server VM (build 22.0.2+9-70, mixed mode, sharing);
+- インストールチェック結果:未検出
 
 ## サポートするOSバージョン
 - Windows10

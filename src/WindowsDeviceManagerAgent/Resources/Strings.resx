@@ -326,4 +326,7 @@
     <value>オプション: {0} は {1} と互換性がありません。</value>
     <comment>Options: {0} are not compatible with {1}.</comment>
   </data>
+  <data name="InstallCheckResult" xml:space="preserve">
+    <value>インストールチェック結果</value>
+  </data>
 </root>

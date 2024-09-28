@@ -84,6 +84,12 @@
         public string JavaVersioncheckResult { get => _javaVersioncheckResult; set => _javaVersioncheckResult = value; }
 
         /// <summary>
+        /// インストールチェック結果
+        /// </summary>
+        private string _installCheckResult = string.Empty;
+        public string InstallCheckResult { get => _installCheckResult; set => _installCheckResult = value; }
+
+        /// <summary>
         /// 最終更新日時
         /// </summary>
         private string _lastUpdate = string.Empty;

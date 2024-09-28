@@ -18,7 +18,7 @@ namespace WindowsDeviceManagerAgent
         /// <summary>
         /// データベースuser_version
         /// </summary>
-        private static readonly string _databaseUserVersion = "6";
+        private static readonly string _databaseUserVersion = "7";
 
         /// <summary>
         /// SQLコマンド(テーブル作成)
@@ -37,14 +37,15 @@ namespace WindowsDeviceManagerAgent
                                                              + "BitLockerStatus TEXT, "
                                                              + "AntiVirusSoftware TEXT, "
                                                              + "JavaVersioncheckResult TEXT, "
+                                                             + "InstallCheckResult TEXT, "
                                                              + "LastUpdate TEXT)";
 
         /// <summary>
         /// SQLコマンド(レコード登録)
         /// </summary>
         private static readonly string _insertCommand = "INSERT OR REPLACE INTO WindowsDeviceInfo"
-                                                        + "(HostName, UserName, OSName, OSBuildNumber, OSVersion, ComputerManufacturer, ComputerModel, Processor, BIOSManufacturer, BIOSVersion, BitLockerStatus, AntiVirusSoftware, JavaVersioncheckResult, LastUpdate) "
-                                                        + "VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_ComputerManufacturer, @p_ComputerModel, @p_Processor, @p_BIOSManufacturer, @p_BIOSVersion, @p_BitLockerStatus, @p_AntiVirusSoftware, @p_JavaVersioncheckResult, @p_LastUpdate)";
+                                                        + "(HostName, UserName, OSName, OSBuildNumber, OSVersion, ComputerManufacturer, ComputerModel, Processor, BIOSManufacturer, BIOSVersion, BitLockerStatus, AntiVirusSoftware, JavaVersioncheckResult, InstallCheckResult, LastUpdate) "
+                                                        + "VALUES(@p_HostName, @p_UserName, @p_OSName, @p_OSBuildNumber, @p_OSVersion, @p_ComputerManufacturer, @p_ComputerModel, @p_Processor, @p_BIOSManufacturer, @p_BIOSVersion, @p_BitLockerStatus, @p_AntiVirusSoftware, @p_JavaVersioncheckResult, @p_InstallCheckResult, @p_LastUpdate)";
 
         //--------------------------------------------------
         // メソッド
@@ -85,6 +86,7 @@ namespace WindowsDeviceManagerAgent
                 _ = command.Parameters.Add(new SQLiteParameter("@p_BitLockerStatus", writeValue.BitLockerStatus));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_AntiVirusSoftware", writeValue.AntiVirusSoftware));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_JavaVersioncheckResult", writeValue.JavaVersioncheckResult));
+                _ = command.Parameters.Add(new SQLiteParameter("@p_InstallCheckResult", writeValue.InstallCheckResult));
                 _ = command.Parameters.Add(new SQLiteParameter("@p_LastUpdate", writeValue.LastUpdate));
                 command.Prepare();
                 _ = command.ExecuteNonQuery();
@@ -105,7 +107,7 @@ namespace WindowsDeviceManagerAgent
                 switch (version)
                 {
                     case "0":
-                        // user_versionが0のときは､0から6に更新する
+                        // user_versionが0のときは､0から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion1();
                         UpdateDatabaseVersion2();
@@ -113,50 +115,62 @@ namespace WindowsDeviceManagerAgent
                         UpdateDatabaseVersion4();
                         UpdateDatabaseVersion5();
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "1":
-                        // user_versionが1のときは､1から6に更新する
+                        // user_versionが1のときは､1から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion2();
                         UpdateDatabaseVersion3();
                         UpdateDatabaseVersion4();
                         UpdateDatabaseVersion5();
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "2":
-                        // user_versionが2のときは､2から6に更新する
+                        // user_versionが2のときは､2から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion3();
                         UpdateDatabaseVersion4();
                         UpdateDatabaseVersion5();
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "3":
-                        // user_versionが3のときは､3から6に更新する
+                        // user_versionが3のときは､3から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion4();
                         UpdateDatabaseVersion5();
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "4":
-                        // user_versionが4のときは､4から6に更新する
+                        // user_versionが4のときは､4から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion5();
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "5":
-                        // user_versionが5のときは､5から6に更新する
+                        // user_versionが5のときは､5から7に更新する
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
                         UpdateDatabaseVersion6();
+                        UpdateDatabaseVersion7();
                         ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
                         break;
                     case "6":
-                        // user_versionが6のときは最新のため更新不要
+                        // user_versionが6のときは､6から7に更新する
+                        ConsoleWrapper.WriteLine(Resources.Strings.MessageDetectOldDatabase);
+                        UpdateDatabaseVersion7();
+                        ConsoleWrapper.WriteLine(Resources.Strings.MessageUpdateDatabaseComplete);
+                        break;
+                    case "7":
+                        // user_versionが7のときは最新のため更新不要
                         break;
                     default:
                         // user_versionが想定外のときは更新不要
@@ -311,6 +325,23 @@ namespace WindowsDeviceManagerAgent
                 command.CommandText = "ALTER TABLE WindowsDeviceInfo ADD COLUMN JavaVersioncheckResult TEXT";
                 _ = command.ExecuteNonQuery();
                 command.CommandText = $"PRAGMA user_version = 6";
+                _ = command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        /// <summary>
+        /// データベースファイル更新処理(user_version7化)
+        /// </summary>
+        private static void UpdateDatabaseVersion7()
+        {
+            using SQLiteConnection connection = new($"Data Source = {_databaseFileName}");
+            connection.Open();
+            using (SQLiteCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "ALTER TABLE WindowsDeviceInfo ADD COLUMN InstallCheckResult TEXT";
+                _ = command.ExecuteNonQuery();
+                command.CommandText = $"PRAGMA user_version = 7";
                 _ = command.ExecuteNonQuery();
             }
             connection.Close();
