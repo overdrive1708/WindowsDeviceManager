@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Collect and show windows device information.
     - InstallCheckResult
 - Recheck Java check result function.
+- Collect item configuration function.
 
 ### Changed
 - Translations of commandlineparser.

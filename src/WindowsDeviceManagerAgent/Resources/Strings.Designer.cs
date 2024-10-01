@@ -414,6 +414,15 @@ namespace WindowsDeviceManagerAgent.Resources {
         }
         
         /// <summary>
+        ///   未収集 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NotCollected {
+            get {
+                return ResourceManager.GetString("NotCollected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OSビルド番号 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OSBuildNumber {

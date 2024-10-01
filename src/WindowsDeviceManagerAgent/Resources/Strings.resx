@@ -329,4 +329,7 @@
   <data name="InstallCheckResult" xml:space="preserve">
     <value>インストールチェック結果</value>
   </data>
+  <data name="NotCollected" xml:space="preserve">
+    <value>未収集</value>
+  </data>
 </root>

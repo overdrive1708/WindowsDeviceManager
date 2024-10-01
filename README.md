@@ -58,6 +58,19 @@ WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定フ
 
 ```JSON
 {
+  "IsCollectUserName": true,
+  "IsCollectOSName": true,
+  "IsCollectOSBuildNumber": true,
+  "IsCollectOSVersion": true,
+  "IsCollectComputerManufacturer": true,
+  "IsCollectComputerModel": true,
+  "IsCollectProcessor": true,
+  "IsCollectBIOSManufacturer": true,
+  "IsCollectBIOSVersion": true,
+  "IsCollectBitLockerStatus": true,
+  "IsCollectAntiVirusSoftware": true,
+  "IsCollectJavaVersioncheckResult": true,
+  "IsCollectInstallCheckResult": true,
   "InstallCheckNameList": [],
   "InstallCheckPublisherList": []
 }
@@ -65,6 +78,19 @@ WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定フ
 
 | 設定項目 | 設定内容 |
 | --- | --- |
+| IsCollectUserName | ユーザ名の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectOSName | OS名の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectOSBuildNumber | OSビルド番号の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectOSVersion | OSバージョンの収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectComputerManufacturer | コンピュータの製造元の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectComputerModel | コンピュータの製品名の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectProcessor | プロセッサの収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectBIOSManufacturer | BIOSの製造元の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectBIOSVersion | BIOSのバージョンの収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectBitLockerStatus | BitLockerの状態の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectAntiVirusSoftware | アンチウィルスソフトウェアの収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectJavaVersioncheckResult | Javaのバージョンチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
+| IsCollectInstallCheckResult | インストールチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
 | InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
 | InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
 

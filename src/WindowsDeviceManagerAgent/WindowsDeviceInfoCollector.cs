@@ -93,19 +93,26 @@ namespace WindowsDeviceManagerAgent
         {
             string userName = Resources.Strings.Unknown;
 
-            try
+            if (ConfigManager.ConfigValue.IsCollectUserName)
             {
-                ManagementClass mc = new("Win32_ComputerSystem");
-                ManagementObjectCollection moc = mc.GetInstances();
-                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                try
                 {
-                    userName = mo["UserName"].ToString();
+                    ManagementClass mc = new("Win32_ComputerSystem");
+                    ManagementObjectCollection moc = mc.GetInstances();
+                    foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                    {
+                        userName = mo["UserName"].ToString();
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    // リモートデスクトップでログインした状態で実行するとNullReferenceExceptionが発生する｡
+                    // 無処理でUnknownを返す｡
                 }
             }
-            catch (NullReferenceException)
+            else
             {
-                // リモートデスクトップでログインした状態で実行するとNullReferenceExceptionが発生する｡
-                // 無処理でUnknownを返す｡
+                userName = Resources.Strings.NotCollected;
             }
 
             return userName;
@@ -119,11 +126,18 @@ namespace WindowsDeviceManagerAgent
         {
             string osName = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_OperatingSystem");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectOSName)
             {
-                osName = mo["Caption"].ToString();
+                ManagementClass mc = new("Win32_OperatingSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    osName = mo["Caption"].ToString();
+                }
+            }
+            else
+            {
+                osName = Resources.Strings.NotCollected;
             }
 
             return osName;
@@ -137,11 +151,18 @@ namespace WindowsDeviceManagerAgent
         {
             string osBuildNumber = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_OperatingSystem");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectOSBuildNumber)
             {
-                osBuildNumber = mo["BuildNumber"].ToString();
+                ManagementClass mc = new("Win32_OperatingSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    osBuildNumber = mo["BuildNumber"].ToString();
+                }
+            }
+            else
+            {
+                osBuildNumber = Resources.Strings.NotCollected;
             }
 
             return osBuildNumber;
@@ -158,42 +179,49 @@ namespace WindowsDeviceManagerAgent
             string osName = GetOSName();
             string osBuildNumber = GetOSBuildNumber();
 
-            if (osName.Contains("Windows 10"))
+            if (ConfigManager.ConfigValue.IsCollectOSVersion)
             {
-                // Windows10の場合のビルド番号=>バージョン情報変換
-                osVersion = osBuildNumber switch
+                if (osName.Contains("Windows 10"))
                 {
-                    "10240" => "1507",
-                    "10586" => "1511",
-                    "14393" => "1607",
-                    "15063" => "1703",
-                    "16299" => "1709",
-                    "17134" => "1803",
-                    "17763" => "1809",
-                    "18362" => "1903",
-                    "18363" => "1909",
-                    "19041" => "2004",
-                    "19042" => "20H2",
-                    "19043" => "21H1",
-                    "19044" => "21H2",
-                    "19045" => "22H2",
-                    _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
-                };
-            }
-            else if (osName.Contains("Windows 11"))
-            {
-                // Windows11の場合のビルド番号=>バージョン情報変換
-                osVersion = osBuildNumber switch
+                    // Windows10の場合のビルド番号=>バージョン情報変換
+                    osVersion = osBuildNumber switch
+                    {
+                        "10240" => "1507",
+                        "10586" => "1511",
+                        "14393" => "1607",
+                        "15063" => "1703",
+                        "16299" => "1709",
+                        "17134" => "1803",
+                        "17763" => "1809",
+                        "18362" => "1903",
+                        "18363" => "1909",
+                        "19041" => "2004",
+                        "19042" => "20H2",
+                        "19043" => "21H1",
+                        "19044" => "21H2",
+                        "19045" => "22H2",
+                        _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
+                    };
+                }
+                else if (osName.Contains("Windows 11"))
                 {
-                    "22000" => "21H2",
-                    "22621" => "22H2",
-                    "22631" => "23H2",
-                    _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
-                };
+                    // Windows11の場合のビルド番号=>バージョン情報変換
+                    osVersion = osBuildNumber switch
+                    {
+                        "22000" => "21H2",
+                        "22621" => "22H2",
+                        "22631" => "23H2",
+                        _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
+                    };
+                }
+                else
+                {
+                    // Windows10/11以外の場合は無処理
+                }
             }
             else
             {
-                // Windows10/11以外の場合は無処理
+                osVersion = Resources.Strings.NotCollected;
             }
 
             return osVersion;
@@ -207,11 +235,18 @@ namespace WindowsDeviceManagerAgent
         {
             string computerManufacturer = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_ComputerSystem");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectComputerManufacturer)
             {
-                computerManufacturer = mo["Manufacturer"].ToString();
+                ManagementClass mc = new("Win32_ComputerSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    computerManufacturer = mo["Manufacturer"].ToString();
+                }
+            }
+            else
+            {
+                computerManufacturer = Resources.Strings.NotCollected;
             }
 
             return computerManufacturer;
@@ -225,11 +260,18 @@ namespace WindowsDeviceManagerAgent
         {
             string computerModel = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_ComputerSystem");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectComputerModel)
             {
-                computerModel = mo["Model"].ToString();
+                ManagementClass mc = new("Win32_ComputerSystem");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    computerModel = mo["Model"].ToString();
+                }
+            }
+            else
+            {
+                computerModel = Resources.Strings.NotCollected;
             }
 
             return computerModel;
@@ -243,11 +285,18 @@ namespace WindowsDeviceManagerAgent
         {
             string processor = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_Processor");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectProcessor)
             {
-                processor = mo["Name"].ToString();
+                ManagementClass mc = new("Win32_Processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    processor = mo["Name"].ToString();
+                }
+            }
+            else
+            {
+                processor = Resources.Strings.NotCollected;
             }
 
             return processor;
@@ -261,11 +310,18 @@ namespace WindowsDeviceManagerAgent
         {
             string biosmanufacturer = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_BIOS");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectBIOSManufacturer)
             {
-                biosmanufacturer = mo["Manufacturer"].ToString();
+                ManagementClass mc = new("Win32_BIOS");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    biosmanufacturer = mo["Manufacturer"].ToString();
+                }
+            }
+            else
+            {
+                biosmanufacturer = Resources.Strings.NotCollected;
             }
 
             return biosmanufacturer;
@@ -279,11 +335,18 @@ namespace WindowsDeviceManagerAgent
         {
             string biosversion = Resources.Strings.Unknown;
 
-            ManagementClass mc = new("Win32_BIOS");
-            ManagementObjectCollection moc = mc.GetInstances();
-            foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+            if (ConfigManager.ConfigValue.IsCollectBIOSVersion)
             {
-                biosversion = mo["SMBIOSBIOSVersion"].ToString();
+                ManagementClass mc = new("Win32_BIOS");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                {
+                    biosversion = mo["SMBIOSBIOSVersion"].ToString();
+                }
+            }
+            else
+            {
+                biosversion = Resources.Strings.NotCollected;
             }
 
             return biosversion;
@@ -295,6 +358,11 @@ namespace WindowsDeviceManagerAgent
         /// <returns>BitLockerの状態</returns>
         private static string GetBitLockerStatus()
         {
+            if (!ConfigManager.ConfigValue.IsCollectBitLockerStatus)
+            {
+                return Resources.Strings.NotCollected;
+            }
+
             // 固定ディスクごとのBitLocker状態を取得
             List<BitLockerStatusInfo> bitLockerStatusInfos = BitLockerStatusInfoCollector.GetBitLockerStatusInfo();
 
@@ -363,19 +431,26 @@ namespace WindowsDeviceManagerAgent
         {
             string antiVirusSoftware = Resources.Strings.Unknown;
 
-            try
+            if (ConfigManager.ConfigValue.IsCollectAntiVirusSoftware)
             {
-                ManagementObjectSearcher mos = new(@"root\SecurityCenter2", "SELECT * FROM AntiVirusProduct");
-                ManagementObjectCollection moc = mos.Get();
-                foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                try
                 {
-                    antiVirusSoftware = mo["displayName"].ToString();
+                    ManagementObjectSearcher mos = new(@"root\SecurityCenter2", "SELECT * FROM AntiVirusProduct");
+                    ManagementObjectCollection moc = mos.Get();
+                    foreach (ManagementObject mo in moc.Cast<ManagementObject>())
+                    {
+                        antiVirusSoftware = mo["displayName"].ToString();
+                    }
+                }
+                catch
+                {
+                    // 例外が発生してアンチウィルスソフトウェアの情報が取得できない場合
+                    // 無処理でUnknownを返す｡
                 }
             }
-            catch
+            else
             {
-                // 例外が発生してアンチウィルスソフトウェアの情報が取得できない場合
-                // 無処理でUnknownを返す｡
+                antiVirusSoftware = Resources.Strings.NotCollected;
             }
 
             return antiVirusSoftware;
@@ -390,55 +465,62 @@ namespace WindowsDeviceManagerAgent
             string javaVersioncheckResult = string.Empty;
             bool isFindJava = false;
 
-            // インストール済みアプリケーションの一覧からの検索
-            try
+            if (ConfigManager.ConfigValue.IsCollectJavaVersioncheckResult)
             {
-                // インストール済みアプリケーションを取得
-                List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
-
-                // Javaがインストールされているかどうか確認
-                foreach (InstalledApplicationInfo installedApp in installedApps)
+                // インストール済みアプリケーションの一覧からの検索
+                try
                 {
-                    if ((installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase)) && (!installedApp.Name.Contains("javascript", StringComparison.OrdinalIgnoreCase)))
+                    // インストール済みアプリケーションを取得
+                    List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
+
+                    // Javaがインストールされているかどうか確認
+                    foreach (InstalledApplicationInfo installedApp in installedApps)
                     {
-                        javaVersioncheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
-                        isFindJava = true;
+                        if ((installedApp.Name.Contains("java", StringComparison.OrdinalIgnoreCase)) && (!installedApp.Name.Contains("javascript", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            javaVersioncheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
+                            isFindJava = true;
+                        }
                     }
                 }
-            }
-            catch
-            {
-                // 例外が発生してJavaのバージョンチェック結果が取得できない場合
-                // Unknownにする｡
-                javaVersioncheckResult = Resources.Strings.Unknown;
-            }
-
-            // Javaを検出したら処理を終了する
-            if (isFindJava)
-            {
-                return javaVersioncheckResult;
-            }
-
-            // インストール済みアプリケーションの一覧にない場合は念のため[java -version]のコマンドを実行して調査
-            try
-            {
-                ProcessStartInfo processStartInfo = new()
+                catch
                 {
-                    FileName = "java",
-                    Arguments = "-version",
-                    RedirectStandardError = true,   // Javaのバージョン出力は標準エラー出力
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
+                    // 例外が発生してJavaのバージョンチェック結果が取得できない場合
+                    // Unknownにする｡
+                    javaVersioncheckResult = Resources.Strings.Unknown;
+                }
 
-                using Process process = Process.Start(processStartInfo);
-                using StreamReader reader = process.StandardError;
-                javaVersioncheckResult = reader.ReadToEnd().Replace(Environment.NewLine, ";");  // 改行があるとファイル出力時に読みづらくなるため別の文字に置き換える
+                // Javaを検出したら処理を終了する
+                if (isFindJava)
+                {
+                    return javaVersioncheckResult;
+                }
+
+                // インストール済みアプリケーションの一覧にない場合は念のため[java -version]のコマンドを実行して調査
+                try
+                {
+                    ProcessStartInfo processStartInfo = new()
+                    {
+                        FileName = "java",
+                        Arguments = "-version",
+                        RedirectStandardError = true,   // Javaのバージョン出力は標準エラー出力
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    };
+
+                    using Process process = Process.Start(processStartInfo);
+                    using StreamReader reader = process.StandardError;
+                    javaVersioncheckResult = reader.ReadToEnd().Replace(Environment.NewLine, ";");  // 改行があるとファイル出力時に読みづらくなるため別の文字に置き換える
+                }
+                catch
+                {
+                    // 例外が発生してJavaのバージョンチェック結果が取得できない場合はJavaが存在しない
+                    javaVersioncheckResult = Resources.Strings.Undetected;
+                }
             }
-            catch
+            else
             {
-                // 例外が発生してJavaのバージョンチェック結果が取得できない場合はJavaが存在しない
-                javaVersioncheckResult = Resources.Strings.Undetected;
+                javaVersioncheckResult = Resources.Strings.NotCollected;
             }
 
             return javaVersioncheckResult;
@@ -453,43 +535,50 @@ namespace WindowsDeviceManagerAgent
             string installCheckResult = string.Empty;
             bool isFind = false;
 
-            // インストール済みアプリケーションの一覧からの検索
-            try
+            if (ConfigManager.ConfigValue.IsCollectInstallCheckResult)
             {
-                // インストール済みアプリケーションを取得
-                List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
-
-                // 設定で指定されたアプリケーションがインストールされているかどうか確認
-                foreach (InstalledApplicationInfo installedApp in installedApps)
+                // インストール済みアプリケーションの一覧からの検索
+                try
                 {
-                    foreach (string checkName in ConfigManager.ConfigValue.InstallCheckNameList)
-                    {
-                        if (installedApp.Name.Contains(checkName, StringComparison.OrdinalIgnoreCase))
-                        {
-                            installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
-                            isFind = true;
-                        }
-                    }
+                    // インストール済みアプリケーションを取得
+                    List<InstalledApplicationInfo> installedApps = InstalledApplicationsCollector.GetInstalledApplications();
 
-                    foreach (string checkPublisher in ConfigManager.ConfigValue.InstallCheckPublisherList)
+                    // 設定で指定されたアプリケーションがインストールされているかどうか確認
+                    foreach (InstalledApplicationInfo installedApp in installedApps)
                     {
-                        if (installedApp.Publisher.Contains(checkPublisher, StringComparison.OrdinalIgnoreCase))
+                        foreach (string checkName in ConfigManager.ConfigValue.InstallCheckNameList)
                         {
-                            installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
-                            isFind = true;
+                            if (installedApp.Name.Contains(checkName, StringComparison.OrdinalIgnoreCase))
+                            {
+                                installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
+                                isFind = true;
+                            }
+                        }
+
+                        foreach (string checkPublisher in ConfigManager.ConfigValue.InstallCheckPublisherList)
+                        {
+                            if (installedApp.Publisher.Contains(checkPublisher, StringComparison.OrdinalIgnoreCase))
+                            {
+                                installCheckResult += $"{Resources.Strings.Name}=[{installedApp.Name}], {Resources.Strings.Version}=[{installedApp.Version}], {Resources.Strings.Publisher}=[{installedApp.Publisher}];";
+                                isFind = true;
+                            }
                         }
                     }
                 }
-            }
-            catch
-            {
-                // 例外が発生してインストール済みアプリケーションが取得できない場合は無処理
-            }
+                catch
+                {
+                    // 例外が発生してインストール済みアプリケーションが取得できない場合は無処理
+                }
 
-            // 一つも見つからなかった場合は未検出とする
-            if (!isFind)
+                // 一つも見つからなかった場合は未検出とする
+                if (!isFind)
+                {
+                    installCheckResult = Resources.Strings.Undetected;
+                }
+            }
+            else
             {
-                installCheckResult = Resources.Strings.Undetected;
+                installCheckResult = Resources.Strings.NotCollected;
             }
 
             return installCheckResult;
