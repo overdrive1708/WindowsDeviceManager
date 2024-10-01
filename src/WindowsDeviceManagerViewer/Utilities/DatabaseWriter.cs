@@ -43,6 +43,59 @@ namespace WindowsDeviceManagerViewer.Utilities
         }
 
         /// <summary>
+        /// Windowsデバイス情報Javaバージョン再判定処理
+        /// </summary>
+        /// <param name="databasefile">データベースファイル名</param>
+        public static void RecheckJavaVersion(string databasefile)
+        {
+            if (File.Exists(databasefile))
+            {
+                // データベースファイルがある場合は読み込む
+                List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(databasefile);
+                foreach (WindowsDeviceInfo readRecord in readRecords)
+                {
+                    // Javaバージョンに｢JavaScript｣が含まれるものを再判定して更新する
+                    if (readRecord.JavaVersioncheckResult.Contains("javascript", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Javaバージョンチェック結果の文字列から｢;｣区切りで項目を抜き出してJavaScript以外のものを書き直す
+                        string[] beforeJavaVersioncheckResults = readRecord.JavaVersioncheckResult.Split(';');
+                        string afterJavaVersioncheckResult = string.Empty;
+                        bool isDetect = false;
+
+                        foreach (string beforeJavaVersioncheckResult in beforeJavaVersioncheckResults)
+                        {
+                            if ((beforeJavaVersioncheckResult != string.Empty) && (!beforeJavaVersioncheckResult.Contains("javascript", StringComparison.OrdinalIgnoreCase)))
+                            {
+                                afterJavaVersioncheckResult += $"{beforeJavaVersioncheckResult};";
+                                isDetect = true;
+                            }
+                        }
+
+                        // 再判定した結果検出しなかった場合｢未検出｣にする
+                        if (!isDetect)
+                        {
+                            afterJavaVersioncheckResult = Resources.Strings.Undetected;
+                        }
+
+                        // 再判定結果をDBに反映
+                        using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\", @"\\\\")}");
+                        connection.Open();
+                        using (SQLiteCommand command = connection.CreateCommand())
+                        {
+                            command.CommandText = "UPDATE WindowsDeviceInfo SET JavaVersioncheckResult = @p_JavaVersioncheckResult, LastUpdate = @p_LastUpdate WHERE HostName = @p_HostName";
+                            _ = command.Parameters.Add(new SQLiteParameter("@p_HostName", readRecord.HostName));
+                            _ = command.Parameters.Add(new SQLiteParameter("@p_JavaVersioncheckResult", afterJavaVersioncheckResult));
+                            _ = command.Parameters.Add(new SQLiteParameter("@p_LastUpdate", DateTime.Now.ToString()));
+                            command.Prepare();
+                            _ = command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// データベースクリーンアップ処理
         /// </summary>
         /// <param name="databasefile">データベースファイル名</param>

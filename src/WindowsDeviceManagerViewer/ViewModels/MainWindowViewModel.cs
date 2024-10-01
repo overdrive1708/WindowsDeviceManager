@@ -128,6 +128,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
             _commandRecheckOSVersion ?? (_commandRecheckOSVersion = new DelegateCommand(ExecuteCommandRecheckOSVersion));
 
         /// <summary>
+        /// Javaバージョン再判定コマンド
+        /// </summary>
+        private DelegateCommand _commandRecheckJavaVersion;
+        public DelegateCommand CommandRecheckJavaVersion =>
+            _commandRecheckJavaVersion ?? (_commandRecheckJavaVersion = new DelegateCommand(ExecuteCommandRecheckJavaVersion));
+
+        /// <summary>
         /// 表示データリロードコマンド
         /// </summary>
         private DelegateCommand _commandReloadDisplayData;
@@ -233,6 +240,35 @@ namespace WindowsDeviceManagerViewer.ViewModels
 
                 // 完了メッセージの表示
                 _ = MessageBox.Show(Resources.Strings.MessageRecheckOSVersionComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
+        /// Javaバージョン再判定コマンド実行処理
+        /// </summary>
+        private void ExecuteCommandRecheckJavaVersion()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合はJavaバージョンの再判定を行う
+                DatabaseWriter.RecheckJavaVersion(_databaseFileName);
+
+                // データベースファイルの再読み込み
+                CreateWindowsDeviceInfoCollectData();
+
+                // 完了メッセージの表示
+                _ = MessageBox.Show(Resources.Strings.MessageRecheckJavaVersionComplete,
                                     Resources.Strings.Notice,
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Information);
