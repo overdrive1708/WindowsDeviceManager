@@ -316,6 +316,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   Javaバージョン再判定が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageRecheckJavaVersionComplete {
+            get {
+                return ResourceManager.GetString("MessageRecheckJavaVersionComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OSバージョン再判定が完了しました｡ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string MessageRecheckOSVersionComplete {
@@ -451,6 +460,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   Javaバージョン再判定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string RecheckJavaVersion {
+            get {
+                return ResourceManager.GetString("RecheckJavaVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OSバージョン再判定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string RecheckOSVersion {
@@ -474,6 +492,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string SQLiteDatabaseFile {
             get {
                 return ResourceManager.GetString("SQLiteDatabaseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   未検出 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Undetected {
+            get {
+                return ResourceManager.GetString("Undetected", resourceCulture);
             }
         }
         

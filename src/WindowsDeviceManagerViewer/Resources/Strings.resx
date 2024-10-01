@@ -250,4 +250,13 @@
   <data name="InstallCheckResult" xml:space="preserve">
     <value>インストールチェック結果</value>
   </data>
+  <data name="RecheckJavaVersion" xml:space="preserve">
+    <value>Javaバージョン再判定</value>
+  </data>
+  <data name="MessageRecheckJavaVersionComplete" xml:space="preserve">
+    <value>Javaバージョン再判定が完了しました｡</value>
+  </data>
+  <data name="Undetected" xml:space="preserve">
+    <value>未検出</value>
+  </data>
 </root>

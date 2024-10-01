@@ -9,14 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Collect and show windows device information.
     - InstallCheckResult
+- Recheck Java check result function.
 
 ### Changed
 - Translations of commandlineparser.
+- Publish single file.
 
 ### Fixed
 - Bug fix.([Issue #70](https://github.com/overdrive1708/WindowsDeviceManager/issues/70))
 - Bug fix.([Issue #72](https://github.com/overdrive1708/WindowsDeviceManager/issues/72))
 - Bug fix.([Issue #74](https://github.com/overdrive1708/WindowsDeviceManager/issues/74))
+
+### Security
+- Libraries versionup.
 
 ## [1.5.0] - 2024-08-04
 
