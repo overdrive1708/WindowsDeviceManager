@@ -211,6 +211,7 @@ namespace WindowsDeviceManagerAgent
                         "22000" => "21H2",
                         "22621" => "22H2",
                         "22631" => "23H2",
+                        "26100" => "24H2",
                         _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
                     };
                 }
