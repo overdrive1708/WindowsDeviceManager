@@ -154,6 +154,7 @@ WindowsDeviceManagerViewerフォルダ内のWindowsDeviceManagerViewer.exeを起
   - Version 21H2
   - Version 22H2
   - Version 23H2
+  - Version 24H2
 
 ## 制限事項
 - リモートデスクトップでログインしている時は､ユーザ名が取得できないため､｢不明｣と記録されます｡
