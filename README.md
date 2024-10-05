@@ -1,4 +1,4 @@
-[日本語](README.md)
+[日本語](README.md) | [English](README-en.md)
 
 <h1 align="center">
     <a href="https://github.com/overdrive1708/WindowsDeviceManager">
