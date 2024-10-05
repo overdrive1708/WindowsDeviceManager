@@ -70,69 +70,85 @@
                     Style="{StaticResource MaterialDesignGroupBox}">
                     <DataGrid
                         AutoGenerateColumns="False"
+                        CanUserAddRows="False"
                         HeadersVisibility="Column"
-                        IsReadOnly="True"
                         ItemsSource="{Binding Path=WindowsDeviceInfoCollectData}">
                         <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding Path=IsSelected}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=HostName}"
+                                Binding="{Binding Path=Info.HostName}"
                                 Header="{x:Static resources:Strings.HostName}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityHostName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=UserName}"
+                                Binding="{Binding Path=Info.UserName}"
                                 Header="{x:Static resources:Strings.UserName}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityUserName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=OSName}"
+                                Binding="{Binding Path=Info.OSName}"
                                 Header="{x:Static resources:Strings.OSName}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSName}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=OSBuildNumber}"
+                                Binding="{Binding Path=Info.OSBuildNumber}"
                                 Header="{x:Static resources:Strings.OSBuildNumber}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSBuildNumber}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=OSVersion}"
+                                Binding="{Binding Path=Info.OSVersion}"
                                 Header="{x:Static resources:Strings.OSVersion}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=ComputerManufacturer}"
+                                Binding="{Binding Path=Info.ComputerManufacturer}"
                                 Header="{x:Static resources:Strings.ComputerManufacturer}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=ComputerModel}"
+                                Binding="{Binding Path=Info.ComputerModel}"
                                 Header="{x:Static resources:Strings.ComputerModel}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityComputerModel}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=Processor}"
+                                Binding="{Binding Path=Info.Processor}"
                                 Header="{x:Static resources:Strings.Processor}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityProcessor}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=BIOSManufacturer}"
+                                Binding="{Binding Path=Info.BIOSManufacturer}"
                                 Header="{x:Static resources:Strings.BIOSManufacturer}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSManufacturer}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=BIOSVersion}"
+                                Binding="{Binding Path=Info.BIOSVersion}"
                                 Header="{x:Static resources:Strings.BIOSVersion}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBIOSVersion}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=BitLockerStatus}"
+                                Binding="{Binding Path=Info.BitLockerStatus}"
                                 Header="{x:Static resources:Strings.BitLockerStatus}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityBitLockerStatus}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=AntiVirusSoftware}"
+                                Binding="{Binding Path=Info.AntiVirusSoftware}"
                                 Header="{x:Static resources:Strings.AntiVirusSoftware}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityAntiVirusSoftware}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=JavaVersioncheckResult}"
+                                Binding="{Binding Path=Info.JavaVersioncheckResult}"
                                 Header="{x:Static resources:Strings.JavaVersioncheckResult}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityJavaVersioncheckResult}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=InstallCheckResult}"
+                                Binding="{Binding Path=Info.InstallCheckResult}"
                                 Header="{x:Static resources:Strings.InstallCheckResult}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityInstallCheckResult}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <DataGridTextColumn
-                                Binding="{Binding Path=LastUpdate}"
+                                Binding="{Binding Path=Info.LastUpdate}"
                                 Header="{x:Static resources:Strings.LastUpdate}"
+                                IsReadOnly="True"
                                 Visibility="{Binding DataContext, Source={StaticResource ProxyColumnVisibilityLastUpdate}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         </DataGrid.Columns>
                     </DataGrid>
@@ -288,6 +304,11 @@
                             Margin="10,10,10,10"
                             Command="{Binding CommandOutputCsv}"
                             Content="{x:Static resources:Strings.OutputCsv}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" />
+                        <Button
+                            Margin="10,10,10,10"
+                            Command="{Binding CommandDeleteSelectedHostName}"
+                            Content="{x:Static resources:Strings.DeleteSelectedHostName}"
                             Style="{StaticResource MaterialDesignOutlinedButton}" />
                     </WrapPanel>
                 </GroupBox>

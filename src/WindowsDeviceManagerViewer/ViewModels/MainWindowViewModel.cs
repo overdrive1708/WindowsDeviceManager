@@ -14,6 +14,24 @@ namespace WindowsDeviceManagerViewer.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        /// <summary>
+        /// 表示用クラス
+        /// </summary>
+        public class WindowsDeviceViewInfo
+        {
+            /// <summary>
+            /// 選択状態
+            /// </summary>
+            private bool _isSelected = false;
+            public bool IsSelected { get => _isSelected; set => _isSelected = value; }
+
+            /// <summary>
+            /// 表示情報
+            /// </summary>
+            private WindowsDeviceInfo _Info = new();
+            public WindowsDeviceInfo Info { get => _Info; set => _Info = value; }
+        }
+
         //--------------------------------------------------
         // 定数(コンフィギュレーション)
         //--------------------------------------------------
@@ -76,8 +94,8 @@ namespace WindowsDeviceManagerViewer.ViewModels
         /// <summary>
         /// Windowsデバイス情報
         /// </summary>
-        private ObservableCollection<WindowsDeviceInfo> _windowsDeviceInfoCollectData = new();
-        public ObservableCollection<WindowsDeviceInfo> WindowsDeviceInfoCollectData
+        private ObservableCollection<WindowsDeviceViewInfo> _windowsDeviceInfoCollectData = new();
+        public ObservableCollection<WindowsDeviceViewInfo> WindowsDeviceInfoCollectData
         {
             get { return _windowsDeviceInfoCollectData; }
             set { SetProperty(ref _windowsDeviceInfoCollectData, value); }
@@ -161,6 +179,13 @@ namespace WindowsDeviceManagerViewer.ViewModels
         private DelegateCommand _commandOutputCsv;
         public DelegateCommand CommandOutputCsv =>
             _commandOutputCsv ?? (_commandOutputCsv = new DelegateCommand(ExecuteCommandOutputCsv));
+
+        /// <summary>
+        /// 選択済みホスト名削除コマンド
+        /// </summary>
+        private DelegateCommand _commandDeleteSelectedHostName;
+        public DelegateCommand CommandDeleteSelectedHostName =>
+            _commandDeleteSelectedHostName ?? (_commandDeleteSelectedHostName = new DelegateCommand(ExecuteCommandDeleteSelectedHostName));
 
         /// <summary>
         /// URLを開く
@@ -416,6 +441,41 @@ namespace WindowsDeviceManagerViewer.ViewModels
         }
 
         /// <summary>
+        /// 選択済みホスト名削除コマンド実行処理
+        /// </summary>
+        private void ExecuteCommandDeleteSelectedHostName()
+        {
+            if (File.Exists(_databaseFileName))
+            {
+                // データベースファイルがある場合は選択されているホスト名の情報をデータベースから削除する
+                foreach (WindowsDeviceViewInfo viewInfo in WindowsDeviceInfoCollectData)
+                {
+                    if (viewInfo.IsSelected)
+                    {
+                        DatabaseWriter.DeleteWindowsDeviceInfoRecord(_databaseFileName, viewInfo.Info.HostName);
+                    }
+                }
+
+                // データベースファイルの再読み込み
+                CreateWindowsDeviceInfoCollectData();
+
+                // 完了メッセージの表示
+                _ = MessageBox.Show(Resources.Strings.MessageDeleteSelectedHostNameComplete,
+                                    Resources.Strings.Notice,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+            }
+            else
+            {
+                // データベースファイルがない場合はエラーメッセージを表示して処理を終わる
+                _ = MessageBox.Show(Resources.Strings.MessageErrorDatabaseNotFound,
+                                    Resources.Strings.Error,
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// URLを開くコマンド実行処理
         /// </summary>
         private void ExecuteCommandOpenUrl(string url)
@@ -464,7 +524,12 @@ namespace WindowsDeviceManagerViewer.ViewModels
                 List<WindowsDeviceInfo> readRecords = DatabaseReader.ReadWindowsDeviceInfoRecords(_databaseFileName);
                 foreach (WindowsDeviceInfo readRecord in readRecords)
                 {
-                    WindowsDeviceInfoCollectData.Add(readRecord);
+                    WindowsDeviceViewInfo viewInfo = new()
+                    {
+                        IsSelected = false,
+                        Info = readRecord
+                    };
+                    WindowsDeviceInfoCollectData.Add(viewInfo);
                 }
                 IsCompleteReadWindowsDeviceInfo = true;
             }

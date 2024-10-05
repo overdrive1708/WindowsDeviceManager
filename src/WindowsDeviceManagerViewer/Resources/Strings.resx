@@ -259,4 +259,10 @@
   <data name="Undetected" xml:space="preserve">
     <value>未検出</value>
   </data>
+  <data name="DeleteSelectedHostName" xml:space="preserve">
+    <value>選択済みホスト名削除</value>
+  </data>
+  <data name="MessageDeleteSelectedHostNameComplete" xml:space="preserve">
+    <value>選択済みホスト名削除が完了しました｡</value>
+  </data>
 </root>

@@ -96,6 +96,29 @@ namespace WindowsDeviceManagerViewer.Utilities
         }
 
         /// <summary>
+        /// Windowsデバイス情報レコード削除処理
+        /// </summary>
+        /// <param name="databasefile">データベースファイル名</param>
+        /// <param name="hostname">削除対象ホスト名</param>
+        public static void DeleteWindowsDeviceInfoRecord(string databasefile, string hostname)
+        {
+            if (File.Exists(databasefile))
+            {
+                // データベースファイルがある場合はホスト名を指定して削除
+                using SQLiteConnection connection = new($"Data Source = {databasefile.Replace(@"\\", @"\\\\")}");
+                connection.Open();
+                using (SQLiteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE from WindowsDeviceInfo WHERE HostName = @p_HostName";
+                    _ = command.Parameters.Add(new SQLiteParameter("@p_HostName", hostname));
+                    command.Prepare();
+                    _ = command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        /// <summary>
         /// データベースクリーンアップ処理
         /// </summary>
         /// <param name="databasefile">データベースファイル名</param>

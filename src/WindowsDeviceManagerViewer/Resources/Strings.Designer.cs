@@ -142,6 +142,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         }
         
         /// <summary>
+        ///   選択済みホスト名削除 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DeleteSelectedHostName {
+            get {
+                return ResourceManager.GetString("DeleteSelectedHostName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   表示項目設定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DisplayItemSetting {
@@ -228,6 +237,15 @@ namespace WindowsDeviceManagerViewer.Resources {
         public static string MessageCleanComplete {
             get {
                 return ResourceManager.GetString("MessageCleanComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   選択済みホスト名削除が完了しました｡ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageDeleteSelectedHostNameComplete {
+            get {
+                return ResourceManager.GetString("MessageDeleteSelectedHostNameComplete", resourceCulture);
             }
         }
         
