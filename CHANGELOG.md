@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recheck Java check result function.
 - Collect item configuration function.
 - Support Windows11 24H2.
+- Delete DB record function.
 
 ### Changed
 - Translations of commandlineparser.
