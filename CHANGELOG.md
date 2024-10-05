@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2024-10-05
+
 ### Added
 - Collect and show windows device information.
     - InstallCheckResult
@@ -95,6 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - OSVersion
 
 [Unreleased]: https://github.com/overdrive1708/WindowsDeviceManager
+[1.6.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.6.0
 [1.5.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.5.0
 [1.4.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.4.0
 [1.3.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.3.0

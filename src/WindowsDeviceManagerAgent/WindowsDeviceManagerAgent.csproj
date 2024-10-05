@@ -3,7 +3,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <VersionPrefix>1.5.0</VersionPrefix>
+    <VersionPrefix>1.6.0</VersionPrefix>
     <ApplicationIcon>Resources\AppIconExe-multisize.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
