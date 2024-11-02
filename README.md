@@ -101,7 +101,7 @@ WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定フ
 | IsCollectJavaVersioncheckResult | Javaのバージョンチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
 | IsCollectInstallCheckResult | インストールチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
 | InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ <br>例：<br>"InstallCheckNameList": [<br>"AppName1",<br>"AppName2"<br>],|
-| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ <br>例：<br>"InstallCheckNameList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
+| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ <br>例：<br>"InstallCheckPublisherList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
 
 ### Windowsデバイス情報の収集
 ```
