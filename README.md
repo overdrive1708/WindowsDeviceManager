@@ -24,11 +24,20 @@
 </div>
 
 ## ダウンロード方法
-[GitHubのReleases](https://github.com/overdrive1708/WindowsDeviceManager/releases)にあるLatestのAssetsよりWindowsDeviceManager_vx.x.x.zipをダウンロードしてください｡
 
-WindowsDeviceManagerAgentフォルダはエンドユーザー用です｡エンドユーザーがアクセスできるところに展開してください｡
+### WindowsDeviceManagerAgent
 
-WindowsDeviceManagerViewerフォルダは管理者用です｡任意の場所に配置してください｡
+[GitHubのReleases](https://github.com/overdrive1708/WindowsDeviceManager/releases)にあるLatestのAssetsよりWindowsDeviceManagerAgent_vx.x.x.zipをダウンロードしてください｡
+
+エンドユーザー用です｡エンドユーザーがアクセスできるところに展開してください｡
+
+フォルダ内のファイルはすべて必要なので､削除せず､フォルダごと配置してください｡
+
+### WindowsDeviceManagerViewer
+
+[GitHubのReleases](https://github.com/overdrive1708/WindowsDeviceManager/releases)にあるLatestのAssetsよりWindowsDeviceManagerViewer_vx.x.x.zipをダウンロードしてください｡
+
+管理者用です｡任意の場所に配置してください｡
 
 フォルダ内のファイルはすべて必要なので､削除せず､フォルダごと配置してください｡
 
@@ -91,8 +100,8 @@ WindowsDeviceManagerAgent.exeの初回起動時にデフォルト値で設定フ
 | IsCollectAntiVirusSoftware | アンチウィルスソフトウェアの収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
 | IsCollectJavaVersioncheckResult | Javaのバージョンチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
 | IsCollectInstallCheckResult | インストールチェック結果の収集有無設定<br>収集する場合はtrueを設定してください｡<br>収集しない場合はfalseを設定してください｡ |
-| InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
-| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ |
+| InstallCheckNameList | インストールチェックで検出したいアプリケーションの名前を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ <br>例：<br>"InstallCheckNameList": [<br>"AppName1",<br>"AppName2"<br>],|
+| InstallCheckPublisherList | インストールチェックで検出したいアプリケーションの発行元を記述してください｡<br>指定されない場合はインストールチェックは行われません｡ <br>例：<br>"InstallCheckNameList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
 
 ### Windowsデバイス情報の収集
 ```
