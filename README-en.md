@@ -24,11 +24,20 @@
 </div>
 
 ## How to download
-Download WindowsDeviceManager_vx.x.x.zip from Latest Assets in [GitHub Releases](https://github.com/overdrive1708/WindowsDeviceManager/releases).
 
-The WindowsDeviceManagerAgent folder is for end users. Extract it to a location that end users can access.
+### WindowsDeviceManagerAgent
 
-The WindowsDeviceManagerViewer folder is for administrators. Place it anywhere you like.
+Download WindowsDeviceManagerAgent_vx.x.x.zip from Latest Assets in [GitHub Releases](https://github.com/overdrive1708/WindowsDeviceManager/releases).
+
+This application is for end users. Extract it to a location that end users can access.
+
+All files in the folder are necessary, so do not delete them, but place the whole folder.
+
+### WindowsDeviceManagerViewer
+
+Download WindowsDeviceManagerViewer_vx.x.x.zip from Latest Assets in [GitHub Releases](https://github.com/overdrive1708/WindowsDeviceManager/releases).
+
+This application is for administrators. Place it anywhere you like.
 
 All files in the folder are necessary, so do not delete them, but place the whole folder.
 
@@ -91,8 +100,8 @@ Configure Config.json as necessary.
 | IsCollectAntiVirusSoftware | Whether to collect antivirus software information<br>If you want to collect, set it to true.<br>If you don't want to collect, set it to false. |
 | IsCollectJavaVersioncheckResult | Whether to collect Java version check results<br>If you want to collect, set it to true.<br>If you don't want to collect, set it to false. |
 | IsCollectInstallCheckResult | Whether to collect install check results<br>If you want to collect them, set it to true.<br>If you do not want to collect them, set it to false. |
-| InstallCheckNameList | Please enter the names of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. |
-| InstallCheckPublisherList | Please enter the publishers of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. |
+| InstallCheckNameList | Please enter the names of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. <br>e.g.<br>"InstallCheckNameList": [<br>"AppName1",<br>"AppName2"<br>],|
+| InstallCheckPublisherList | Please enter the publishers of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. <br>e.g.<br>"InstallCheckNameList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
 
 ### Collecting Windows device information
 ```
