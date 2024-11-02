@@ -101,7 +101,7 @@ Configure Config.json as necessary.
 | IsCollectJavaVersioncheckResult | Whether to collect Java version check results<br>If you want to collect, set it to true.<br>If you don't want to collect, set it to false. |
 | IsCollectInstallCheckResult | Whether to collect install check results<br>If you want to collect them, set it to true.<br>If you do not want to collect them, set it to false. |
 | InstallCheckNameList | Please enter the names of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. <br>e.g.<br>"InstallCheckNameList": [<br>"AppName1",<br>"AppName2"<br>],|
-| InstallCheckPublisherList | Please enter the publishers of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. <br>e.g.<br>"InstallCheckNameList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
+| InstallCheckPublisherList | Please enter the publishers of the applications you want to detect in the install check.<br>If not specified, the install check will not be performed. <br>e.g.<br>"InstallCheckPublisherList": [<br>"AppPublisher1",<br>"AppPublisher2"<br>]|
 
 ### Collecting Windows device information
 ```
