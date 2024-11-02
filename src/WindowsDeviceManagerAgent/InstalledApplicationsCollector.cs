@@ -5,7 +5,7 @@ namespace WindowsDeviceManagerAgent
     /// <summary>
     /// インストール済みアプリケーション情報
     /// </summary>
-    public class InstalledApplicationInfo
+    public record InstalledApplicationInfo
     {
         public string Name { get; set; }
         public string Version { get; set; }
@@ -48,7 +48,7 @@ namespace WindowsDeviceManagerAgent
                                 Publisher = subKey.GetValue("Publisher") as string ?? string.Empty
                             };
 
-                            if (!string.IsNullOrEmpty(appInfo.Name))
+                            if (!string.IsNullOrEmpty(appInfo.Name) && !apps.Contains(appInfo))
                             {
                                 apps.Add(appInfo);
                             }
