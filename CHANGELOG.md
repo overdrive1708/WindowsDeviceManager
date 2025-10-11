@@ -6,7 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2025-10-11
+
+### Added
 - Support Windows11 25H2.
+
+### Security
+- Libraries versionup.
 
 ## [1.6.1] - 2024-11-02
 
@@ -104,6 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - OSVersion
 
 [Unreleased]: https://github.com/overdrive1708/WindowsDeviceManager
+[1.7.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.7.0
 [1.6.1]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.6.1
 [1.6.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.6.0
 [1.5.0]: https://github.com/overdrive1708/WindowsDeviceManager/releases/tag/v1.5.0
