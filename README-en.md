@@ -166,6 +166,7 @@ A screen for selecting a database file will open, so specify the database file (
   - Version 24H2
   - Version 25H2
   - Version 26H1
+  - Version 26H2
 
 ## Restrictions
 - When logged in via remote desktop, the user name cannot be obtained and is recorded as "Unknown".
