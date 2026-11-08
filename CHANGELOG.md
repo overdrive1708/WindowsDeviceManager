@@ -8,9 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Support Windows11 26H1.
+- Support Windows11 26H2.
 
 ### Changed
-
 - Upgrade .NET8 to .NET10.
 
 ### Security
