@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Support Windows11 26H1.
+
 ### Changed
 
 - Upgrade .NET8 to .NET10.

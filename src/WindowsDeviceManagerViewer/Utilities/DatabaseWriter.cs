@@ -180,6 +180,7 @@ namespace WindowsDeviceManagerViewer.Utilities
                     "22631" => "23H2",
                     "26100" => "24H2",
                     "26200" => "25H2",
+                    "28000" => "26H1",
                     _ => $"{Resources.Strings.Unknown}(OS Build:{osBuildNumber})"
                 };
             }
