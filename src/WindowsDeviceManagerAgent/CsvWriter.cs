@@ -1,4 +1,4 @@
-﻿using CsvHelper.Configuration;
+﻿using CsvHelper;
 using System.Globalization;
 
 namespace WindowsDeviceManagerAgent
@@ -27,14 +27,14 @@ namespace WindowsDeviceManagerAgent
         {
             // ファイル出力
             using StreamWriter swCsv = new(_fileName, false, System.Text.Encoding.UTF8);
-            CsvConfiguration options = new(CultureInfo.InvariantCulture)
+            CsvWriterOptions options = new()
             {
-                ShouldQuote = (context) => true
+                FormatProvider = CultureInfo.InvariantCulture,
+                Quoting = CsvQuoting.Always
             };
-            using (CsvHelper.CsvWriter csv = new(swCsv, options))
+            using (CsvHelper.CsvWriter csv = CsvHelper.CsvWriter.Create(swCsv, options))
             {
                 csv.WriteHeader<WindowsDeviceInfo>();
-                csv.NextRecord();
                 csv.WriteRecord(writeValue);
             }
             swCsv.Close();
