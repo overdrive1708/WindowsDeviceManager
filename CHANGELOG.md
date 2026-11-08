@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upgrade .NET8 to .NET10.
 
+### Security
+- Libraries versionup.
+
 ## [1.7.0] - 2025-10-11
 
 ### Added

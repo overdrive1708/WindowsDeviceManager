@@ -1,4 +1,4 @@
-﻿using CsvHelper.Configuration;
+﻿using CsvHelper;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -19,14 +19,14 @@ namespace WindowsDeviceManagerViewer.Utilities
         {
             using StreamWriter swCsv = new(outputCsvFile, false, System.Text.Encoding.UTF8);
 
-            CsvConfiguration options = new(CultureInfo.InvariantCulture)
+            CsvWriterOptions options = new()
             {
-                ShouldQuote = (context) => true
+                FormatProvider = CultureInfo.InvariantCulture,
+                Quoting = CsvQuoting.Always
             };
-            using (CsvHelper.CsvWriter csv = new(swCsv, options))
+            using (CsvHelper.CsvWriter csv = CsvHelper.CsvWriter.Create(swCsv, options))
             {
                 csv.WriteHeader<WindowsDeviceInfo>();
-                csv.NextRecord();
                 csv.WriteRecords(windowsDeviceInfos);
             }
 
